@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EAF91A9010BF0038862F /* AppDelegate.swift */; };
+		0350EAFC1A9010BF0038862F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EAFB1A9010BF0038862F /* ViewController.swift */; };
+		0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0350EAFD1A9010BF0038862F /* Main.storyboard */; };
+		0350EB011A9010BF0038862F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB001A9010BF0038862F /* Images.xcassets */; };
+		0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB021A9010BF0038862F /* LaunchScreen.xib */; };
+		0350EB101A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB0F1A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0350EB0A1A9010BF0038862F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0350EAEC1A9010BF0038862F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0350EAF31A9010BF0038862F;
+			remoteInfo = EcceRomaniLatinDictionary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0350EAF41A9010BF0038862F /* EcceRomaniLatinDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcceRomaniLatinDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0350EAF81A9010BF0038862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0350EAF91A9010BF0038862F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0350EAFB1A9010BF0038862F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0350EAFE1A9010BF0038862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0350EB001A9010BF0038862F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0350EB031A9010BF0038862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		0350EB091A9010BF0038862F /* EcceRomaniLatinDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcceRomaniLatinDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0350EB0E1A9010BF0038862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0350EB0F1A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcceRomaniLatinDictionaryTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0350EAF11A9010BF0038862F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0350EB061A9010BF0038862F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0350EAEB1A9010BF0038862F = {
+			isa = PBXGroup;
+			children = (
+				0350EAF61A9010BF0038862F /* EcceRomaniLatinDictionary */,
+				0350EB0C1A9010BF0038862F /* EcceRomaniLatinDictionaryTests */,
+				0350EAF51A9010BF0038862F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0350EAF51A9010BF0038862F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0350EAF41A9010BF0038862F /* EcceRomaniLatinDictionary.app */,
+				0350EB091A9010BF0038862F /* EcceRomaniLatinDictionaryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0350EAF61A9010BF0038862F /* EcceRomaniLatinDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				0350EAF91A9010BF0038862F /* AppDelegate.swift */,
+				0350EAFB1A9010BF0038862F /* ViewController.swift */,
+				0350EAFD1A9010BF0038862F /* Main.storyboard */,
+				0350EB001A9010BF0038862F /* Images.xcassets */,
+				0350EB021A9010BF0038862F /* LaunchScreen.xib */,
+				0350EAF71A9010BF0038862F /* Supporting Files */,
+			);
+			path = EcceRomaniLatinDictionary;
+			sourceTree = "<group>";
+		};
+		0350EAF71A9010BF0038862F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0350EAF81A9010BF0038862F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0350EB0C1A9010BF0038862F /* EcceRomaniLatinDictionaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				0350EB0F1A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift */,
+				0350EB0D1A9010BF0038862F /* Supporting Files */,
+			);
+			path = EcceRomaniLatinDictionaryTests;
+			sourceTree = "<group>";
+		};
+		0350EB0D1A9010BF0038862F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0350EB0E1A9010BF0038862F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0350EAF31A9010BF0038862F /* EcceRomaniLatinDictionary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0350EB131A9010BF0038862F /* Build configuration list for PBXNativeTarget "EcceRomaniLatinDictionary" */;
+			buildPhases = (
+				0350EAF01A9010BF0038862F /* Sources */,
+				0350EAF11A9010BF0038862F /* Frameworks */,
+				0350EAF21A9010BF0038862F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EcceRomaniLatinDictionary;
+			productName = EcceRomaniLatinDictionary;
+			productReference = 0350EAF41A9010BF0038862F /* EcceRomaniLatinDictionary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0350EB081A9010BF0038862F /* EcceRomaniLatinDictionaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0350EB161A9010BF0038862F /* Build configuration list for PBXNativeTarget "EcceRomaniLatinDictionaryTests" */;
+			buildPhases = (
+				0350EB051A9010BF0038862F /* Sources */,
+				0350EB061A9010BF0038862F /* Frameworks */,
+				0350EB071A9010BF0038862F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0350EB0B1A9010BF0038862F /* PBXTargetDependency */,
+			);
+			name = EcceRomaniLatinDictionaryTests;
+			productName = EcceRomaniLatinDictionaryTests;
+			productReference = 0350EB091A9010BF0038862F /* EcceRomaniLatinDictionaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0350EAEC1A9010BF0038862F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = JMKLABS;
+				TargetAttributes = {
+					0350EAF31A9010BF0038862F = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					0350EB081A9010BF0038862F = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 0350EAF31A9010BF0038862F;
+					};
+				};
+			};
+			buildConfigurationList = 0350EAEF1A9010BF0038862F /* Build configuration list for PBXProject "EcceRomaniLatinDictionary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0350EAEB1A9010BF0038862F;
+			productRefGroup = 0350EAF51A9010BF0038862F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0350EAF31A9010BF0038862F /* EcceRomaniLatinDictionary */,
+				0350EB081A9010BF0038862F /* EcceRomaniLatinDictionaryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0350EAF21A9010BF0038862F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */,
+				0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */,
+				0350EB011A9010BF0038862F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0350EB071A9010BF0038862F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0350EAF01A9010BF0038862F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0350EAFC1A9010BF0038862F /* ViewController.swift in Sources */,
+				0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0350EB051A9010BF0038862F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0350EB101A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0350EB0B1A9010BF0038862F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0350EAF31A9010BF0038862F /* EcceRomaniLatinDictionary */;
+			targetProxy = 0350EB0A1A9010BF0038862F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0350EAFD1A9010BF0038862F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0350EAFE1A9010BF0038862F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0350EB021A9010BF0038862F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0350EB031A9010BF0038862F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0350EB111A9010BF0038862F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0350EB121A9010BF0038862F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0350EB141A9010BF0038862F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EcceRomaniLatinDictionary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0350EB151A9010BF0038862F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EcceRomaniLatinDictionary/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0350EB171A9010BF0038862F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EcceRomaniLatinDictionaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcceRomaniLatinDictionary.app/EcceRomaniLatinDictionary";
+			};
+			name = Debug;
+		};
+		0350EB181A9010BF0038862F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = EcceRomaniLatinDictionaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcceRomaniLatinDictionary.app/EcceRomaniLatinDictionary";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0350EAEF1A9010BF0038862F /* Build configuration list for PBXProject "EcceRomaniLatinDictionary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0350EB111A9010BF0038862F /* Debug */,
+				0350EB121A9010BF0038862F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0350EB131A9010BF0038862F /* Build configuration list for PBXNativeTarget "EcceRomaniLatinDictionary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0350EB141A9010BF0038862F /* Debug */,
+				0350EB151A9010BF0038862F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0350EB161A9010BF0038862F /* Build configuration list for PBXNativeTarget "EcceRomaniLatinDictionaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0350EB171A9010BF0038862F /* Debug */,
+				0350EB181A9010BF0038862F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0350EAEC1A9010BF0038862F /* Project object */;
+}
