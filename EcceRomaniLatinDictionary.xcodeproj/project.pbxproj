@@ -21,6 +21,11 @@
 		0350EB3D1A90200B0038862F /* WordListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB3C1A90200B0038862F /* WordListTableViewController.swift */; };
 		0350EB3F1A90224A0038862F /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350EB3E1A90224A0038862F /* SQLite.framework */; };
 		0350EB401A902F850038862F /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0350EB3E1A90224A0038862F /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0350EB421A903F4A0038862F /* LatinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB411A903F4A0038862F /* LatinTableViewCell.swift */; };
+		0350EB441A9044FA0038862F /* NounDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB431A9044FA0038862F /* NounDetailViewController.swift */; };
+		0350EB461A9045350038862F /* VerbDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB451A9045350038862F /* VerbDetailViewController.swift */; };
+		0350EB481A90455C0038862F /* NonConjugatableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB471A90455C0038862F /* NonConjugatableDetailViewController.swift */; };
+		0350EB4A1A9045870038862F /* AdjectiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB491A9045870038862F /* AdjectiveDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		0350EB361A901E970038862F /* Verb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verb.swift; sourceTree = "<group>"; };
 		0350EB3C1A90200B0038862F /* WordListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListTableViewController.swift; sourceTree = "<group>"; };
 		0350EB3E1A90224A0038862F /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../../../../../../../../../Users/Josh/Library/Developer/Xcode/DerivedData/EcceRomaniLatinDictionary-dmjpkzsxzpbzbhfwlpywztcbcdoe/Build/Products/Debug-iphoneos/SQLite.framework"; sourceTree = "<group>"; };
+		0350EB411A903F4A0038862F /* LatinTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatinTableViewCell.swift; sourceTree = "<group>"; };
+		0350EB431A9044FA0038862F /* NounDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounDetailViewController.swift; sourceTree = "<group>"; };
+		0350EB451A9045350038862F /* VerbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbDetailViewController.swift; sourceTree = "<group>"; };
+		0350EB471A90455C0038862F /* NonConjugatableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonConjugatableDetailViewController.swift; sourceTree = "<group>"; };
+		0350EB491A9045870038862F /* AdjectiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjectiveDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +121,9 @@
 			children = (
 				0350EB3B1A901E9C0038862F /* Part of Speech */,
 				0350EAF91A9010BF0038862F /* AppDelegate.swift */,
+				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
 				0350EB3C1A90200B0038862F /* WordListTableViewController.swift */,
+				0350EB4B1A9045A90038862F /* Detail View Controllers */,
 				0350EAFD1A9010BF0038862F /* Main.storyboard */,
 				0350EB001A9010BF0038862F /* Images.xcassets */,
 				0350EB021A9010BF0038862F /* LaunchScreen.xib */,
@@ -156,6 +168,17 @@
 				0350EB361A901E970038862F /* Verb.swift */,
 			);
 			name = "Part of Speech";
+			sourceTree = "<group>";
+		};
+		0350EB4B1A9045A90038862F /* Detail View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0350EB431A9044FA0038862F /* NounDetailViewController.swift */,
+				0350EB451A9045350038862F /* VerbDetailViewController.swift */,
+				0350EB471A90455C0038862F /* NonConjugatableDetailViewController.swift */,
+				0350EB491A9045870038862F /* AdjectiveDetailViewController.swift */,
+			);
+			name = "Detail View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,10 +287,15 @@
 			files = (
 				0350EB3A1A901E970038862F /* Verb.swift in Sources */,
 				0350EB391A901E970038862F /* Noun.swift in Sources */,
+				0350EB421A903F4A0038862F /* LatinTableViewCell.swift in Sources */,
+				0350EB441A9044FA0038862F /* NounDetailViewController.swift in Sources */,
 				0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */,
+				0350EB461A9045350038862F /* VerbDetailViewController.swift in Sources */,
+				0350EB481A90455C0038862F /* NonConjugatableDetailViewController.swift in Sources */,
 				0350EB381A901E970038862F /* nonConjugatable.swift in Sources */,
 				0350EB371A901E970038862F /* Word.swift in Sources */,
 				0350EB3D1A90200B0038862F /* WordListTableViewController.swift in Sources */,
+				0350EB4A1A9045870038862F /* AdjectiveDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
