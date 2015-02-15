@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EAF91A9010BF0038862F /* AppDelegate.swift */; };
-		0350EAFC1A9010BF0038862F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EAFB1A9010BF0038862F /* ViewController.swift */; };
 		0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0350EAFD1A9010BF0038862F /* Main.storyboard */; };
 		0350EB011A9010BF0038862F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB001A9010BF0038862F /* Images.xcassets */; };
 		0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB021A9010BF0038862F /* LaunchScreen.xib */; };
 		0350EB101A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB0F1A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift */; };
+		0350EB311A901E730038862F /* StandardData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB2F1A901E730038862F /* StandardData.sqlite */; };
+		0350EB321A901E730038862F /* UserData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB301A901E730038862F /* UserData.sqlite */; };
+		0350EB371A901E970038862F /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB331A901E970038862F /* Word.swift */; };
+		0350EB381A901E970038862F /* nonConjugatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB341A901E970038862F /* nonConjugatable.swift */; };
+		0350EB391A901E970038862F /* Noun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB351A901E970038862F /* Noun.swift */; };
+		0350EB3A1A901E970038862F /* Verb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB361A901E970038862F /* Verb.swift */; };
+		0350EB3D1A90200B0038862F /* WordListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB3C1A90200B0038862F /* WordListTableViewController.swift */; };
+		0350EB3F1A90224A0038862F /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350EB3E1A90224A0038862F /* SQLite.framework */; };
+		0350EB401A902F850038862F /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0350EB3E1A90224A0038862F /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,17 +33,38 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0350EB2B1A901B630038862F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0350EB401A902F850038862F /* SQLite.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0350EAF41A9010BF0038862F /* EcceRomaniLatinDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcceRomaniLatinDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0350EAF81A9010BF0038862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0350EAF91A9010BF0038862F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0350EAFB1A9010BF0038862F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0350EAFE1A9010BF0038862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0350EB001A9010BF0038862F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0350EB031A9010BF0038862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0350EB091A9010BF0038862F /* EcceRomaniLatinDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcceRomaniLatinDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0350EB0E1A9010BF0038862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0350EB0F1A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcceRomaniLatinDictionaryTests.swift; sourceTree = "<group>"; };
+		0350EB191A901B210038862F /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		0350EB2F1A901E730038862F /* StandardData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = StandardData.sqlite; sourceTree = "<group>"; };
+		0350EB301A901E730038862F /* UserData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = UserData.sqlite; sourceTree = "<group>"; };
+		0350EB331A901E970038862F /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		0350EB341A901E970038862F /* nonConjugatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nonConjugatable.swift; sourceTree = "<group>"; };
+		0350EB351A901E970038862F /* Noun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noun.swift; sourceTree = "<group>"; };
+		0350EB361A901E970038862F /* Verb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verb.swift; sourceTree = "<group>"; };
+		0350EB3C1A90200B0038862F /* WordListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListTableViewController.swift; sourceTree = "<group>"; };
+		0350EB3E1A90224A0038862F /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../../../../../../../../../Users/Josh/Library/Developer/Xcode/DerivedData/EcceRomaniLatinDictionary-dmjpkzsxzpbzbhfwlpywztcbcdoe/Build/Products/Debug-iphoneos/SQLite.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0350EB3F1A90224A0038862F /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +89,8 @@
 		0350EAEB1A9010BF0038862F = {
 			isa = PBXGroup;
 			children = (
+				0350EB3E1A90224A0038862F /* SQLite.framework */,
+				0350EB191A901B210038862F /* SQLite.xcodeproj */,
 				0350EAF61A9010BF0038862F /* EcceRomaniLatinDictionary */,
 				0350EB0C1A9010BF0038862F /* EcceRomaniLatinDictionaryTests */,
 				0350EAF51A9010BF0038862F /* Products */,
@@ -77,8 +109,9 @@
 		0350EAF61A9010BF0038862F /* EcceRomaniLatinDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				0350EB3B1A901E9C0038862F /* Part of Speech */,
 				0350EAF91A9010BF0038862F /* AppDelegate.swift */,
-				0350EAFB1A9010BF0038862F /* ViewController.swift */,
+				0350EB3C1A90200B0038862F /* WordListTableViewController.swift */,
 				0350EAFD1A9010BF0038862F /* Main.storyboard */,
 				0350EB001A9010BF0038862F /* Images.xcassets */,
 				0350EB021A9010BF0038862F /* LaunchScreen.xib */,
@@ -90,6 +123,8 @@
 		0350EAF71A9010BF0038862F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0350EB2F1A901E730038862F /* StandardData.sqlite */,
+				0350EB301A901E730038862F /* UserData.sqlite */,
 				0350EAF81A9010BF0038862F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -112,6 +147,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0350EB3B1A901E9C0038862F /* Part of Speech */ = {
+			isa = PBXGroup;
+			children = (
+				0350EB331A901E970038862F /* Word.swift */,
+				0350EB341A901E970038862F /* nonConjugatable.swift */,
+				0350EB351A901E970038862F /* Noun.swift */,
+				0350EB361A901E970038862F /* Verb.swift */,
+			);
+			name = "Part of Speech";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,6 +168,7 @@
 				0350EAF01A9010BF0038862F /* Sources */,
 				0350EAF11A9010BF0038862F /* Frameworks */,
 				0350EAF21A9010BF0038862F /* Resources */,
+				0350EB2B1A901B630038862F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -195,6 +242,8 @@
 			files = (
 				0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */,
 				0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */,
+				0350EB311A901E730038862F /* StandardData.sqlite in Resources */,
+				0350EB321A901E730038862F /* UserData.sqlite in Resources */,
 				0350EB011A9010BF0038862F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,8 +262,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0350EAFC1A9010BF0038862F /* ViewController.swift in Sources */,
+				0350EB3A1A901E970038862F /* Verb.swift in Sources */,
+				0350EB391A901E970038862F /* Noun.swift in Sources */,
 				0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */,
+				0350EB381A901E970038862F /* nonConjugatable.swift in Sources */,
+				0350EB371A901E970038862F /* Word.swift in Sources */,
+				0350EB3D1A90200B0038862F /* WordListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +391,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/EcceRomaniLatinDictionary-dmjpkzsxzpbzbhfwlpywztcbcdoe/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = EcceRomaniLatinDictionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -349,6 +406,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/EcceRomaniLatinDictionary-dmjpkzsxzpbzbhfwlpywztcbcdoe/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = EcceRomaniLatinDictionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
