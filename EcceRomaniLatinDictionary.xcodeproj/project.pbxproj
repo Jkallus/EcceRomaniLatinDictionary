@@ -22,10 +22,11 @@
 		0350EB3F1A90224A0038862F /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0350EB3E1A90224A0038862F /* SQLite.framework */; };
 		0350EB401A902F850038862F /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0350EB3E1A90224A0038862F /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0350EB421A903F4A0038862F /* LatinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB411A903F4A0038862F /* LatinTableViewCell.swift */; };
-		0350EB441A9044FA0038862F /* NounDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB431A9044FA0038862F /* NounDetailViewController.swift */; };
-		0350EB461A9045350038862F /* VerbDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB451A9045350038862F /* VerbDetailViewController.swift */; };
-		0350EB481A90455C0038862F /* NonConjugatableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB471A90455C0038862F /* NonConjugatableDetailViewController.swift */; };
-		0350EB4A1A9045870038862F /* AdjectiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB491A9045870038862F /* AdjectiveDetailViewController.swift */; };
+		03C69EB11A943709005ABEDC /* NounDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB01A943709005ABEDC /* NounDetailViewController.swift */; };
+		03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */; };
+		03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */; };
+		03C69EB71A94376A005ABEDC /* NonConjugatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB61A94376A005ABEDC /* NonConjugatableViewController.swift */; };
+		03C69EB91A943AFA005ABEDC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB81A943AFA005ABEDC /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0350EAF31A9010BF0038862F;
 			remoteInfo = EcceRomaniLatinDictionary;
+		};
+		035501371A90485C00A71B61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0350EB191A901B210038862F /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773F319C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS";
+		};
+		035501391A90485C00A71B61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0350EB191A901B210038862F /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773FE19C8CBB3004FCF85;
+			remoteInfo = "SQLite iOS Tests";
+		};
+		0355013B1A90485C00A71B61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0350EB191A901B210038862F /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741419C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac";
+		};
+		0355013D1A90485C00A71B61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0350EB191A901B210038862F /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC37741E19C8CC2F004FCF85;
+			remoteInfo = "SQLite Mac Tests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -71,10 +100,11 @@
 		0350EB3C1A90200B0038862F /* WordListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListTableViewController.swift; sourceTree = "<group>"; };
 		0350EB3E1A90224A0038862F /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../../../../../../../../../Users/Josh/Library/Developer/Xcode/DerivedData/EcceRomaniLatinDictionary-dmjpkzsxzpbzbhfwlpywztcbcdoe/Build/Products/Debug-iphoneos/SQLite.framework"; sourceTree = "<group>"; };
 		0350EB411A903F4A0038862F /* LatinTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatinTableViewCell.swift; sourceTree = "<group>"; };
-		0350EB431A9044FA0038862F /* NounDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounDetailViewController.swift; sourceTree = "<group>"; };
-		0350EB451A9045350038862F /* VerbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbDetailViewController.swift; sourceTree = "<group>"; };
-		0350EB471A90455C0038862F /* NonConjugatableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonConjugatableDetailViewController.swift; sourceTree = "<group>"; };
-		0350EB491A9045870038862F /* AdjectiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjectiveDetailViewController.swift; sourceTree = "<group>"; };
+		03C69EB01A943709005ABEDC /* NounDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounDetailViewController.swift; sourceTree = "<group>"; };
+		03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbDetailViewController.swift; sourceTree = "<group>"; };
+		03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjectiveDetailViewController.swift; sourceTree = "<group>"; };
+		03C69EB61A94376A005ABEDC /* NonConjugatableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonConjugatableViewController.swift; sourceTree = "<group>"; };
+		03C69EB81A943AFA005ABEDC /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,13 +151,14 @@
 			children = (
 				0350EB3B1A901E9C0038862F /* Part of Speech */,
 				0350EAF91A9010BF0038862F /* AppDelegate.swift */,
-				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
 				0350EB3C1A90200B0038862F /* WordListTableViewController.swift */,
+				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
 				0350EB4B1A9045A90038862F /* Detail View Controllers */,
 				0350EAFD1A9010BF0038862F /* Main.storyboard */,
 				0350EB001A9010BF0038862F /* Images.xcassets */,
 				0350EB021A9010BF0038862F /* LaunchScreen.xib */,
 				0350EAF71A9010BF0038862F /* Supporting Files */,
+				03C69EB81A943AFA005ABEDC /* TableViewController.swift */,
 			);
 			path = EcceRomaniLatinDictionary;
 			sourceTree = "<group>";
@@ -173,12 +204,55 @@
 		0350EB4B1A9045A90038862F /* Detail View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0350EB431A9044FA0038862F /* NounDetailViewController.swift */,
-				0350EB451A9045350038862F /* VerbDetailViewController.swift */,
-				0350EB471A90455C0038862F /* NonConjugatableDetailViewController.swift */,
-				0350EB491A9045870038862F /* AdjectiveDetailViewController.swift */,
+				035501581A9161F300A71B61 /* Noun */,
+				0355015E1A917C2C00A71B61 /* Verb */,
+				0355015F1A917C3200A71B61 /* NonConjugatable */,
+				035501601A917C3C00A71B61 /* Adjective */,
 			);
 			name = "Detail View Controllers";
+			sourceTree = "<group>";
+		};
+		035501311A90485B00A71B61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				035501381A90485C00A71B61 /* SQLite.framework */,
+				0355013A1A90485C00A71B61 /* SQLite iOS Tests.xctest */,
+				0355013C1A90485C00A71B61 /* SQLite.framework */,
+				0355013E1A90485C00A71B61 /* SQLite Mac Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		035501581A9161F300A71B61 /* Noun */ = {
+			isa = PBXGroup;
+			children = (
+				03C69EB01A943709005ABEDC /* NounDetailViewController.swift */,
+			);
+			name = Noun;
+			sourceTree = "<group>";
+		};
+		0355015E1A917C2C00A71B61 /* Verb */ = {
+			isa = PBXGroup;
+			children = (
+				03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */,
+			);
+			name = Verb;
+			sourceTree = "<group>";
+		};
+		0355015F1A917C3200A71B61 /* NonConjugatable */ = {
+			isa = PBXGroup;
+			children = (
+				03C69EB61A94376A005ABEDC /* NonConjugatableViewController.swift */,
+			);
+			name = NonConjugatable;
+			sourceTree = "<group>";
+		};
+		035501601A917C3C00A71B61 /* Adjective */ = {
+			isa = PBXGroup;
+			children = (
+				03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */,
+			);
+			name = Adjective;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +324,12 @@
 			mainGroup = 0350EAEB1A9010BF0038862F;
 			productRefGroup = 0350EAF51A9010BF0038862F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 035501311A90485B00A71B61 /* Products */;
+					ProjectRef = 0350EB191A901B210038862F /* SQLite.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0350EAF31A9010BF0038862F /* EcceRomaniLatinDictionary */,
@@ -257,6 +337,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		035501381A90485C00A71B61 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 035501371A90485C00A71B61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0355013A1A90485C00A71B61 /* SQLite iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite iOS Tests.xctest";
+			remoteRef = 035501391A90485C00A71B61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0355013C1A90485C00A71B61 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 0355013B1A90485C00A71B61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0355013E1A90485C00A71B61 /* SQLite Mac Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite Mac Tests.xctest";
+			remoteRef = 0355013D1A90485C00A71B61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0350EAF21A9010BF0038862F /* Resources */ = {
@@ -288,14 +399,15 @@
 				0350EB3A1A901E970038862F /* Verb.swift in Sources */,
 				0350EB391A901E970038862F /* Noun.swift in Sources */,
 				0350EB421A903F4A0038862F /* LatinTableViewCell.swift in Sources */,
-				0350EB441A9044FA0038862F /* NounDetailViewController.swift in Sources */,
+				03C69EB11A943709005ABEDC /* NounDetailViewController.swift in Sources */,
 				0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */,
-				0350EB461A9045350038862F /* VerbDetailViewController.swift in Sources */,
-				0350EB481A90455C0038862F /* NonConjugatableDetailViewController.swift in Sources */,
+				03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */,
+				03C69EB71A94376A005ABEDC /* NonConjugatableViewController.swift in Sources */,
+				03C69EB91A943AFA005ABEDC /* TableViewController.swift in Sources */,
 				0350EB381A901E970038862F /* nonConjugatable.swift in Sources */,
+				03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */,
 				0350EB371A901E970038862F /* Word.swift in Sources */,
 				0350EB3D1A90200B0038862F /* WordListTableViewController.swift in Sources */,
-				0350EB4A1A9045870038862F /* AdjectiveDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +609,7 @@
 				0350EB151A9010BF0038862F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0350EB161A9010BF0038862F /* Build configuration list for PBXNativeTarget "EcceRomaniLatinDictionaryTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +618,7 @@
 				0350EB181A9010BF0038862F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
