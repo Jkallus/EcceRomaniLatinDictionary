@@ -420,14 +420,12 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
         if segue.identifier == "nounDetailViewSegue"{
             if self.searchDisplayController!.active{
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                //(segue.destinationViewController as NounDetailViewController).word = sortedFilteredWordsArray[indexPath.row]
-                let nounDetailViewController = segue.destinationViewController as SimpleNounDetailTableViewController
+                let nounDetailViewController = segue.destinationViewController as NounDetailViewController
                 nounDetailViewController.word = sortedFilteredWordsArray[indexPath.row]
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
-                //(segue.destinationViewController as NounDetailViewController).word = sortedWordsArray[indexPath.row]
-                let nounDetailViewController = segue.destinationViewController as SimpleNounDetailTableViewController
+                let nounDetailViewController = segue.destinationViewController as NounDetailViewController
                 nounDetailViewController.word = sortedWordsArray[indexPath.row]
 
             }
@@ -435,13 +433,11 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
         else if segue.identifier == "verbDetailViewSegue"{
             if self.searchDisplayController!.active{
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                //(segue.destinationViewController as VerbDetailViewController).word = sortedFilteredWordsArray[indexPath.row]
                 let verbDetailViewController = segue.destinationViewController as VerbDetailViewController
                 verbDetailViewController.word = sortedFilteredWordsArray[indexPath.row]
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
-                //(segue.destinationViewController as VerbDetailViewController).word = sortedWordsArray[indexPath.row]
                 let verbDetailViewController = segue.destinationViewController as VerbDetailViewController
                 verbDetailViewController.word = sortedWordsArray[indexPath.row]
             }
@@ -457,8 +453,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
         else if segue.identifier == "nonConjugatableDetailViewSegue"{
             if self.searchDisplayController!.active{
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                //(segue.destinationViewController as NonConjugatableDetailTableViewController).word = sortedFilteredWordsArray[indexPath.row]
-                let nonConjugatableDetailTableViewController = segue.destinationViewController as NonConjugatableDetailTableViewController
+                let nonConjugatableDetailViewController = segue.destinationViewController as NonConjugatableDetailTableViewController
                 nonConjugatableDetailTableViewController.word = sortedFilteredWordsArray[indexPath.row]
             }
             else{

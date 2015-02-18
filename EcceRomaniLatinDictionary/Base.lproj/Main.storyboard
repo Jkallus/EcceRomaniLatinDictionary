@@ -277,7 +277,7 @@
         <!--NonConjugatable Detail-->
         <scene sceneID="6Bi-FG-Bku">
             <objects>
-                <viewController id="Fx7-Td-de4" customClass="NonConjugatableViewController" customModule="EcceRomaniLatinDictionary" sceneMemberID="viewController">
+                <viewController id="Fx7-Td-de4" customClass="NonConjugatableDetailViewController" customModule="EcceRomaniLatinDictionary" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tp6-YP-rnP"/>
                         <viewControllerLayoutGuide type="bottom" id="1OE-NK-Kc4"/>
@@ -290,10 +290,18 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="P1g-dJ-0b7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="propertyIdentifier" textLabel="r9g-74-DfF" style="IBUITableViewCellStyleDefault" id="P1g-dJ-0b7">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P1g-dJ-0b7" id="Vpq-lY-E2s">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r9g-74-DfF">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -323,7 +331,7 @@
         <!--Adjective Detail View Controller-->
         <scene sceneID="YxO-6t-ZMb">
             <objects>
-                <viewController id="QYX-OB-daT" customClass="AdjectiveDetailViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QYX-OB-daT" customClass="AdjectiveDetailViewController" customModule="EcceRomaniLatinDictionary" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ck0-Ep-bIM"/>
                         <viewControllerLayoutGuide type="bottom" id="xy3-Sf-PfW"/>
