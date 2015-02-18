@@ -1,5 +1,5 @@
 //
-//  NonConjugatableDetailViewController.swift
+//  NonConjugatableViewController.swift
 //  EcceRomaniLatinDictionary
 //
 //  Created by Josh Kallus on 2/17/15.
@@ -8,28 +8,63 @@
 
 import UIKit
 
-class NonConjugatableDetailViewController: UIViewController {
-
+class NonConjugatableDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    var word: Word?
+    
+    var section_0 = [String]()
+    var section_1 = [String]()
+    
+    @IBOutlet weak var propertiesTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        let nonConjugatableWord = word as nonConjugatable
+        
+        section_0.insert(nonConjugatableWord.latinForm, atIndex: 0)
+        section_0.insert(nonConjugatableWord.englishForm, atIndex: 1)
+        
+        section_1.insert("nonConjugatable", atIndex: 0)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    */
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0{
+            return "Word"
+        }
+        else{
+            return "Word Info"
+        }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return 2
+        }
+        else{
+            return 1
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as UITableViewCell
+        if indexPath.section == 0{
+            cell.textLabel!.text = section_0[indexPath.row]
+        }
+        else{
+            cell.textLabel!.text = section_1[indexPath.row]
+        }
+        return cell
+    }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+    }
 }

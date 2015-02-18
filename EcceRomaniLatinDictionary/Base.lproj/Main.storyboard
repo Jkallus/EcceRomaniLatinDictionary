@@ -84,7 +84,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="DcX-DI-VKV" kind="show" id="qua-NZ-LVM"/>
+                                    <segue destination="DcX-DI-VKV" kind="show" identifier="nounDetailViewSegue" id="qua-NZ-LVM"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="verbCell" textLabel="KxN-yW-z0l" detailTextLabel="kOo-2H-KhQ" style="IBUITableViewCellStyleSubtitle" id="2Ou-zV-lCs" customClass="LatinTableViewCell" customModule="EcceRomaniLatinDictionary" customModuleProvider="target">
@@ -108,7 +108,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="WpD-CB-84k" kind="show" id="EJ3-ol-NCf"/>
+                                    <segue destination="WpD-CB-84k" kind="show" identifier="verbDetailViewSegue" id="EJ3-ol-NCf"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="adjectiveCell" textLabel="2iO-Q9-qLA" detailTextLabel="N86-lo-6mb" style="IBUITableViewCellStyleSubtitle" id="vkj-Ps-AJ1" customClass="LatinTableViewCell" customModule="EcceRomaniLatinDictionary" customModuleProvider="target">
@@ -132,7 +132,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="QYX-OB-daT" kind="show" id="C0y-7X-Hn6"/>
+                                    <segue destination="QYX-OB-daT" kind="show" identifier="adjectiveDetailViewSegue" id="C0y-7X-Hn6"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nonConjugatableCell" textLabel="oXy-6O-2pF" detailTextLabel="xP4-gU-lwm" style="IBUITableViewCellStyleSubtitle" id="58g-W9-tnO" customClass="LatinTableViewCell" customModule="EcceRomaniLatinDictionary" customModuleProvider="target">
@@ -156,7 +156,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Fx7-Td-de4" kind="show" id="Q2c-MM-yys"/>
+                                    <segue destination="Fx7-Td-de4" kind="show" identifier="nonConjugatableDetailViewSegue" id="Q2c-MM-yys"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -202,7 +202,7 @@
         <!--Noun Detail View Controller-->
         <scene sceneID="NoC-ir-qbM">
             <objects>
-                <viewController id="DcX-DI-VKV" customClass="NounDetailViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DcX-DI-VKV" customClass="NounDetailViewController" customModule="EcceRomaniLatinDictionary" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QDK-KY-8gf"/>
                         <viewControllerLayoutGuide type="bottom" id="jgm-5m-J8C"/>
@@ -216,10 +216,27 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="0cX-Do-ZfP"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="DcX-DI-VKV" id="Uow-Ak-PaU"/>
+                                    <outlet property="delegate" destination="DcX-DI-VKV" id="CQx-b4-1j5"/>
+                                </connections>
                             </pickerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ShC-7v-Bbg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="ShC-7v-Bbg">
                                 <rect key="frame" x="0.0" y="64" width="600" height="307"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="propertyIdentifier" id="Kbl-Jx-NRQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kbl-Jx-NRQ" id="krl-xa-Ude">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DcX-DI-VKV" id="MFJ-XS-ddU"/>
+                                    <outlet property="delegate" destination="DcX-DI-VKV" id="zJ6-2Z-v5r"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -233,6 +250,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ShC-7v-Bbg" secondAttribute="trailing" constant="-16" id="uDm-uk-AYM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="propertyTableView" destination="ShC-7v-Bbg" id="ru8-hk-C5H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGG-wA-HT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,15 +360,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="F8f-Hs-reu">
-                                <rect key="frame" x="0.0" y="20" width="600" height="400"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="F8f-Hs-reu">
+                                <rect key="frame" x="0.0" y="64" width="600" height="307"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ain-YE-37j">
-                                <rect key="frame" x="0.0" y="420" width="600" height="180"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ain-YE-37j">
+                                <rect key="frame" x="0.0" y="371" width="600" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="gjc-8e-a71"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="QYX-OB-daT" id="3sq-Z6-fPh"/>
+                                    <outlet property="delegate" destination="QYX-OB-daT" id="RFh-Go-QUH"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -379,15 +403,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-PX-8O7">
-                                <rect key="frame" x="0.0" y="20" width="600" height="400"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-PX-8O7">
+                                <rect key="frame" x="0.0" y="64" width="600" height="307"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="propertyIdentifier" textLabel="h6K-Ca-ntw" style="IBUITableViewCellStyleDefault" id="vQ4-UB-dcT">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vQ4-UB-dcT" id="DYt-tM-gVU">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h6K-Ca-ntw">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WpD-CB-84k" id="yt4-yP-xj2"/>
+                                    <outlet property="delegate" destination="WpD-CB-84k" id="vuv-l6-PXx"/>
+                                </connections>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Aq-ZXa">
-                                <rect key="frame" x="0.0" y="420" width="600" height="180"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Aq-ZXa">
+                                <rect key="frame" x="0.0" y="371" width="600" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="cyw-pK-Fav"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="WpD-CB-84k" id="YMD-3e-X6V"/>
+                                    <outlet property="delegate" destination="WpD-CB-84k" id="Z7h-Ki-lQC"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -401,6 +450,9 @@
                             <constraint firstItem="BAb-Aq-ZXa" firstAttribute="leading" secondItem="dGS-tw-oW5" secondAttribute="leadingMargin" constant="-16" id="uvd-IU-MkW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="propertyTableView" destination="jxd-PX-8O7" id="Bow-8t-y5o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t52-br-yGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

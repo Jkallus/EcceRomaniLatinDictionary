@@ -23,10 +23,10 @@
 		0350EB401A902F850038862F /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0350EB3E1A90224A0038862F /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0350EB421A903F4A0038862F /* LatinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB411A903F4A0038862F /* LatinTableViewCell.swift */; };
 		03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */; };
+		03547E981A94548100471AEA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03547E971A94548100471AEA /* TableViewController.swift */; };
 		03C69EB11A943709005ABEDC /* NounDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB01A943709005ABEDC /* NounDetailViewController.swift */; };
 		03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */; };
 		03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */; };
-		03C69EB91A943AFA005ABEDC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB81A943AFA005ABEDC /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,10 +101,10 @@
 		0350EB3E1A90224A0038862F /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../../../../../../../../../Users/Josh/Library/Developer/Xcode/DerivedData/EcceRomaniLatinDictionary-dmjpkzsxzpbzbhfwlpywztcbcdoe/Build/Products/Debug-iphoneos/SQLite.framework"; sourceTree = "<group>"; };
 		0350EB411A903F4A0038862F /* LatinTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatinTableViewCell.swift; sourceTree = "<group>"; };
 		03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonConjugatableDetailViewController.swift; sourceTree = "<group>"; };
+		03547E971A94548100471AEA /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		03C69EB01A943709005ABEDC /* NounDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounDetailViewController.swift; sourceTree = "<group>"; };
 		03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbDetailViewController.swift; sourceTree = "<group>"; };
 		03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjectiveDetailViewController.swift; sourceTree = "<group>"; };
-		03C69EB81A943AFA005ABEDC /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,10 +155,10 @@
 				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
 				0350EB4B1A9045A90038862F /* Detail View Controllers */,
 				0350EAFD1A9010BF0038862F /* Main.storyboard */,
+				03547E971A94548100471AEA /* TableViewController.swift */,
 				0350EB001A9010BF0038862F /* Images.xcassets */,
 				0350EB021A9010BF0038862F /* LaunchScreen.xib */,
 				0350EAF71A9010BF0038862F /* Supporting Files */,
-				03C69EB81A943AFA005ABEDC /* TableViewController.swift */,
 			);
 			path = EcceRomaniLatinDictionary;
 			sourceTree = "<group>";
@@ -402,8 +402,8 @@
 				03C69EB11A943709005ABEDC /* NounDetailViewController.swift in Sources */,
 				0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */,
 				03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */,
-				03C69EB91A943AFA005ABEDC /* TableViewController.swift in Sources */,
 				0350EB381A901E970038862F /* nonConjugatable.swift in Sources */,
+				03547E981A94548100471AEA /* TableViewController.swift in Sources */,
 				03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */,
 				03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */,
 				0350EB371A901E970038862F /* Word.swift in Sources */,
