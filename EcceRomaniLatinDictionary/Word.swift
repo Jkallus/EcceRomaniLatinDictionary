@@ -8,6 +8,8 @@
 
 //import Foundation
 
+//
+
 class Word{
     var latinSearchTerm: String
     var englishSearchTerm: String

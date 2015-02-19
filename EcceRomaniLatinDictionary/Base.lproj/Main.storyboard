@@ -199,7 +199,7 @@
             </objects>
             <point key="canvasLocation" x="1366" y="415"/>
         </scene>
-        <!--Noun Detail View Controller-->
+        <!--Noun Detail-->
         <scene sceneID="NoC-ir-qbM">
             <objects>
                 <viewController id="DcX-DI-VKV" customClass="NounDetailViewController" customModule="EcceRomaniLatinDictionary" sceneMemberID="viewController">
@@ -250,6 +250,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ShC-7v-Bbg" secondAttribute="trailing" constant="-16" id="kED-wz-cOe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Noun Detail" id="Qgh-O5-yJH"/>
                     <connections>
                         <outlet property="propertyTableView" destination="ShC-7v-Bbg" id="ru8-hk-C5H"/>
                     </connections>
@@ -391,7 +392,7 @@
             </objects>
             <point key="canvasLocation" x="2074" y="1118"/>
         </scene>
-        <!--Title-->
+        <!--Verb Detail-->
         <scene sceneID="Yvb-s3-rgt">
             <objects>
                 <viewController id="WpD-CB-84k" customClass="VerbDetailViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
@@ -403,6 +404,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Aq-ZXa">
+                                <rect key="frame" x="0.0" y="389" width="600" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="Det-3j-NSD"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="WpD-CB-84k" id="YMD-3e-X6V"/>
+                                    <outlet property="delegate" destination="WpD-CB-84k" id="Z7h-Ki-lQC"/>
+                                </connections>
+                            </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-PX-8O7">
                                 <rect key="frame" x="0.0" y="64" width="600" height="325"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -428,17 +439,6 @@
                                     <outlet property="delegate" destination="WpD-CB-84k" id="vuv-l6-PXx"/>
                                 </connections>
                             </tableView>
-                            <pickerView alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Aq-ZXa">
-                                <rect key="frame" x="0.0" y="389" width="600" height="162"/>
-                                <color key="backgroundColor" white="0.8695683448" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="Det-3j-NSD"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="WpD-CB-84k" id="YMD-3e-X6V"/>
-                                    <outlet property="delegate" destination="WpD-CB-84k" id="Z7h-Ki-lQC"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -451,7 +451,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="BAb-Aq-ZXa" secondAttribute="trailing" constant="-16" id="vCl-bN-gjV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="NgN-TL-lN3"/>
+                    <navigationItem key="navigationItem" title="Verb Detail" id="NgN-TL-lN3"/>
                     <connections>
                         <outlet property="propertyTableView" destination="jxd-PX-8O7" id="Bow-8t-y5o"/>
                     </connections>
