@@ -149,11 +149,11 @@
 		0350EAF61A9010BF0038862F /* EcceRomaniLatinDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				0350EB4B1A9045A90038862F /* Detail View Controllers */,
 				0350EB3B1A901E9C0038862F /* Part of Speech */,
 				0350EAF91A9010BF0038862F /* AppDelegate.swift */,
 				0350EB3C1A90200B0038862F /* WordListTableViewController.swift */,
 				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
-				0350EB4B1A9045A90038862F /* Detail View Controllers */,
 				0350EAFD1A9010BF0038862F /* Main.storyboard */,
 				03547E971A94548100471AEA /* TableViewController.swift */,
 				0350EB001A9010BF0038862F /* Images.xcassets */,
