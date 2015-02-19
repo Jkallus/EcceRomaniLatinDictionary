@@ -211,18 +211,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvp-oX-d8l">
-                                <rect key="frame" x="0.0" y="371" width="600" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="0cX-Do-ZfP"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="DcX-DI-VKV" id="Uow-Ak-PaU"/>
-                                    <outlet property="delegate" destination="DcX-DI-VKV" id="CQx-b4-1j5"/>
-                                </connections>
-                            </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="ShC-7v-Bbg">
-                                <rect key="frame" x="0.0" y="64" width="600" height="307"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="325"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="propertyIdentifier" id="Kbl-Jx-NRQ">
@@ -238,16 +228,26 @@
                                     <outlet property="delegate" destination="DcX-DI-VKV" id="zJ6-2Z-v5r"/>
                                 </connections>
                             </tableView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hm1-mw-qt4">
+                                <rect key="frame" x="0.0" y="389" width="600" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="bzi-Dl-0bR"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="DcX-DI-VKV" id="wyT-9G-MS3"/>
+                                    <outlet property="delegate" destination="DcX-DI-VKV" id="1AR-mG-vaw"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yvp-oX-d8l" firstAttribute="leading" secondItem="KL8-ex-H7S" secondAttribute="leadingMargin" constant="-16" id="8l8-Sc-Lhq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yvp-oX-d8l" secondAttribute="trailing" constant="-16" id="EVJ-hP-aEC"/>
-                            <constraint firstItem="ShC-7v-Bbg" firstAttribute="top" secondItem="QDK-KY-8gf" secondAttribute="bottom" id="MVa-fA-XXt"/>
-                            <constraint firstItem="ShC-7v-Bbg" firstAttribute="leading" secondItem="KL8-ex-H7S" secondAttribute="leadingMargin" constant="-16" id="WFW-by-KuQ"/>
-                            <constraint firstItem="yvp-oX-d8l" firstAttribute="top" secondItem="ShC-7v-Bbg" secondAttribute="bottom" id="fS7-tO-jsW"/>
-                            <constraint firstItem="jgm-5m-J8C" firstAttribute="top" secondItem="yvp-oX-d8l" secondAttribute="bottom" id="h1Z-b7-u4f"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ShC-7v-Bbg" secondAttribute="trailing" constant="-16" id="uDm-uk-AYM"/>
+                            <constraint firstItem="Hm1-mw-qt4" firstAttribute="leading" secondItem="KL8-ex-H7S" secondAttribute="leadingMargin" constant="-16" id="FJb-bW-QfK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hm1-mw-qt4" secondAttribute="trailing" constant="-16" id="FJh-HK-PdQ"/>
+                            <constraint firstItem="ShC-7v-Bbg" firstAttribute="leading" secondItem="KL8-ex-H7S" secondAttribute="leadingMargin" constant="-16" id="JbZ-v3-8HY"/>
+                            <constraint firstItem="Hm1-mw-qt4" firstAttribute="top" secondItem="ShC-7v-Bbg" secondAttribute="bottom" id="Phw-bB-SmJ"/>
+                            <constraint firstItem="jgm-5m-J8C" firstAttribute="top" secondItem="Hm1-mw-qt4" secondAttribute="bottom" id="hMj-qW-Kuy"/>
+                            <constraint firstItem="ShC-7v-Bbg" firstAttribute="top" secondItem="QDK-KY-8gf" secondAttribute="bottom" id="hqK-eG-5pI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ShC-7v-Bbg" secondAttribute="trailing" constant="-16" id="kED-wz-cOe"/>
                         </constraints>
                     </view>
                     <connections>
@@ -391,7 +391,7 @@
             </objects>
             <point key="canvasLocation" x="2074" y="1118"/>
         </scene>
-        <!--Verb Detail View Controller-->
+        <!--Title-->
         <scene sceneID="Yvb-s3-rgt">
             <objects>
                 <viewController id="WpD-CB-84k" customClass="VerbDetailViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
@@ -404,7 +404,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-PX-8O7">
-                                <rect key="frame" x="0.0" y="64" width="600" height="307"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="325"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="propertyIdentifier" textLabel="h6K-Ca-ntw" style="IBUITableViewCellStyleDefault" id="vQ4-UB-dcT">
@@ -428,10 +428,11 @@
                                     <outlet property="delegate" destination="WpD-CB-84k" id="vuv-l6-PXx"/>
                                 </connections>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Aq-ZXa">
-                                <rect key="frame" x="0.0" y="371" width="600" height="180"/>
+                            <pickerView alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Aq-ZXa">
+                                <rect key="frame" x="0.0" y="389" width="600" height="162"/>
+                                <color key="backgroundColor" white="0.8695683448" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="cyw-pK-Fav"/>
+                                    <constraint firstAttribute="height" constant="162" id="Det-3j-NSD"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="WpD-CB-84k" id="YMD-3e-X6V"/>
@@ -441,22 +442,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jxd-PX-8O7" firstAttribute="leading" secondItem="dGS-tw-oW5" secondAttribute="leadingMargin" constant="-16" id="20B-lG-QX7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BAb-Aq-ZXa" secondAttribute="trailing" constant="-16" id="Uyw-VZ-z1v"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jxd-PX-8O7" secondAttribute="trailing" constant="-16" id="VnD-FX-IBk"/>
-                            <constraint firstItem="mOV-Rh-qYJ" firstAttribute="top" secondItem="BAb-Aq-ZXa" secondAttribute="bottom" id="gMp-vn-b3k"/>
-                            <constraint firstItem="jxd-PX-8O7" firstAttribute="top" secondItem="pvp-SE-89d" secondAttribute="bottom" id="oXn-KF-c97"/>
-                            <constraint firstItem="BAb-Aq-ZXa" firstAttribute="top" secondItem="jxd-PX-8O7" secondAttribute="bottom" id="sfL-jz-yGW"/>
-                            <constraint firstItem="BAb-Aq-ZXa" firstAttribute="leading" secondItem="dGS-tw-oW5" secondAttribute="leadingMargin" constant="-16" id="uvd-IU-MkW"/>
+                            <constraint firstItem="mOV-Rh-qYJ" firstAttribute="top" secondItem="BAb-Aq-ZXa" secondAttribute="bottom" id="0jo-ob-GUU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jxd-PX-8O7" secondAttribute="trailing" constant="-16" id="44g-9E-GfR"/>
+                            <constraint firstItem="jxd-PX-8O7" firstAttribute="top" secondItem="pvp-SE-89d" secondAttribute="bottom" id="cgF-Jc-UER"/>
+                            <constraint firstItem="jxd-PX-8O7" firstAttribute="leading" secondItem="dGS-tw-oW5" secondAttribute="leadingMargin" constant="-16" id="hqd-Sc-1Dt"/>
+                            <constraint firstItem="BAb-Aq-ZXa" firstAttribute="leading" secondItem="dGS-tw-oW5" secondAttribute="leadingMargin" constant="-16" id="lVL-32-dwn"/>
+                            <constraint firstItem="BAb-Aq-ZXa" firstAttribute="top" secondItem="jxd-PX-8O7" secondAttribute="bottom" id="tUS-b8-gzT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BAb-Aq-ZXa" secondAttribute="trailing" constant="-16" id="vCl-bN-gjV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="NgN-TL-lN3"/>
                     <connections>
                         <outlet property="propertyTableView" destination="jxd-PX-8O7" id="Bow-8t-y5o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t52-br-yGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2074" y="415"/>
+            <point key="canvasLocation" x="2074" y="418"/>
         </scene>
     </scenes>
 </document>
