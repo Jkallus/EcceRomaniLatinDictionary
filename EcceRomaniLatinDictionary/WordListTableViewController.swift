@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 import SQLite
 
-class WordListTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+class WordListTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate, AddNounDelegate, AddVerbDelegate, AddAdverbDelegate {
     
     var searchLanguage: String = "Latin"
     
@@ -363,6 +363,20 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
         }
         return cell
     }
+    
+    
+    
+    
+    
+    func userDidEnterInformation(noun: Noun) {
+        
+    }
+    
+    
+    
+    
+    
+    
     
     
     /*
