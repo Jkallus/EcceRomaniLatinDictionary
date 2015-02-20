@@ -28,7 +28,7 @@
         <!--Part of Speech-->
         <scene sceneID="xJa-HX-YI1">
             <objects>
-                <tableViewController id="OtP-JF-5FW" sceneMemberID="viewController">
+                <tableViewController id="OtP-JF-5FW" customClass="PartOfSpeechTableViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="RQY-oE-VLh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -752,6 +752,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="definitionTextField" destination="bCe-B4-dv0" id="e8o-KN-mha"/>
+                        <outlet property="firstPrinciplePartTextField" destination="MO5-Go-fnK" id="KBD-GF-sPy"/>
+                        <outlet property="fourthPrinciplePartTextField" destination="lcz-ml-Zgg" id="rZE-i3-sFi"/>
+                        <outlet property="secondPrinciplePartTextField" destination="RAM-FA-zTl" id="P4v-Zh-SC9"/>
+                        <outlet property="thirdPrinciplePartTextField" destination="9R2-Pz-kE7" id="XUz-sz-7Bf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWr-rA-ZEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -844,15 +851,19 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="englishTextField" destination="sox-Aj-f7S" id="Nqs-61-DzS"/>
+                        <outlet property="latinTextField" destination="aiE-Vg-jNW" id="i6x-12-oGe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mq-8O-KOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1439" y="-961"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add Word Navigation Controller-->
         <scene sceneID="Z28-8C-hbn">
             <objects>
-                <navigationController id="52G-Km-FOP" sceneMemberID="viewController">
+                <navigationController id="52G-Km-FOP" customClass="AddWordNavigationController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kyr-Qe-MBy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1071,8 +1082,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-PX-8O7">
-                                <rect key="frame" x="0.0" y="20" width="600" height="418"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-PX-8O7">
+                                <rect key="frame" x="0.0" y="64" width="600" height="325"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="propertyIdentifier" textLabel="h6K-Ca-ntw" style="IBUITableViewCellStyleDefault" id="vQ4-UB-dcT">
@@ -1096,8 +1107,8 @@
                                     <outlet property="delegate" destination="WpD-CB-84k" id="vuv-l6-PXx"/>
                                 </connections>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Aq-ZXa">
-                                <rect key="frame" x="0.0" y="438" width="600" height="162"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Aq-ZXa">
+                                <rect key="frame" x="0.0" y="389" width="600" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="Det-3j-NSD"/>
                                 </constraints>
@@ -1129,6 +1140,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G53-1q-Vf1"/>
+        <segue reference="LwQ-0f-ERm"/>
     </inferredMetricsTieBreakers>
 </document>

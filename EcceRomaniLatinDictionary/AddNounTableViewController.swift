@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol AddNounDelegate{
-    func userDidEnterInformation(noun: Noun)
+protocol AddNounDelegate: class{
+    func nounInfoEntered(noun: Noun)
 }
 
 
@@ -41,6 +41,8 @@ class AddNounTableViewController: UITableViewController {
         
         setGender()
         setDeclension()
+        
+        self.delegate = ((self.presentingViewController as UITabBarController).viewControllers![0] as UINavigationController).viewControllers[0] as WordListTableViewController
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -83,10 +85,8 @@ class AddNounTableViewController: UITableViewController {
         if segue.identifier == "nounSaveSegue"{
             newNoun = Noun(NominativeSingularInput: nominativeSingularTextField.text, GenitiveSingularInput: genitiveSingularTextField.text, GenderInput: gender!, DefinitionInput: definitionTextField.text, DeclensionInput: declension!)
             if delegate != nil{
-                delegate!.userDidEnterInformation(newNoun!)
+                delegate!.nounInfoEntered(newNoun!)
             }
         }
     }
-    
-
 }

@@ -9,12 +9,6 @@
 /* Begin PBXBuildFile section */
 		0349C4D11A95C684009FE6E6 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4D01A95C684009FE6E6 /* DismissSegue.swift */; };
 		0349C4D51A95C732009FE6E6 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */; };
-		0349C4DC1A95C78D009FE6E6 /* addNonConjugatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4D61A95C78D009FE6E6 /* addNonConjugatableView.swift */; };
-		0349C4DD1A95C78D009FE6E6 /* addNonConjugatableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0349C4D71A95C78D009FE6E6 /* addNonConjugatableView.xib */; };
-		0349C4DE1A95C78D009FE6E6 /* addVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4D81A95C78D009FE6E6 /* addVerbView.swift */; };
-		0349C4DF1A95C78D009FE6E6 /* addVerbView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0349C4D91A95C78D009FE6E6 /* addVerbView.xib */; };
-		0349C4E01A95C78D009FE6E6 /* addNounView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4DA1A95C78D009FE6E6 /* addNounView.swift */; };
-		0349C4E11A95C78D009FE6E6 /* addNounView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0349C4DB1A95C78D009FE6E6 /* addNounView.xib */; };
 		0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EAF91A9010BF0038862F /* AppDelegate.swift */; };
 		0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0350EAFD1A9010BF0038862F /* Main.storyboard */; };
 		0350EB011A9010BF0038862F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB001A9010BF0038862F /* Images.xcassets */; };
@@ -31,13 +25,14 @@
 		0350EB401A902F850038862F /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0350EB3E1A90224A0038862F /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0350EB421A903F4A0038862F /* LatinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB411A903F4A0038862F /* LatinTableViewCell.swift */; };
 		03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */; };
-		03547E981A94548100471AEA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03547E971A94548100471AEA /* TableViewController.swift */; };
 		03C11AD31A968BC6004DF29B /* AddNounTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C11AD21A968BC6004DF29B /* AddNounTableViewController.swift */; };
 		03C11AD91A968BD2004DF29B /* AddVerbTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C11AD81A968BD2004DF29B /* AddVerbTableViewController.swift */; };
 		03C11ADB1A968BE2004DF29B /* AddAdverbTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C11ADA1A968BE2004DF29B /* AddAdverbTableViewController.swift */; };
 		03C11ADD1A968BF2004DF29B /* AddAdjectiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C11ADC1A968BF2004DF29B /* AddAdjectiveTableViewController.swift */; };
 		03C11ADF1A968BFC004DF29B /* AddPronounTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C11ADE1A968BFC004DF29B /* AddPronounTableViewController.swift */; };
 		03C11AE11A968C08004DF29B /* AddIrregularVerbTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C11AE01A968C08004DF29B /* AddIrregularVerbTableViewController.swift */; };
+		03C11AE41A96D33C004DF29B /* AddWordNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C11AE31A96D33C004DF29B /* AddWordNavigationController.swift */; };
+		03C11AE61A96D446004DF29B /* PartOfSpeechTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C11AE51A96D446004DF29B /* PartOfSpeechTableViewController.swift */; };
 		03C69EB11A943709005ABEDC /* NounDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB01A943709005ABEDC /* NounDetailViewController.swift */; };
 		03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */; };
 		03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */; };
@@ -97,12 +92,6 @@
 /* Begin PBXFileReference section */
 		0349C4D01A95C684009FE6E6 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
-		0349C4D61A95C78D009FE6E6 /* addNonConjugatableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addNonConjugatableView.swift; sourceTree = "<group>"; };
-		0349C4D71A95C78D009FE6E6 /* addNonConjugatableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addNonConjugatableView.xib; sourceTree = "<group>"; };
-		0349C4D81A95C78D009FE6E6 /* addVerbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addVerbView.swift; sourceTree = "<group>"; };
-		0349C4D91A95C78D009FE6E6 /* addVerbView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addVerbView.xib; sourceTree = "<group>"; };
-		0349C4DA1A95C78D009FE6E6 /* addNounView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addNounView.swift; sourceTree = "<group>"; };
-		0349C4DB1A95C78D009FE6E6 /* addNounView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addNounView.xib; sourceTree = "<group>"; };
 		0350EAF41A9010BF0038862F /* EcceRomaniLatinDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcceRomaniLatinDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0350EAF81A9010BF0038862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0350EAF91A9010BF0038862F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,13 +112,14 @@
 		0350EB3E1A90224A0038862F /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../../../../../../../../../Users/Josh/Library/Developer/Xcode/DerivedData/EcceRomaniLatinDictionary-dmjpkzsxzpbzbhfwlpywztcbcdoe/Build/Products/Debug-iphoneos/SQLite.framework"; sourceTree = "<group>"; };
 		0350EB411A903F4A0038862F /* LatinTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatinTableViewCell.swift; sourceTree = "<group>"; };
 		03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonConjugatableDetailViewController.swift; sourceTree = "<group>"; };
-		03547E971A94548100471AEA /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		03C11AD21A968BC6004DF29B /* AddNounTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNounTableViewController.swift; sourceTree = "<group>"; };
 		03C11AD81A968BD2004DF29B /* AddVerbTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVerbTableViewController.swift; sourceTree = "<group>"; };
 		03C11ADA1A968BE2004DF29B /* AddAdverbTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdverbTableViewController.swift; sourceTree = "<group>"; };
 		03C11ADC1A968BF2004DF29B /* AddAdjectiveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdjectiveTableViewController.swift; sourceTree = "<group>"; };
 		03C11ADE1A968BFC004DF29B /* AddPronounTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPronounTableViewController.swift; sourceTree = "<group>"; };
 		03C11AE01A968C08004DF29B /* AddIrregularVerbTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIrregularVerbTableViewController.swift; sourceTree = "<group>"; };
+		03C11AE31A96D33C004DF29B /* AddWordNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordNavigationController.swift; sourceTree = "<group>"; };
+		03C11AE51A96D446004DF29B /* PartOfSpeechTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartOfSpeechTableViewController.swift; sourceTree = "<group>"; };
 		03C69EB01A943709005ABEDC /* NounDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounDetailViewController.swift; sourceTree = "<group>"; };
 		03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbDetailViewController.swift; sourceTree = "<group>"; };
 		03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjectiveDetailViewController.swift; sourceTree = "<group>"; };
@@ -157,9 +147,6 @@
 		0349C4E21A95C7A3009FE6E6 /* Add Word Views */ = {
 			isa = PBXGroup;
 			children = (
-				0349C4E31A95C7AC009FE6E6 /* NonConjugatable */,
-				0349C4E41A95C7B7009FE6E6 /* Verb */,
-				0349C4E51A95C7C1009FE6E6 /* Noun */,
 				03C11AD21A968BC6004DF29B /* AddNounTableViewController.swift */,
 				03C11AD81A968BD2004DF29B /* AddVerbTableViewController.swift */,
 				03C11ADA1A968BE2004DF29B /* AddAdverbTableViewController.swift */,
@@ -168,33 +155,6 @@
 				03C11AE01A968C08004DF29B /* AddIrregularVerbTableViewController.swift */,
 			);
 			name = "Add Word Views";
-			sourceTree = "<group>";
-		};
-		0349C4E31A95C7AC009FE6E6 /* NonConjugatable */ = {
-			isa = PBXGroup;
-			children = (
-				0349C4D61A95C78D009FE6E6 /* addNonConjugatableView.swift */,
-				0349C4D71A95C78D009FE6E6 /* addNonConjugatableView.xib */,
-			);
-			name = NonConjugatable;
-			sourceTree = "<group>";
-		};
-		0349C4E41A95C7B7009FE6E6 /* Verb */ = {
-			isa = PBXGroup;
-			children = (
-				0349C4D81A95C78D009FE6E6 /* addVerbView.swift */,
-				0349C4D91A95C78D009FE6E6 /* addVerbView.xib */,
-			);
-			name = Verb;
-			sourceTree = "<group>";
-		};
-		0349C4E51A95C7C1009FE6E6 /* Noun */ = {
-			isa = PBXGroup;
-			children = (
-				0349C4DA1A95C78D009FE6E6 /* addNounView.swift */,
-				0349C4DB1A95C78D009FE6E6 /* addNounView.xib */,
-			);
-			name = Noun;
 			sourceTree = "<group>";
 		};
 		0350EAEB1A9010BF0038862F = {
@@ -229,7 +189,8 @@
 				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
 				0349C4D01A95C684009FE6E6 /* DismissSegue.swift */,
 				0350EAFD1A9010BF0038862F /* Main.storyboard */,
-				03547E971A94548100471AEA /* TableViewController.swift */,
+				03C11AE51A96D446004DF29B /* PartOfSpeechTableViewController.swift */,
+				03C11AE31A96D33C004DF29B /* AddWordNavigationController.swift */,
 				0350EB001A9010BF0038862F /* Images.xcassets */,
 				0350EB021A9010BF0038862F /* LaunchScreen.xib */,
 				0350EAF71A9010BF0038862F /* Supporting Files */,
@@ -449,10 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */,
-				0349C4DD1A95C78D009FE6E6 /* addNonConjugatableView.xib in Resources */,
-				0349C4DF1A95C78D009FE6E6 /* addVerbView.xib in Resources */,
 				0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */,
-				0349C4E11A95C78D009FE6E6 /* addNounView.xib in Resources */,
 				0350EB311A901E730038862F /* StandardData.sqlite in Resources */,
 				0350EB321A901E730038862F /* UserData.sqlite in Resources */,
 				0350EB011A9010BF0038862F /* Images.xcassets in Resources */,
@@ -484,18 +442,16 @@
 				03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */,
 				0350EB381A901E970038862F /* nonConjugatable.swift in Sources */,
 				03C11ADB1A968BE2004DF29B /* AddAdverbTableViewController.swift in Sources */,
-				0349C4DC1A95C78D009FE6E6 /* addNonConjugatableView.swift in Sources */,
-				03547E981A94548100471AEA /* TableViewController.swift in Sources */,
+				03C11AE41A96D33C004DF29B /* AddWordNavigationController.swift in Sources */,
 				03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */,
 				03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */,
 				03C11AE11A968C08004DF29B /* AddIrregularVerbTableViewController.swift in Sources */,
 				03C11ADF1A968BFC004DF29B /* AddPronounTableViewController.swift in Sources */,
+				03C11AE61A96D446004DF29B /* PartOfSpeechTableViewController.swift in Sources */,
 				0350EB371A901E970038862F /* Word.swift in Sources */,
-				0349C4E01A95C78D009FE6E6 /* addNounView.swift in Sources */,
 				03C11AD31A968BC6004DF29B /* AddNounTableViewController.swift in Sources */,
 				0349C4D11A95C684009FE6E6 /* DismissSegue.swift in Sources */,
 				0350EB3D1A90200B0038862F /* WordListTableViewController.swift in Sources */,
-				0349C4DE1A95C78D009FE6E6 /* addVerbView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

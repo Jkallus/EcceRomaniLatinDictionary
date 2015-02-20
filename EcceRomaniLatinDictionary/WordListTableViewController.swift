@@ -21,6 +21,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
     var sortedFilteredWordsArray = [Word]()
     
     
+    
     @IBOutlet weak var searchLanguageButton: UISegmentedControl!
     @IBAction func languageChanged(sender: UISegmentedControl) {
         switch searchLanguageButton.selectedSegmentIndex {
@@ -31,15 +32,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
         default:
             searchLanguage = "Latin"
         }
-        if searchLanguage == "Latin"{
-            sortedWordsArray = WordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
-            sortedFilteredWordsArray = FilteredWordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
-        }
-        else{
-            sortedWordsArray = WordsArray.sorted{ $0.englishSearchTerm.lowercaseString < $1.englishSearchTerm.lowercaseString}
-            sortedFilteredWordsArray = FilteredWordsArray.sorted{ $0.englishSearchTerm.lowercaseString < $1.englishSearchTerm.lowercaseString}
-        }
-        self.tableView.reloadData()
+        sortTable()
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All"){
@@ -366,14 +359,82 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
     
     
     
+    func sortTable(){
+        if searchLanguage == "Latin"{
+            sortedWordsArray = WordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
+            sortedFilteredWordsArray = FilteredWordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
+        }
+        else{
+            sortedWordsArray = WordsArray.sorted{ $0.englishSearchTerm.lowercaseString < $1.englishSearchTerm.lowercaseString}
+            sortedFilteredWordsArray = FilteredWordsArray.sorted{ $0.englishSearchTerm.lowercaseString < $1.englishSearchTerm.lowercaseString}
+        }
+        self.tableView.reloadData()
+    }
     
-    
-    func userDidEnterInformation(noun: Noun) {
+    func nounInfoEntered(noun: Noun) {
+        self.WordsArray.insert(noun, atIndex: 0)
+        sortTable()
+        self.tableView.reloadData()
         
+        let theFileManager = NSFileManager.defaultManager()
+        if theFileManager.fileExistsAtPath(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite")){
+            let customDB = Database(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite"))
+            
+            let Nouns = customDB["Nouns"]
+            
+            let NominativeSingular = Expression<String>("NominativeSingular")
+            let GenitiveSingular = Expression<String>("GenitiveSingular")
+            let Gender = Expression<String>("Gender")
+            let Declension = Expression<Int>("Declension")
+            
+            let Definition = Expression<String>("Definition")
+            
+            Nouns.insert(NominativeSingular <- noun.nominative.singular, GenitiveSingular <- noun.genitive.singular, Declension <- noun.Declension, Gender <- noun.Gender, Definition <- noun.Definition)?
+            
+        }
     }
     
     
+    func verbInfoEntered(verb: Verb) {
+        self.WordsArray.insert(verb, atIndex: 0)
+        sortTable()
+        self.tableView.reloadData()
+        
+        let theFileManager = NSFileManager.defaultManager()
+        if theFileManager.fileExistsAtPath(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite")){
+            let customDB = Database(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite"))
+            
+            let Verbs = customDB["Verbs"]
+            
+            let FirstPrinciplePart = Expression<String>("FirstPrinciplePart")
+            let SecondPrinciplePart = Expression<String>("SecondPrinciplePart")
+            let ThirdPrinciplePart = Expression<String>("ThirdPrinciplePart")
+            let FourthPrinciplePart = Expression<String>("FourthPrinciplePart")
+            
+            let Definition = Expression<String>("Definition")
+            
+            Verbs.insert(FirstPrinciplePart <- verb.firstPrinciplePart, SecondPrinciplePart <- verb.secondPrinciplePart, ThirdPrinciplePart <- verb.thirdPrinciplePart, FourthPrinciplePart <- verb.fourthPrinciplePart, Definition <- verb.definition)?
+        }
+        
+        
+        
+    }
     
+    func adverbInfoEntered(NonConjugatable: nonConjugatable) {
+        let theFileManager = NSFileManager.defaultManager()
+        if theFileManager.fileExistsAtPath(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite")){
+            let customDB = Database(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite"))
+            
+            let nonConjugatables = customDB["NonConjugatables"]
+            
+            let Latin = Expression<String>("Latin")
+            let Definition = Expression<String>("Definition")
+            
+            
+            nonConjugatables.insert(Latin <- NonConjugatable.latinForm, Definition <- NonConjugatable.englishForm)?
+        }
+        
+    }
     
     
     
@@ -386,47 +447,64 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
     return true
     }
     */
+
     
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        if editingStyle == .Delete {
+            let wordToBeDeleted = sortedWordsArray[indexPath.row]
+            
+            for var index = 0; index < WordsArray.count; index = index + 1{
+                if WordsArray[index].englishSearchTerm == wordToBeDeleted.englishSearchTerm && WordsArray[index].latinSearchTerm == wordToBeDeleted.latinSearchTerm && WordsArray[index].partOfSpeech == wordToBeDeleted.partOfSpeech{
+                    WordsArray.removeAtIndex(index)
+                }
+            }
+            
+            sortTable()
+            tableView.reloadData()
+            
+            let theFileManager = NSFileManager.defaultManager()
+            if theFileManager.fileExistsAtPath(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite")){
+                let customDB = Database(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite"))
+                
+                let Nouns = customDB["Nouns"]
+                let Verbs = customDB["Verbs"]
+                let Adjectives = customDB["Adjectives"]
+                let nonConjugatables = customDB["NonConjugatables"]
+                
+                //Nouns
+                let NominativeSingular = Expression<String>("NominativeSingular")
+                let GenitiveSingular = Expression<String>("GenitiveSingular")
+                let Gender = Expression<String>("Gender")
+                let Declension = Expression<Int>("Declension")
+                
+                
+                //Verbs
+                let FirstPrinciplePart = Expression<String>("FirstPrinciplePart")
+                let SecondPrinciplePart = Expression<String>("SecondPrinciplePart")
+                let ThirdPrinciplePart = Expression<String>("ThirdPrinciplePart")
+                let FourthPrinciplePart = Expression<String>("FourthPrinciplePart")
+                
+                //NonConjugatables
+                let Latin = Expression<String>("Latin")
+                let Definition = Expression<String>("Definition")
+                
+                if let noun = wordToBeDeleted as? Noun{
+                    let delete = Nouns.filter(NominativeSingular == noun.nominative.singular && GenitiveSingular == noun.genitive.singular && Gender == noun.Gender && Definition == noun.Definition && Declension == noun.Declension)
+                    delete.delete()?
+                }
+                else if let verb = wordToBeDeleted as? Verb{
+                    let delete = Verbs.filter(FirstPrinciplePart == verb.firstPrinciplePart && SecondPrinciplePart == verb.secondPrinciplePart && ThirdPrinciplePart == verb.thirdPrinciplePart && FourthPrinciplePart == verb.fourthPrinciplePart && Definition == verb.definition)
+                    delete.delete()?
+                }
+                else{
+                    let NonConjugatable = wordToBeDeleted as nonConjugatable
+                    let delete = nonConjugatables.filter(Latin == NonConjugatable.latinForm && Definition == NonConjugatable.englishForm)
+                    delete.delete()?
+                }
+            }
+        }
     }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -482,10 +560,11 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                 println("Test")
             }
         }
-        
-        //        else if segue.identifier == "addWordSegue"{
-        //            let addWordViewController: AddWordViewController = segue.destinationViewController as AddWordViewController
-        //            addWordViewController.delegate = self
-        //        }
+            
+        else if segue.identifier == "addWordSegue"{
+            
+            
+            
+        }
     }
 }
