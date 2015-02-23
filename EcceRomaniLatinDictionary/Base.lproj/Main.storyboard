@@ -930,7 +930,7 @@
                     <navigationItem key="navigationItem" title="Noun Detail" id="Qgh-O5-yJH">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Otx-ZQ-8x5">
                             <connections>
-                                <segue destination="FFa-ZQ-fSZ" kind="show" id="hdc-8K-o1T"/>
+                                <segue destination="FFa-ZQ-fSZ" kind="show" identifier="nounWebSegue" id="hdc-8K-o1T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -942,10 +942,10 @@
             </objects>
             <point key="canvasLocation" x="2074" y="-257"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Website Table View Controller-->
         <scene sceneID="Ygd-87-4uF">
             <objects>
-                <tableViewController id="FFa-ZQ-fSZ" sceneMemberID="viewController">
+                <tableViewController id="FFa-ZQ-fSZ" customClass="WebsiteTableViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1qQ-1T-bO5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -973,7 +973,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Iti-rz-ueG" kind="show" id="vah-31-6pT"/>
+                                            <segue destination="U4W-Vy-aIX" kind="show" identifier="wiktionarySegue" id="rFp-Nh-wk7"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Tmn-k8-EhA">
@@ -996,7 +996,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="U4W-Vy-aIX" kind="show" id="2ms-JY-oIq"/>
+                                            <segue destination="U4W-Vy-aIX" kind="show" identifier="whitakerSegue" id="HqA-KA-brh"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1012,10 +1012,10 @@
             </objects>
             <point key="canvasLocation" x="2754" y="-263"/>
         </scene>
-        <!--William Whitakers Words-->
+        <!--Website Name-->
         <scene sceneID="28z-qm-CLn">
             <objects>
-                <viewController id="U4W-Vy-aIX" sceneMemberID="viewController">
+                <viewController id="U4W-Vy-aIX" customClass="WebViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gXd-Wv-k1m"/>
                         <viewControllerLayoutGuide type="bottom" id="dMI-w6-a1y"/>
@@ -1024,55 +1024,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLA-SL-Kyf">
+                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem image="undo_filled-32.png" id="NAV-Py-SFu">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="U4W-Vy-aIX" id="CZt-1Y-b0E"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="redo_filled-32.png" id="vZv-6K-xV3">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="forwardButtonPressed:" destination="U4W-Vy-aIX" id="K6n-CH-ucP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="update_filled-32.png" id="daI-yE-Usu">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="refreshButtonPressed:" destination="U4W-Vy-aIX" id="EwF-LX-HlR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="cancel_filled-32.png" id="hDM-Eb-0ja">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="U4W-Vy-aIX" id="sFk-oI-3KR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-HX-JjO">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dLA-SL-Kyf" firstAttribute="leading" secondItem="6cr-0K-p50" secondAttribute="leadingMargin" constant="-16" id="3vf-eZ-feL"/>
                             <constraint firstItem="Jcm-HX-JjO" firstAttribute="top" secondItem="gXd-Wv-k1m" secondAttribute="bottom" id="Nv1-Lz-BaQ"/>
+                            <constraint firstItem="dMI-w6-a1y" firstAttribute="top" secondItem="dLA-SL-Kyf" secondAttribute="bottom" id="QN9-ee-Lza"/>
                             <constraint firstItem="Jcm-HX-JjO" firstAttribute="leading" secondItem="6cr-0K-p50" secondAttribute="leadingMargin" constant="-16" id="a3V-Nq-rlg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dLA-SL-Kyf" secondAttribute="trailing" constant="-16" id="aBb-ev-Q93"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jcm-HX-JjO" secondAttribute="trailing" constant="-16" id="gV6-NT-CgQ"/>
-                            <constraint firstItem="dMI-w6-a1y" firstAttribute="top" secondItem="Jcm-HX-JjO" secondAttribute="bottom" id="nbk-7b-HDA"/>
+                            <constraint firstItem="dLA-SL-Kyf" firstAttribute="top" secondItem="Jcm-HX-JjO" secondAttribute="bottom" id="idF-Cn-43b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="William Whitakers Words" id="bXx-u0-TLT"/>
+                    <navigationItem key="navigationItem" title="Website Name" id="bXx-u0-TLT"/>
+                    <connections>
+                        <outlet property="webView" destination="Jcm-HX-JjO" id="ekJ-6k-0KT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2p-FH-dmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3483" y="53"/>
-        </scene>
-        <!--Wiktionary-->
-        <scene sceneID="TWt-VY-Rzk">
-            <objects>
-                <viewController id="Iti-rz-ueG" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pza-FL-KZO"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZZn-WK-vYV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Lgv-9I-SX9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xb8-4V-qxm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Xb8-4V-qxm" firstAttribute="leading" secondItem="Lgv-9I-SX9" secondAttribute="leadingMargin" constant="-16" id="QvR-pw-SmW"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Xb8-4V-qxm" secondAttribute="bottom" id="Wib-xj-OpW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Xb8-4V-qxm" secondAttribute="trailing" constant="-16" id="cGz-Of-OGg"/>
-                            <constraint firstItem="Xb8-4V-qxm" firstAttribute="top" secondItem="Lgv-9I-SX9" secondAttribute="topMargin" id="kXF-zR-XRP"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Wiktionary" id="ny9-5w-nXd"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6a1-dI-DFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3483" y="-610"/>
+            <point key="canvasLocation" x="3444" y="-263"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="B7c-ie-mZs">
@@ -1158,7 +1162,7 @@
                     <navigationItem key="navigationItem" title="NonConjugatable Detail" id="CgX-5D-uHe">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="7bR-Ig-oqi">
                             <connections>
-                                <segue destination="FFa-ZQ-fSZ" kind="show" id="ueA-rF-2UR"/>
+                                <segue destination="FFa-ZQ-fSZ" kind="show" identifier="nonConjugatableWebSegue" id="ueA-rF-2UR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1211,7 +1215,7 @@
                     <navigationItem key="navigationItem" title="Adjective Detail" id="Lgr-wK-sco">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="vvA-jn-hXi">
                             <connections>
-                                <segue destination="FFa-ZQ-fSZ" kind="show" id="CRg-YP-BFG"/>
+                                <segue destination="FFa-ZQ-fSZ" kind="show" identifier="adjectiveWebSegue" id="CRg-YP-BFG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1282,7 +1286,7 @@
                     <navigationItem key="navigationItem" title="Verb Detail" id="NgN-TL-lN3">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ows-EM-kFe">
                             <connections>
-                                <segue destination="FFa-ZQ-fSZ" kind="show" id="axw-An-NOB"/>
+                                <segue destination="FFa-ZQ-fSZ" kind="show" identifier="verbWebSegue" id="axw-An-NOB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1295,8 +1299,15 @@
             <point key="canvasLocation" x="2074" y="418"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel_filled-32.png" width="32" height="32"/>
+        <image name="redo_filled-32.png" width="32" height="32"/>
+        <image name="undo_filled-32.png" width="32" height="32"/>
+        <image name="update_filled-32.png" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Qjz-sx-adZ"/>
-        <segue reference="hdc-8K-o1T"/>
+        <segue reference="ueA-rF-2UR"/>
+        <segue reference="HqA-KA-brh"/>
     </inferredMetricsTieBreakers>
 </document>
