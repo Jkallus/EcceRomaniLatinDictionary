@@ -235,6 +235,8 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        if segue.identifier == "nounWebSegue"{
+            (segue.destinationViewController as WebsiteTableViewController).word = self.word!
+        }
     }
 }

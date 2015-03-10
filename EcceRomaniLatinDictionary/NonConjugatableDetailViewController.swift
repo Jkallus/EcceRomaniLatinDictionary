@@ -65,6 +65,8 @@ class NonConjugatableDetailViewController: UIViewController, UITableViewDelegate
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        if segue.identifier == "nonConjugatableWebSegue"{
+            (segue.destinationViewController as WebsiteTableViewController).word = self.word!
+        }
     }
 }
