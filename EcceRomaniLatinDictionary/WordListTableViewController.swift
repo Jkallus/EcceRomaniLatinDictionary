@@ -151,13 +151,74 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             let pathToDevice = pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite")
             var error: NSError?
             if(theFileManager.copyItemAtPath(pathToBundledDB!, toPath: pathToDevice, error: &error)){
-                println("File was copied from \(pathToBundledDB!) to \(pathToDevice)")
-                let alertController = UIAlertController(title: "File Error", message: "Standard Library File was copied from \(pathToBundledDB!) to \(pathToDevice)", preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                alertController.addAction(OKAction)
-                self.presentViewController(alertController, animated: true) {}
+                //println("File was copied from \(pathToBundledDB!) to \(pathToDevice)")
+                //let alertController = UIAlertController(title: "File Error", message: "Standard Library File was copied from \(pathToBundledDB!) to \(pathToDevice)", preferredStyle: .Alert)
+                //let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                //alertController.addAction(OKAction)
+                //self.presentViewController(alertController, animated: true) {}
+                
+                //File copy works.
+                let db = Database(pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite"))
+                
+                let Nouns = db["Nouns"]
+                let Verbs = db["Verbs"]
+                let Adjectives = db["Adjectives"]
+                let NonConjugatables = db["NonConjugatables"]
+                
+                //Nouns
+                let NominativeSingular = Expression<String>("NominativeSingular")
+                let GenitiveSingular = Expression<String>("GenitiveSingular")
+                let Gender = Expression<String>("Gender")
+                let Declension = Expression<Int>("Declension")
+                
+                //Verbs
+                let FirstPrinciplePart = Expression<String>("FirstPrinciplePart")
+                let SecondPrinciplePart = Expression<String>("SecondPrinciplePart")
+                let ThirdPrinciplePart = Expression<String>("ThirdPrinciplePart")
+                let FourthPrinciplePart = Expression<String>("FourthPrinciplePart")
+                
+                //NonConjugatables
+                let Latin = Expression<String>("Latin")
+                let Definition = Expression<String>("Definition")
+                
+                var i = 0
+                for Word in Nouns{
+                    let incomingNoun: Noun = Noun(NominativeSingularInput: Word[NominativeSingular], GenitiveSingularInput: Word[GenitiveSingular], GenderInput: Word[Gender], DefinitionInput: Word[Definition], DeclensionInput: Word[Declension])
+                    WordsArray.insert(incomingNoun, atIndex: i)
+                    i++
+                }
+                
+                for Word in Verbs{
+                    let incomingVerb: Verb = Verb(firstPrinciplePart: Word[FirstPrinciplePart], secondPrinciplePart: Word[SecondPrinciplePart], thirdPrinciplePart: Word[ThirdPrinciplePart], fourthPrinciplePart: Word[FourthPrinciplePart], definition: Word[Definition])
+                    WordsArray.insert(incomingVerb, atIndex: i)
+                    i++
+                    
+                }
+                
+                for Word in NonConjugatables{
+                    let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
+                    WordsArray.insert(incomingNonConjugatable, atIndex: i)
+                    i++
+                }
+                
+                sortedWordsArray = WordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
+                for word in sortedWordsArray{
+                    println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
+                }
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             }
             else{
+                //File copy fails
                 println("Failure: File did not copy successfully")
             }
         }
@@ -223,13 +284,71 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             let pathToDevice = pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite")
             var error: NSError?
             if(theFileManager.copyItemAtPath(pathToBundledDB!, toPath: pathToDevice, error: &error)){
-                println("File was copied from \(pathToBundledDB!) to \(pathToDevice)")
-                let alertController = UIAlertController(title: "File Error", message: "User Library File was copied from \(pathToBundledDB!) to \(pathToDevice)", preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                alertController.addAction(OKAction)
-                self.presentViewController(alertController, animated: true) {}
+//                println("File was copied from \(pathToBundledDB!) to \(pathToDevice)")
+//                let alertController = UIAlertController(title: "File Error", message: "User Library File was copied from \(pathToBundledDB!) to \(pathToDevice)", preferredStyle: .Alert)
+//                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+//                alertController.addAction(OKAction)
+//                self.presentViewController(alertController, animated: true) {}
+                
+                
+                //File copy works
+                let customDB = Database(pathToDocsFolder().stringByAppendingPathComponent("/UserData.sqlite"))
+                
+                let customNouns = customDB["Nouns"]
+                let customVerbs = customDB["Verbs"]
+                let customAdjectives = customDB["Adjectives"]
+                let customNonConjugatables = customDB["NonConjugatables"]
+                
+                //Nouns
+                let customNominativeSingular = Expression<String>("NominativeSingular")
+                let customGenitiveSingular = Expression<String>("GenitiveSingular")
+                let customDeclension = Expression<Int>("Declension")
+                let customGender = Expression<String>("Gender")
+                
+                //Verbs
+                let customFirstPrinciplePart = Expression<String>("FirstPrinciplePart")
+                let customSecondPrinciplePart = Expression<String>("SecondPrinciplePart")
+                let customThirdPrinciplePart = Expression<String>("ThirdPrinciplePart")
+                let customFourthPrinciplePart = Expression<String>("FourthPrinciplePart")
+                
+                //NonConjugatables
+                let customLatin = Expression<String>("Latin")
+                
+                let customDefinition = Expression<String>("Definition")
+                
+                var customI = 0
+                
+                
+                
+                for Word in customNouns{
+                    let customIncomingNoun: Noun = Noun(NominativeSingularInput: Word[customNominativeSingular], GenitiveSingularInput: Word[customGenitiveSingular], GenderInput: Word[customGender], DefinitionInput: Word[customDefinition], DeclensionInput: Word[customDeclension])
+                    WordsArray.insert(customIncomingNoun, atIndex: customI)
+                    customI++
+                }
+                
+                for Word in customVerbs{
+                    let customIncomingVerb: Verb = Verb(firstPrinciplePart: Word[customFirstPrinciplePart], secondPrinciplePart: Word[customSecondPrinciplePart], thirdPrinciplePart: Word[customThirdPrinciplePart], fourthPrinciplePart: Word[customFourthPrinciplePart], definition: Word[customDefinition])
+                    WordsArray.insert(customIncomingVerb, atIndex: customI)
+                    customI++
+                }
+                
+                for Word in customNonConjugatables{
+                    let customIncomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[customLatin], englishFormInput: Word[customDefinition])
+                    WordsArray.insert(customIncomingNonConjugatable, atIndex: customI)
+                    customI++
+                }
+                
+                sortedWordsArray = WordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
+                for word in sortedWordsArray{
+                    println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
+                }
+
+                
+                
+                
             }
             else{
+                //File copy fails
                 println("Failure: File did not copy successfully")
             }
         }
