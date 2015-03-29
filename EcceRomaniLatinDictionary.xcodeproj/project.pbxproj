@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03366F861AC7DE4600971AE9 /* StandardData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 03366F841AC7DE4600971AE9 /* StandardData.sqlite */; };
+		03366F871AC7DE4600971AE9 /* UserData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 03366F851AC7DE4600971AE9 /* UserData.sqlite */; };
 		0349C4D11A95C684009FE6E6 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4D01A95C684009FE6E6 /* DismissSegue.swift */; };
 		0349C4D51A95C732009FE6E6 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */; };
 		0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EAF91A9010BF0038862F /* AppDelegate.swift */; };
@@ -14,8 +16,6 @@
 		0350EB011A9010BF0038862F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB001A9010BF0038862F /* Images.xcassets */; };
 		0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB021A9010BF0038862F /* LaunchScreen.xib */; };
 		0350EB101A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB0F1A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift */; };
-		0350EB311A901E730038862F /* StandardData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB2F1A901E730038862F /* StandardData.sqlite */; };
-		0350EB321A901E730038862F /* UserData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0350EB301A901E730038862F /* UserData.sqlite */; };
 		0350EB371A901E970038862F /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB331A901E970038862F /* Word.swift */; };
 		0350EB381A901E970038862F /* nonConjugatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB341A901E970038862F /* nonConjugatable.swift */; };
 		0350EB391A901E970038862F /* Noun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EB351A901E970038862F /* Noun.swift */; };
@@ -102,6 +102,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03366F841AC7DE4600971AE9 /* StandardData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = StandardData.sqlite; path = Data/Current/StandardData.sqlite; sourceTree = SOURCE_ROOT; };
+		03366F851AC7DE4600971AE9 /* UserData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = UserData.sqlite; path = Data/Current/UserData.sqlite; sourceTree = SOURCE_ROOT; };
 		0349C4D01A95C684009FE6E6 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		0350EAF41A9010BF0038862F /* EcceRomaniLatinDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcceRomaniLatinDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,8 +115,6 @@
 		0350EB091A9010BF0038862F /* EcceRomaniLatinDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcceRomaniLatinDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0350EB0E1A9010BF0038862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0350EB0F1A9010BF0038862F /* EcceRomaniLatinDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcceRomaniLatinDictionaryTests.swift; sourceTree = "<group>"; };
-		0350EB2F1A901E730038862F /* StandardData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = StandardData.sqlite; sourceTree = "<group>"; };
-		0350EB301A901E730038862F /* UserData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = UserData.sqlite; sourceTree = "<group>"; };
 		0350EB331A901E970038862F /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		0350EB341A901E970038862F /* nonConjugatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nonConjugatable.swift; sourceTree = "<group>"; };
 		0350EB351A901E970038862F /* Noun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noun.swift; sourceTree = "<group>"; };
@@ -215,8 +215,8 @@
 		0350EAF71A9010BF0038862F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0350EB2F1A901E730038862F /* StandardData.sqlite */,
-				0350EB301A901E730038862F /* UserData.sqlite */,
+				03366F841AC7DE4600971AE9 /* StandardData.sqlite */,
+				03366F851AC7DE4600971AE9 /* UserData.sqlite */,
 				0350EAF81A9010BF0038862F /* Info.plist */,
 				03693B5A1A9959DD004C4C4D /* Internal Icons */,
 			);
@@ -438,12 +438,12 @@
 			files = (
 				03BB29F81A99C49700F7217B /* cancel_filled-32.png in Resources */,
 				0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */,
+				03366F871AC7DE4600971AE9 /* UserData.sqlite in Resources */,
 				0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */,
-				0350EB311A901E730038862F /* StandardData.sqlite in Resources */,
 				03BB29FA1A99C49700F7217B /* undo_filled-32.png in Resources */,
-				0350EB321A901E730038862F /* UserData.sqlite in Resources */,
 				03BB29F91A99C49700F7217B /* redo_filled-32.png in Resources */,
 				0350EB011A9010BF0038862F /* Images.xcassets in Resources */,
+				03366F861AC7DE4600971AE9 /* StandardData.sqlite in Resources */,
 				03BB29FB1A99C49700F7217B /* update_filled-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

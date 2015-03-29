@@ -67,6 +67,10 @@ func deriveNominative(NominativeSingular: String, GenitiveSingular: String, Gend
     var NomSing: String?
     var NomPlural: String?
     
+    if NominativeSingular == "abyssus"{
+        println("TEST")
+    }
+    
     //var derivedNominative: nominativeCase = nominativeCase(NominativeSingularInput: "",NominativePluralInput: "")
     
     if Declension == 1{
@@ -75,7 +79,7 @@ func deriveNominative(NominativeSingular: String, GenitiveSingular: String, Gend
     }
     if Declension == 2{
         NomSing = NominativeSingular
-        if Gender == "Masculine"{
+        if Gender == "Masculine" || Gender == "Feminine"{
             if NominativeSingular.hasSuffix("r"){
                 NomPlural = NominativeSingular+"i"
             }
@@ -128,7 +132,7 @@ func deriveGenitive(NominativeSingular: String, GenitiveSingular: String, Gender
         GenPlural = NominativeSingular + "rum"
     }
     if Declension == 2 {
-        if Gender == "Masculine"{
+        if Gender == "Masculine" || Gender == "Feminine"{
             GenSing = GenitiveSingular
             GenPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "orum"
         }
@@ -193,7 +197,7 @@ func deriveAccusative(NominativeSingular: String, GenitiveSingular: String, Gend
         AccPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -1))) + "ās"
     }
     if Declension == 2{
-        if Gender == "Masculine"{
+        if Gender == "Masculine" || Gender == "Feminine"{
             AccSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "um"
             AccPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "ōs"
         }
@@ -272,7 +276,7 @@ func deriveVocative(NominativeSingular: String, GenitiveSingular: String, Gender
     }
     if Declension == 2{
         VocSing = NominativeSingular
-        if Gender == "Masculine"{
+        if Gender == "Masculine" || Gender == "Feminine"{
             if NominativeSingular.hasSuffix("r"){
                 VocPlural = NominativeSingular+"i"
             }
