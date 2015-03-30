@@ -45,9 +45,9 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             else{
                 stringMatch = word.englishSearchTerm.lowercaseString.hasPrefix(searchText.lowercaseString)
             }
-            println(word.latinSearchTerm)
-            println(categoryMatch && (stringMatch))
-            println()
+            //println(word.latinSearchTerm)
+            //println(categoryMatch && (stringMatch))
+            //println()
             return categoryMatch && (stringMatch)
         })
         
@@ -59,11 +59,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             sortedWordsArray = WordsArray.sorted{ $0.englishSearchTerm.lowercaseString < $1.englishSearchTerm.lowercaseString}
             sortedFilteredWordsArray = FilteredWordsArray.sorted{ $0.englishSearchTerm.lowercaseString < $1.englishSearchTerm.lowercaseString}
         }
-        println()
-        println()
-        println()
-        println()
-        println()
+
     }
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool{
@@ -82,7 +78,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
     
     func pathToDocsFolder() -> String {
         let pathToDocumentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        println(pathToDocumentsFolder)
+        //println(pathToDocumentsFolder)
         return pathToDocumentsFolder
     }
     
@@ -141,7 +137,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             
             sortedWordsArray = WordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
             for word in sortedWordsArray{
-                println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
+                //println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
             }
         }
             
@@ -203,7 +199,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                 
                 sortedWordsArray = WordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
                 for word in sortedWordsArray{
-                    println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
+                    //println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
                 }
 
                 
@@ -272,7 +268,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             
             sortedWordsArray = WordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
             for word in sortedWordsArray{
-                println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
+                //println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
             }
             
             
@@ -340,7 +336,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                 
                 sortedWordsArray = WordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
                 for word in sortedWordsArray{
-                    println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
+                    //println("Latin Search Term: \(word.latinSearchTerm), English Search Term: \(word.englishSearchTerm), Part of Speech: \(word.partOfSpeech)")
                 }
 
                 
@@ -387,13 +383,13 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                     cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as LatinTableViewCell
                     cell.textLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
                     cell.detailTextLabel!.text = noun.Definition.lowercaseString
-                    println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
+                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as LatinTableViewCell
                     cell.textLabel!.text = noun.Definition.lowercaseString
                     cell.detailTextLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
-                    println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
+                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
             }
                 
@@ -416,13 +412,13 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                     cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as LatinTableViewCell
                     cell.textLabel!.text = verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
                     cell.detailTextLabel!.text = verb.definition.lowercaseString
-                    println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
+                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as LatinTableViewCell
                     cell.textLabel!.text = verb.definition.lowercaseString
                     cell.detailTextLabel!.text = verb.firstPrinciplePart + ", " + verb.secondPrinciplePart.lowercaseString
-                    println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
+                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
             }
         }
@@ -434,13 +430,13 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                     cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as LatinTableViewCell
                     cell.textLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
                     cell.detailTextLabel!.text = noun.Definition.lowercaseString
-                    println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
+                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as LatinTableViewCell
                     cell.textLabel!.text = noun.Definition.lowercaseString
                     cell.detailTextLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
-                    println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
+                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
             }
                 
@@ -463,13 +459,13 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                     cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as LatinTableViewCell
                     cell.textLabel!.text = verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
                     cell.detailTextLabel!.text = verb.definition.lowercaseString
-                    println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
+                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as LatinTableViewCell
                     cell.textLabel!.text =   verb.definition.lowercaseString
                     cell.detailTextLabel!.text =  verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
-                    println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
+                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
             }
         }
@@ -673,10 +669,10 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
-                println("Test")
+                //println("Test")
                 (segue.destinationViewController as NonConjugatableDetailViewController).word = sortedWordsArray[indexPath.row]
                 println((segue.destinationViewController as NonConjugatableDetailViewController).word!.latinSearchTerm)
-                println("Test")
+                //println("Test")
             }
         }
             

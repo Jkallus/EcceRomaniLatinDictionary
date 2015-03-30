@@ -67,7 +67,7 @@ func deriveNominative(NominativeSingular: String, GenitiveSingular: String, Gend
     var NomSing: String?
     var NomPlural: String?
     
-    if NominativeSingular == "abyssus"{
+    if NominativeSingular == "semibos"{
         println("TEST")
     }
     
