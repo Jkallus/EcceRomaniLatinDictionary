@@ -23,7 +23,7 @@ class AddAdverbTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = ((self.presentingViewController as UITabBarController).viewControllers![0] as UINavigationController).viewControllers[0] as WordListTableViewController
+        self.delegate = ((self.presentingViewController as! UITabBarController).viewControllers![0] as! UINavigationController).viewControllers[0] as! WordListTableViewController
         //self.delegate = self.presentingViewController! as WordListTableViewController
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

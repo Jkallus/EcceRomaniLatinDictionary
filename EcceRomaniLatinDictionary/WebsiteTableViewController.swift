@@ -29,7 +29,7 @@ class WebsiteTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let webViewController :WebViewController = segue.destinationViewController as WebViewController
+        let webViewController :WebViewController = segue.destinationViewController as! WebViewController
         if segue.identifier == "wiktionarySegue"{
 
             if let noun = word as? Noun{
@@ -45,14 +45,14 @@ class WebsiteTableViewController: UITableViewController {
                 println("Post:  \(webViewController.url)")
             }
             else{
-                let nonConjugatableWord = word as nonConjugatable
+                let nonConjugatableWord = word as! nonConjugatable
                 println("Pre:  \(webViewController.url)")
                 webViewController.url = NSURL(string: "http://en.wiktionary.org/wiki/\(nonConjugatableWord.latinForm.normalString())#latin")
                 println("String: http://en.wiktionary.org/wiki/\(nonConjugatableWord.latinForm.normalString())#latin")
                 println("Post:  \(webViewController.url)")
             }
             
-            (segue.destinationViewController as WebViewController).title = "Wiktionary"
+            (segue.destinationViewController as! WebViewController).title = "Wiktionary"
         }
         else if segue.identifier == "whitakerSegue"{
             if let noun = word as? Noun{
@@ -68,7 +68,7 @@ class WebsiteTableViewController: UITableViewController {
                 println("Post:  \(webViewController.url)")
             }
             else{
-                let nonConjugatableWord = word as nonConjugatable
+                let nonConjugatableWord = word as! nonConjugatable
                 println("Pre:  \(webViewController.url)")
                 webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(nonConjugatableWord.latinForm.normalString())")
                 println("String: http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(nonConjugatableWord.latinForm.normalString())")

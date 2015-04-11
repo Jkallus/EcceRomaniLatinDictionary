@@ -63,21 +63,21 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
     }
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool{
-        let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as [String]
+        let scopes = self.searchDisplayController!.searchBar.scopeButtonTitles as! [String]
         let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
         self.filterContentForSearchText(searchString, scope: selectedScope)
         return true
     }
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool{
-        let scope = self.searchDisplayController!.searchBar.scopeButtonTitles as [String]
+        let scope = self.searchDisplayController!.searchBar.scopeButtonTitles as! [String]
         self.filterContentForSearchText(self.searchDisplayController!.searchBar.text, scope: scope[searchOption])
         return true
     }
     
     
     func pathToDocsFolder() -> String {
-        let pathToDocumentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let pathToDocumentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         //println(pathToDocumentsFolder)
         return pathToDocumentsFolder
     }
@@ -380,13 +380,13 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             let word = sortedFilteredWordsArray[indexPath.row]
             if let noun = word as? Noun{
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
                     cell.detailTextLabel!.text = noun.Definition.lowercaseString
                     //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = noun.Definition.lowercaseString
                     cell.detailTextLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
                     //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
@@ -395,27 +395,27 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                 
             else if let nonConjugatable = word as? nonConjugatable{
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = nonConjugatable.latinForm
                     cell.detailTextLabel!.text = nonConjugatable.englishForm
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = nonConjugatable.englishForm
                     cell.detailTextLabel!.text = nonConjugatable.latinForm
                 }
             }
                 
             else{
-                let verb = word as Verb
+                let verb = word as! Verb
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
                     cell.detailTextLabel!.text = verb.definition.lowercaseString
                     //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = verb.definition.lowercaseString
                     cell.detailTextLabel!.text = verb.firstPrinciplePart + ", " + verb.secondPrinciplePart.lowercaseString
                     //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
@@ -427,13 +427,13 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             let word = sortedWordsArray[indexPath.row]
             if let noun = word as? Noun{
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
                     cell.detailTextLabel!.text = noun.Definition.lowercaseString
                     //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = noun.Definition.lowercaseString
                     cell.detailTextLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
                     //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
@@ -442,27 +442,27 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                 
             else if let nonConjugatable = word as? nonConjugatable{
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = nonConjugatable.latinForm
                     cell.detailTextLabel!.text = nonConjugatable.englishForm
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = nonConjugatable.englishForm
                     cell.detailTextLabel!.text = nonConjugatable.latinForm
                 }
             }
                 
             else{
-                let verb = word as Verb
+                let verb = word as! Verb
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
                     cell.detailTextLabel!.text = verb.definition.lowercaseString
                     //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as LatinTableViewCell
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text =   verb.definition.lowercaseString
                     cell.detailTextLabel!.text =  verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
                     //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
@@ -504,8 +504,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             
             let Definition = Expression<String>("Definition")
             
-            Nouns.insert(NominativeSingular <- noun.nominative.singular, GenitiveSingular <- noun.genitive.singular, Declension <- noun.Declension, Gender <- noun.Gender, Definition <- noun.Definition)?
-            
+            Nouns.insert(NominativeSingular <- noun.nominative.singular, GenitiveSingular <- noun.genitive.singular, Declension <- noun.Declension, Gender <- noun.Gender, Definition <- noun.Definition)!
         }
     }
     
@@ -528,7 +527,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             
             let Definition = Expression<String>("Definition")
             
-            Verbs.insert(FirstPrinciplePart <- verb.firstPrinciplePart, SecondPrinciplePart <- verb.secondPrinciplePart, ThirdPrinciplePart <- verb.thirdPrinciplePart, FourthPrinciplePart <- verb.fourthPrinciplePart, Definition <- verb.definition)?
+            Verbs.insert(FirstPrinciplePart <- verb.firstPrinciplePart, SecondPrinciplePart <- verb.secondPrinciplePart, ThirdPrinciplePart <- verb.thirdPrinciplePart, FourthPrinciplePart <- verb.fourthPrinciplePart, Definition <- verb.definition)!
         }
         
         
@@ -546,7 +545,7 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
             let Definition = Expression<String>("Definition")
             
             
-            nonConjugatables.insert(Latin <- NonConjugatable.latinForm, Definition <- NonConjugatable.englishForm)?
+            nonConjugatables.insert(Latin <- NonConjugatable.latinForm, Definition <- NonConjugatable.englishForm)!
         }
         
     }
@@ -606,16 +605,16 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
                 
                 if let noun = wordToBeDeleted as? Noun{
                     let delete = Nouns.filter(NominativeSingular == noun.nominative.singular && GenitiveSingular == noun.genitive.singular && Gender == noun.Gender && Definition == noun.Definition && Declension == noun.Declension)
-                    delete.delete()?
+                    delete.delete()!
                 }
                 else if let verb = wordToBeDeleted as? Verb{
                     let delete = Verbs.filter(FirstPrinciplePart == verb.firstPrinciplePart && SecondPrinciplePart == verb.secondPrinciplePart && ThirdPrinciplePart == verb.thirdPrinciplePart && FourthPrinciplePart == verb.fourthPrinciplePart && Definition == verb.definition)
-                    delete.delete()?
+                    delete.delete()!
                 }
                 else{
-                    let NonConjugatable = wordToBeDeleted as nonConjugatable
+                    let NonConjugatable = wordToBeDeleted as! nonConjugatable
                     let delete = nonConjugatables.filter(Latin == NonConjugatable.latinForm && Definition == NonConjugatable.englishForm)
-                    delete.delete()?
+                    delete.delete()!
                 }
             }
         }
@@ -628,11 +627,11 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
         if segue.identifier == "nounDetailViewSegue"{
             if self.searchDisplayController!.active{
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                (segue.destinationViewController as NounDetailViewController).word = sortedFilteredWordsArray[indexPath.row]
+                (segue.destinationViewController as! NounDetailViewController).word = sortedFilteredWordsArray[indexPath.row]
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
-                (segue.destinationViewController as NounDetailViewController).word = sortedWordsArray[indexPath.row]
+                (segue.destinationViewController as! NounDetailViewController).word = sortedWordsArray[indexPath.row]
             }
         }
             
@@ -642,11 +641,11 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
         else if segue.identifier == "verbDetailViewSegue"{
             if self.searchDisplayController!.active{
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                (segue.destinationViewController as VerbDetailViewController).word = sortedFilteredWordsArray[indexPath.row]
+                (segue.destinationViewController as! VerbDetailViewController).word = sortedFilteredWordsArray[indexPath.row]
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
-                (segue.destinationViewController as VerbDetailViewController).word = sortedWordsArray[indexPath.row]
+                (segue.destinationViewController as! VerbDetailViewController).word = sortedWordsArray[indexPath.row]
             }
         }
             
@@ -665,13 +664,13 @@ class WordListTableViewController: UITableViewController, UISearchBarDelegate, U
         else if segue.identifier == "nonConjugatableDetailViewSegue"{
             if self.searchDisplayController!.active{
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                (segue.destinationViewController as NonConjugatableDetailViewController).word = sortedFilteredWordsArray[indexPath.row]
+                (segue.destinationViewController as! NonConjugatableDetailViewController).word = sortedFilteredWordsArray[indexPath.row]
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
                 //println("Test")
-                (segue.destinationViewController as NonConjugatableDetailViewController).word = sortedWordsArray[indexPath.row]
-                println((segue.destinationViewController as NonConjugatableDetailViewController).word!.latinSearchTerm)
+                (segue.destinationViewController as! NonConjugatableDetailViewController).word = sortedWordsArray[indexPath.row]
+                println((segue.destinationViewController as! NonConjugatableDetailViewController).word!.latinSearchTerm)
                 //println("Test")
             }
         }

@@ -9,22 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EcceRomaniLatinDictionary/WordListTableViewController.swift"
-            timestampString = "449373855.173037"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "EcceRomaniLatinDictionary/Noun.swift"
             timestampString = "449307299.129037"
             startingColumnNumber = "9223372036854775807"
@@ -38,7 +22,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EcceRomaniLatinDictionary/WordListTableViewController.swift"
@@ -49,36 +33,6 @@
             endingLineNumber = "38"
             landmarkName = "filterContentForSearchText(_:scope:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EcceRomaniLatinDictionary.WordListTableViewController.filterContentForSearchText (EcceRomaniLatinDictionary.WordListTableViewController)(Swift.String, scope : Swift.String) -&gt; ()"
-                  moduleName = "EcceRomaniLatinDictionary"
-                  urlString = "file:///Users/Josh/GitHub/Ecce%20Romani%20Latin%20Dictionary/EcceRomaniLatinDictionary/EcceRomaniLatinDictionary/WordListTableViewController.swift"
-                  timestampString = "449377066.779814"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EcceRomaniLatinDictionary.WordListTableViewController.(filterContentForSearchText (EcceRomaniLatinDictionary.WordListTableViewController) -&gt; (Swift.String, scope : Swift.String) -&gt; ()).(default argument 1)"
-                  moduleName = "EcceRomaniLatinDictionary"
-                  urlString = "file:///Users/Josh/GitHub/Ecce%20Romani%20Latin%20Dictionary/EcceRomaniLatinDictionary/EcceRomaniLatinDictionary/WordListTableViewController.swift"
-                  timestampString = "449377066.77995"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "0">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

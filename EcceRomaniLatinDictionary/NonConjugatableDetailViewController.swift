@@ -19,7 +19,7 @@ class NonConjugatableDetailViewController: UIViewController, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nonConjugatableWord = word as nonConjugatable
+        let nonConjugatableWord = word as! nonConjugatable
         
         section_0.insert(nonConjugatableWord.latinForm, atIndex: 0)
         section_0.insert(nonConjugatableWord.englishForm, atIndex: 1)
@@ -54,7 +54,7 @@ class NonConjugatableDetailViewController: UIViewController, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as! UITableViewCell
         if indexPath.section == 0{
             cell.textLabel!.text = section_0[indexPath.row]
         }
@@ -66,7 +66,7 @@ class NonConjugatableDetailViewController: UIViewController, UITableViewDelegate
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "nonConjugatableWebSegue"{
-            (segue.destinationViewController as WebsiteTableViewController).word = self.word!
+            (segue.destinationViewController as! WebsiteTableViewController).word = self.word!
         }
     }
 }

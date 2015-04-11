@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4CBD3D93AC1914E4CFF1A155CD72B0E12C6F05D1</key>
-		<string>https://github.com/Jkallus/EcceRomaniLatinDictionary.git</string>
+		<string>http://github.com/Jkallus/EcceRomaniLatinDictionary.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>EcceRomaniLatinDictionary.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Jkallus/EcceRomaniLatinDictionary.git</string>
+	<string>http://github.com/Jkallus/EcceRomaniLatinDictionary.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

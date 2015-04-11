@@ -54,7 +54,7 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let noun = word as Noun
+        let noun = word as! Noun
         
         section_1 = [String](count: 7, repeatedValue: "")
         
@@ -91,7 +91,7 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func pickerView(UIPickerView!, titleForRow row: Int, forComponent component: Int) ->String!{
+    func pickerView(UIPickerView, titleForRow row: Int, forComponent component: Int) ->String!{
         if component == 0{
             return cases[row]
         }
@@ -101,7 +101,7 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func setCustom(){
-        let noun = word as Noun
+        let noun = word as! Noun
         
         if (section_1[caseIndex] == "nominative" && section_1[numberIndex] == "singular"){
             section_1[formIndex] = "\(cases[0]) \(numbers[0])"
@@ -222,7 +222,7 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as! UITableViewCell
         if indexPath.section == 0{
             cell.textLabel!.text = section_0[indexPath.row]
         }
@@ -236,7 +236,7 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "nounWebSegue"{
-            (segue.destinationViewController as WebsiteTableViewController).word = self.word!
+            (segue.destinationViewController as! WebsiteTableViewController).word = self.word!
         }
     }
 }

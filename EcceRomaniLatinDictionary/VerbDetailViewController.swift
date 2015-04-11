@@ -64,7 +64,7 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let verb = word as Verb
+        let verb = word as! Verb
         
         Section_1 = [String](count: 11, repeatedValue: "")
         
@@ -88,7 +88,7 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func setCustom(){
-        let verb = word as Verb
+        let verb = word as! Verb
         
         if Section_1[tenseIndex] == tenses[0]{
             if Section_1[personIndex] == persons[0]{
@@ -346,7 +346,7 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func pickerView(UIPickerView!, titleForRow row: Int, forComponent component: Int) ->String!{
+    func pickerView(UIPickerView, titleForRow row: Int, forComponent component: Int) ->String!{
         if component == 0{
             return tenses[row]
         }
@@ -359,7 +359,7 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let verb = word as Verb
+        let verb = word as! Verb
         if component == 0{
             Section_1[tenseIndex] = tenses[row]
         }
@@ -398,7 +398,7 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as! UITableViewCell
         //        let verb = word as Verb
         //
         //        Section_0.insert(verb.firstPrinciplePart + ", " + verb.secondPrinciplePart, atIndex: 0)
@@ -427,7 +427,7 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        if segue.identifier == "verbWebSegue"{
-            (segue.destinationViewController as WebsiteTableViewController).word = self.word!
+            (segue.destinationViewController as! WebsiteTableViewController).word = self.word!
        }
     }
 }
