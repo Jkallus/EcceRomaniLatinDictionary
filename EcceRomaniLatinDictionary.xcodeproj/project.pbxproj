@@ -40,6 +40,8 @@
 		03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */; };
 		03E1750C1AD8C363004FB333 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E175011AD8C33F004FB333 /* SQLite.framework */; };
 		03E1750E1AD8C380004FB333 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03E175011AD8C33F004FB333 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03E175521AD9F96F004FB333 /* SimplePartsOfSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E175511AD9F96F004FB333 /* SimplePartsOfSpeech.swift */; };
+		03E175541ADA0061004FB333 /* WordsListTableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E175531ADA0061004FB333 /* WordsListTableViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,8 @@
 		03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbDetailViewController.swift; sourceTree = "<group>"; };
 		03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjectiveDetailViewController.swift; sourceTree = "<group>"; };
 		03E174F71AD8C33F004FB333 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		03E175511AD9F96F004FB333 /* SimplePartsOfSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePartsOfSpeech.swift; sourceTree = "<group>"; };
+		03E175531ADA0061004FB333 /* WordsListTableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsListTableViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +220,8 @@
 				0350EAF91A9010BF0038862F /* AppDelegate.swift */,
 				03697B611A99661F004C4C4D /* WebViewController.swift */,
 				0350EB3C1A90200B0038862F /* WordListTableViewController.swift */,
+				03E175531ADA0061004FB333 /* WordsListTableViewController2.swift */,
+				03E175511AD9F96F004FB333 /* SimplePartsOfSpeech.swift */,
 				03693B581A99086F004C4C4D /* WebsiteTableViewController.swift */,
 				0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */,
 				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
@@ -499,9 +505,11 @@
 				03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */,
 				0350EB381A901E970038862F /* nonConjugatable.swift in Sources */,
 				03C11ADB1A968BE2004DF29B /* AddAdverbTableViewController.swift in Sources */,
+				03E175541ADA0061004FB333 /* WordsListTableViewController2.swift in Sources */,
 				03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */,
 				03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */,
 				03C11AE11A968C08004DF29B /* AddIrregularVerbTableViewController.swift in Sources */,
+				03E175521AD9F96F004FB333 /* SimplePartsOfSpeech.swift in Sources */,
 				03693B591A99086F004C4C4D /* WebsiteTableViewController.swift in Sources */,
 				03C11ADF1A968BFC004DF29B /* AddPronounTableViewController.swift in Sources */,
 				0350EB371A901E970038862F /* Word.swift in Sources */,
