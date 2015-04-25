@@ -25,6 +25,7 @@
 		03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */; };
 		03693B591A99086F004C4C4D /* WebsiteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03693B581A99086F004C4C4D /* WebsiteTableViewController.swift */; };
 		03697B621A99661F004C4C4D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03697B611A99661F004C4C4D /* WebViewController.swift */; };
+		03B0CA7E1AEB1C6A00753DED /* AdverbDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0CA7D1AEB1C6900753DED /* AdverbDetailViewController.swift */; };
 		03BB29F81A99C49700F7217B /* cancel_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB29F41A99C49700F7217B /* cancel_filled-32.png */; };
 		03BB29F91A99C49700F7217B /* redo_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB29F51A99C49700F7217B /* redo_filled-32.png */; };
 		03BB29FA1A99C49700F7217B /* undo_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB29F61A99C49700F7217B /* undo_filled-32.png */; };
@@ -38,6 +39,7 @@
 		03C69EB11A943709005ABEDC /* NounDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB01A943709005ABEDC /* NounDetailViewController.swift */; };
 		03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */; };
 		03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */; };
+		03C6AB891AEADCD600F5AFF7 /* Adverb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C6AB881AEADCD600F5AFF7 /* Adverb.swift */; };
 		03E1750C1AD8C363004FB333 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E175011AD8C33F004FB333 /* SQLite.framework */; };
 		03E1750E1AD8C380004FB333 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03E175011AD8C33F004FB333 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03E175521AD9F96F004FB333 /* SimplePartsOfSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E175511AD9F96F004FB333 /* SimplePartsOfSpeech.swift */; };
@@ -142,6 +144,7 @@
 		03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonConjugatableDetailViewController.swift; sourceTree = "<group>"; };
 		03693B581A99086F004C4C4D /* WebsiteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteTableViewController.swift; sourceTree = "<group>"; };
 		03697B611A99661F004C4C4D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		03B0CA7D1AEB1C6900753DED /* AdverbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdverbDetailViewController.swift; sourceTree = "<group>"; };
 		03BB29F41A99C49700F7217B /* cancel_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_filled-32.png"; sourceTree = "<group>"; };
 		03BB29F51A99C49700F7217B /* redo_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redo_filled-32.png"; sourceTree = "<group>"; };
 		03BB29F61A99C49700F7217B /* undo_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "undo_filled-32.png"; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 		03C69EB01A943709005ABEDC /* NounDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounDetailViewController.swift; sourceTree = "<group>"; };
 		03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbDetailViewController.swift; sourceTree = "<group>"; };
 		03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjectiveDetailViewController.swift; sourceTree = "<group>"; };
+		03C6AB881AEADCD600F5AFF7 /* Adverb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adverb.swift; sourceTree = "<group>"; };
 		03E174F71AD8C33F004FB333 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		03E175511AD9F96F004FB333 /* SimplePartsOfSpeech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePartsOfSpeech.swift; sourceTree = "<group>"; };
 		03E175531ADA0061004FB333 /* WordsListTableViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsListTableViewController2.swift; sourceTree = "<group>"; };
@@ -221,7 +225,6 @@
 				03697B611A99661F004C4C4D /* WebViewController.swift */,
 				0350EB3C1A90200B0038862F /* WordListTableViewController.swift */,
 				03E175531ADA0061004FB333 /* WordsListTableViewController2.swift */,
-				03E175511AD9F96F004FB333 /* SimplePartsOfSpeech.swift */,
 				03693B581A99086F004C4C4D /* WebsiteTableViewController.swift */,
 				0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */,
 				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
@@ -265,10 +268,12 @@
 		0350EB3B1A901E9C0038862F /* Part of Speech */ = {
 			isa = PBXGroup;
 			children = (
+				03E175511AD9F96F004FB333 /* SimplePartsOfSpeech.swift */,
 				0350EB331A901E970038862F /* Word.swift */,
 				0350EB341A901E970038862F /* nonConjugatable.swift */,
 				0350EB351A901E970038862F /* Noun.swift */,
 				0350EB361A901E970038862F /* Verb.swift */,
+				03C6AB881AEADCD600F5AFF7 /* Adverb.swift */,
 			);
 			name = "Part of Speech";
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				0355015E1A917C2C00A71B61 /* Verb */,
 				035501601A917C3C00A71B61 /* Adjective */,
 				03547E951A94499E00471AEA /* NonConjugatable */,
+				03B0CA7D1AEB1C6900753DED /* AdverbDetailViewController.swift */,
 			);
 			name = "Detail View Controllers";
 			sourceTree = "<group>";
@@ -504,6 +510,8 @@
 				0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */,
 				03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */,
 				0350EB381A901E970038862F /* nonConjugatable.swift in Sources */,
+				03B0CA7E1AEB1C6A00753DED /* AdverbDetailViewController.swift in Sources */,
+				03C6AB891AEADCD600F5AFF7 /* Adverb.swift in Sources */,
 				03C11ADB1A968BE2004DF29B /* AddAdverbTableViewController.swift in Sources */,
 				03E175541ADA0061004FB333 /* WordsListTableViewController2.swift in Sources */,
 				03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */,

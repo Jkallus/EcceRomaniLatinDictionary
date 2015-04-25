@@ -77,7 +77,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let Nouns = db["Nouns"]
             let Verbs = db["Verbs"]
             let Adjectives = db["Adjectives"]
-            let NonConjugatables = db["NonConjugatables"]
+            let Adverbs = db["Adverbs"]
             
             //Nouns
             let NominativeSingular = Expression<String>("NominativeSingular")
@@ -91,26 +91,30 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let ThirdPrinciplePart = Expression<String>("ThirdPrinciplePart")
             let FourthPrinciplePart = Expression<String>("FourthPrinciplePart")
             
-            //NonConjugatables
-            let Latin = Expression<String>("Latin")
-            let Definition = Expression<String>("Definition")
+            //Adverbs
+            let Positive = Expression<String>("Positive")
+            let Comparitive = Expression<String>("Comparative")
+            let Superlative = Expression<String>("Superlative")
+            
+            let English = Expression<String>("English")
             
             var i = 0
             for Word in Nouns{
-                let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
+                let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[English], declensionInput: Word[Declension])
                 wordsArray.insert(incomingSimpleNoun, atIndex: i)
                 i++
             }
             
             for Word in Verbs{
-                let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
+                let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[English])
                 wordsArray.insert(incomingSimpleVerb, atIndex: i)
                 i++
             }
             
-            for Word in NonConjugatables{
-                let incomingSimpleNonConjugatable: simpleNonConjugatable = simpleNonConjugatable(latinInput: Word[Latin], definitionInput: Word[Definition])
-                wordsArray.insert(incomingSimpleNonConjugatable, atIndex: i)
+            for Word in Adverbs{
+                let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[English])
+                wordsArray.insert(incomingAdverb, atIndex: i)
+                i++
             }
             
             
@@ -127,7 +131,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let Nouns = db["Nouns"]
                 let Verbs = db["Verbs"]
                 let Adjectives = db["Adjectives"]
-                let NonConjugatables = db["NonConjugatables"]
+                let Adverbs = db["Adverbs"]
                 
                 //Nouns
                 let NominativeSingular = Expression<String>("NominativeSingular")
@@ -141,25 +145,30 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let ThirdPrinciplePart = Expression<String>("ThirdPrinciplePart")
                 let FourthPrinciplePart = Expression<String>("FourthPrinciplePart")
                 
-                //NonConjugatables
-                let Latin = Expression<String>("Latin")
-                let Definition = Expression<String>("Definition")
-                var i = 0
+                //Adverbs
+                let Positive = Expression<String>("Positive")
+                let Comparitive = Expression<String>("Comparative")
+                let Superlative = Expression<String>("Superlative")
                 
+                let English = Expression<String>("English")
+                
+                var i = 0
                 for Word in Nouns{
-                    let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
+                    let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[English], declensionInput: Word[Declension])
                     wordsArray.insert(incomingSimpleNoun, atIndex: i)
                     i++
                 }
                 
                 for Word in Verbs{
-                    let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
+                    let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[English])
                     wordsArray.insert(incomingSimpleVerb, atIndex: i)
                     i++
                 }
                 
-                for Word in NonConjugatables{
-                    let incomingSimpleNonConjugatable: simpleNonConjugatable = simpleNonConjugatable(latinInput: Word[Latin], definitionInput: Word[Definition])
+                for Word in Adverbs{
+                    let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[English])
+                    wordsArray.insert(incomingAdverb, atIndex: i)
+                    i++
                 }
                 
                 sortTable()
@@ -208,38 +217,36 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         if tableView == self.searchDisplayController?.searchResultsTableView{
-            
             let word = filteredWordsArray[indexPath.row]
+            
             if let simpleNoun:simpleNoun = word as? simpleNoun{
                 let noun: Noun = Noun(NominativeSingularInput: simpleNoun.nominativeSingular, GenitiveSingularInput: simpleNoun.genitiveSingular, GenderInput: simpleNoun.gender, DefinitionInput: simpleNoun.definition, DeclensionInput: simpleNoun.declension)
                 if searchLanguage == "Latin"{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
                     cell.detailTextLabel!.text = noun.Definition.lowercaseString
-                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = noun.Definition.lowercaseString
                     cell.detailTextLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
-                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
             }
-                
-            else if let simpleNonConjugatable:simpleNonConjugatable = word as? simpleNonConjugatable{
-                let NonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: simpleNonConjugatable.latin, englishFormInput: simpleNonConjugatable.definition)
+            
+            else if (word is Adverb){
+                let adverb = word as! Adverb
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = NonConjugatable.latinForm
-                    cell.detailTextLabel!.text = NonConjugatable.englishForm
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
+                    cell.textLabel!.text = adverb.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = adverb.englishSearchTerm
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = NonConjugatable.englishForm
-                    cell.detailTextLabel!.text = NonConjugatable.latinForm
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
+                    cell.textLabel!.text = adverb.englishSearchTerm
+                    cell.detailTextLabel!.text = adverb.latinSearchTerm
                 }
             }
-                
+    
             else{
                 let SimpleVerb:simpleVerb = word as! simpleVerb
                 let verb:Verb = Verb(firstPrinciplePart: SimpleVerb.firstPrinciplePart , secondPrinciplePart: SimpleVerb.secondPrinciplePart, thirdPrinciplePart: SimpleVerb.thirdPrinciplePart, fourthPrinciplePart: SimpleVerb.fourthPrinciplePart, definition: SimpleVerb.definition)
@@ -247,13 +254,11 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                     cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
                     cell.detailTextLabel!.text = verb.definition.lowercaseString
-                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = verb.definition.lowercaseString
                     cell.detailTextLabel!.text = verb.firstPrinciplePart + ", " + verb.secondPrinciplePart.lowercaseString
-                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
             }
         }
@@ -261,34 +266,31 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         else{
             let word = wordsArray[indexPath.row]
             
-            
             if let simpleNoun:simpleNoun = word as? simpleNoun{
                 let noun: Noun = Noun(NominativeSingularInput: simpleNoun.nominativeSingular, GenitiveSingularInput: simpleNoun.genitiveSingular, GenderInput: simpleNoun.gender, DefinitionInput: simpleNoun.definition, DeclensionInput: simpleNoun.declension)
                 if searchLanguage == "Latin"{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
                     cell.detailTextLabel!.text = noun.Definition.lowercaseString
-                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = noun.Definition.lowercaseString
                     cell.detailTextLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
-                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
             }
-                
-            else if let simpleNonConjugatable:simpleNonConjugatable = word as? simpleNonConjugatable{
-                let NonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: simpleNonConjugatable.latin, englishFormInput: simpleNonConjugatable.definition)
+            
+            else if word is Adverb{
+                let adverb = word as! Adverb
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = NonConjugatable.latinForm
-                    cell.detailTextLabel!.text = NonConjugatable.englishForm
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
+                    cell.textLabel!.text = adverb.latinSearchTerm
+                    cell.detailTextLabel!.text = adverb.englishSearchTerm
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = NonConjugatable.englishForm
-                    cell.detailTextLabel!.text = NonConjugatable.latinForm
+                    cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
+                    cell.textLabel!.text = adverb.englishSearchTerm
+                    cell.detailTextLabel!.text = adverb.latinSearchTerm
                 }
             }
                 
@@ -300,13 +302,11 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                     cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
                     cell.detailTextLabel!.text = verb.definition.lowercaseString
-                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
                 else{
                     cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text =   verb.definition.lowercaseString
                     cell.detailTextLabel!.text =  verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
-                    //println("Text Label: \(cell.textLabel!.text), Detail Text Label: \(cell.detailTextLabel!.text)")
                 }
             }
         }
@@ -342,7 +342,18 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         }
             
             
-            
+        else if segue.identifier == "adverbDetailViewSegue"{
+            if self.searchDisplayController!.active{
+                let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
+                let selectedAdverb = filteredWordsArray[indexPath.row] as! Adverb
+                (segue.destinationViewController as! AdverbDetailViewController).adverb = selectedAdverb
+            }
+            else{
+                let indexPath = self.tableView.indexPathForSelectedRow()!
+                let selectedAdverb = wordsArray[indexPath.row] as! Adverb
+                (segue.destinationViewController as! AdverbDetailViewController).adverb = selectedAdverb
+            }
+        }
             
         else if segue.identifier == "verbDetailViewSegue"{
             if self.searchDisplayController!.active{
@@ -367,22 +378,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
-            }
-        }
-            
-            
-        else if segue.identifier == "nonConjugatableDetailViewSegue"{
-            if self.searchDisplayController!.active{
-                let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                let selectedSimpleNonConjugatable = filteredWordsArray[indexPath.row] as! simpleNonConjugatable
-                let complexNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: selectedSimpleNonConjugatable.latin, englishFormInput: selectedSimpleNonConjugatable.definition)
-                (segue.destinationViewController as! NonConjugatableDetailViewController).word = complexNonConjugatable
-            }
-            else{
-                let indexPath = self.tableView.indexPathForSelectedRow()!
-                let selectedSimpleNonConjugatable = wordsArray[indexPath.row] as! simpleNonConjugatable
-                let complexNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: selectedSimpleNonConjugatable.latin, englishFormInput: selectedSimpleNonConjugatable.definition)
-                (segue.destinationViewController as! NonConjugatableDetailViewController).word = complexNonConjugatable
             }
         }
             

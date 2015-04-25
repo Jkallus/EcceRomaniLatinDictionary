@@ -194,8 +194,6 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         setCustom()
-        
-        self.propertyTableView.reloadData()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

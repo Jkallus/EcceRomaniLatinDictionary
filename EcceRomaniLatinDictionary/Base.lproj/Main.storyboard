@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OSj-b1-ROB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OSj-b1-ROB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -218,7 +218,7 @@
                                 <string>All</string>
                                 <string>Noun</string>
                                 <string>Verb</string>
-                                <string>NonConjugatable</string>
+                                <string>Adverb</string>
                             </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="MZW-SH-XSG" id="1iU-TJ-tO6"/>
@@ -318,6 +318,30 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="Fx7-Td-de4" kind="show" identifier="nonConjugatableDetailViewSegue" id="Q2c-MM-yys"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="adverbCell" textLabel="MMc-2Y-Zxi" detailTextLabel="YJx-Vx-B3R" style="IBUITableViewCellStyleSubtitle" id="tOq-a0-SzQ" customClass="LatinTableViewCell" customModule="EcceRomaniLatinDictionary" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tOq-a0-SzQ" id="88z-aS-sRK">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MMc-2Y-Zxi">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YJx-Vx-B3R">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="VEo-kY-9Vk" kind="show" identifier="adverbDetailViewSegue" id="7q9-VY-ChE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1113,12 +1137,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVt-A4-KSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657" y="1118"/>
+            <point key="canvasLocation" x="651" y="1118"/>
         </scene>
         <!--NonConjugatable Detail-->
         <scene sceneID="6Bi-FG-Bku">
             <objects>
-                <viewController id="Fx7-Td-de4" customClass="NonConjugatableDetailViewController" customModule="EcceRomaniLatinDictionary" sceneMemberID="viewController">
+                <viewController id="Fx7-Td-de4" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tp6-YP-rnP"/>
                         <viewControllerLayoutGuide type="bottom" id="1OE-NK-Kc4"/>
@@ -1299,6 +1323,59 @@
             </objects>
             <point key="canvasLocation" x="2074" y="418"/>
         </scene>
+        <!--Adverb Detail-->
+        <scene sceneID="liG-Fs-1za">
+            <objects>
+                <viewController title="Adverb Detail" id="VEo-kY-9Vk" customClass="AdverbDetailViewController" customModule="EcceRomaniLatinDictionary" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vK5-UF-DLD"/>
+                        <viewControllerLayoutGuide type="bottom" id="qb9-2y-hdL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eBD-EG-6H6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-u3-OgD">
+                                <rect key="frame" x="0.0" y="371" width="600" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="UW9-WO-Uw9"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="VEo-kY-9Vk" id="pAI-aX-pIR"/>
+                                    <outlet property="delegate" destination="VEo-kY-9Vk" id="SG5-eJ-Z6y"/>
+                                </connections>
+                            </pickerView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="z8Q-8V-lJJ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="307"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oau-u3-OgD" secondAttribute="trailing" constant="-16" id="Rdb-NZ-Klr"/>
+                            <constraint firstItem="Oau-u3-OgD" firstAttribute="leading" secondItem="eBD-EG-6H6" secondAttribute="leadingMargin" constant="-16" id="SGL-8a-Sie"/>
+                            <constraint firstItem="z8Q-8V-lJJ" firstAttribute="leading" secondItem="eBD-EG-6H6" secondAttribute="leadingMargin" constant="-16" id="Wov-mx-k10"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z8Q-8V-lJJ" secondAttribute="trailing" constant="-16" id="dH5-ny-x2Q"/>
+                            <constraint firstItem="Oau-u3-OgD" firstAttribute="top" secondItem="z8Q-8V-lJJ" secondAttribute="bottom" id="fh5-6J-rDR"/>
+                            <constraint firstItem="qb9-2y-hdL" firstAttribute="top" secondItem="Oau-u3-OgD" secondAttribute="bottom" id="oN0-zd-DsK"/>
+                            <constraint firstItem="z8Q-8V-lJJ" firstAttribute="top" secondItem="vK5-UF-DLD" secondAttribute="bottom" id="oxX-FW-fZK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Adjective Detail" id="Crg-fo-UDA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="KrY-99-GxV">
+                            <connections>
+                                <segue destination="FFa-ZQ-fSZ" kind="show" identifier="adverbWebSegue" id="yHi-gb-uF3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="propertyTableView" destination="z8Q-8V-lJJ" id="IuW-3j-eGa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6c-3G-SKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2074" y="2498"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cancel_filled-32.png" width="32" height="32"/>
@@ -1307,8 +1384,8 @@
         <image name="update_filled-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="yHi-gb-uF3"/>
         <segue reference="Qjz-sx-adZ"/>
-        <segue reference="axw-An-NOB"/>
         <segue reference="HqA-KA-brh"/>
     </inferredMetricsTieBreakers>
 </document>

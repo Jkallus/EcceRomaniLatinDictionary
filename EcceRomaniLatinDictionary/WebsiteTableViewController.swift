@@ -44,6 +44,15 @@ class WebsiteTableViewController: UITableViewController {
                 println("String: http://en.wiktionary.org/wiki/\(verb.firstPrinciplePart)#latin")
                 println("Post:  \(webViewController.url)")
             }
+                
+            else if word is Adverb{
+                let adverb = word as! Adverb
+                webViewController.url = NSURL(string: "http://en.wiktionary.org/wiki/\(adverb.positive.latin.normalString())#latin")
+            }
+            
+            
+            
+            
             else{
                 let nonConjugatableWord = word as! nonConjugatable
                 println("Pre:  \(webViewController.url)")
@@ -67,6 +76,12 @@ class WebsiteTableViewController: UITableViewController {
                 println("String: http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(verb.firstPrinciplePart)")
                 println("Post:  \(webViewController.url)")
             }
+                
+            else if word is Adverb{
+                let adverb = word as! Adverb
+                webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(adverb.positive.latin.normalString())")
+            }
+                
             else{
                 let nonConjugatableWord = word as! nonConjugatable
                 println("Pre:  \(webViewController.url)")
