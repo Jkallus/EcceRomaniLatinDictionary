@@ -218,14 +218,13 @@
 		0350EAF61A9010BF0038862F /* EcceRomaniLatinDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				03B0CA7F1AEC137400753DED /* Web */,
 				0350EB4B1A9045A90038862F /* Detail View Controllers */,
 				0350EB3B1A901E9C0038862F /* Part of Speech */,
 				0349C4E21A95C7A3009FE6E6 /* Add Word Views */,
 				0350EAF91A9010BF0038862F /* AppDelegate.swift */,
-				03697B611A99661F004C4C4D /* WebViewController.swift */,
 				0350EB3C1A90200B0038862F /* WordListTableViewController.swift */,
 				03E175531ADA0061004FB333 /* WordsListTableViewController2.swift */,
-				03693B581A99086F004C4C4D /* WebsiteTableViewController.swift */,
 				0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */,
 				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
 				0349C4D01A95C684009FE6E6 /* DismissSegue.swift */,
@@ -281,45 +280,13 @@
 		0350EB4B1A9045A90038862F /* Detail View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				035501581A9161F300A71B61 /* Noun */,
-				0355015E1A917C2C00A71B61 /* Verb */,
-				035501601A917C3C00A71B61 /* Adjective */,
-				03547E951A94499E00471AEA /* NonConjugatable */,
+				03C69EB01A943709005ABEDC /* NounDetailViewController.swift */,
+				03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */,
+				03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */,
+				03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */,
 				03B0CA7D1AEB1C6900753DED /* AdverbDetailViewController.swift */,
 			);
 			name = "Detail View Controllers";
-			sourceTree = "<group>";
-		};
-		03547E951A94499E00471AEA /* NonConjugatable */ = {
-			isa = PBXGroup;
-			children = (
-				03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */,
-			);
-			name = NonConjugatable;
-			sourceTree = "<group>";
-		};
-		035501581A9161F300A71B61 /* Noun */ = {
-			isa = PBXGroup;
-			children = (
-				03C69EB01A943709005ABEDC /* NounDetailViewController.swift */,
-			);
-			name = Noun;
-			sourceTree = "<group>";
-		};
-		0355015E1A917C2C00A71B61 /* Verb */ = {
-			isa = PBXGroup;
-			children = (
-				03C69EB21A94371F005ABEDC /* VerbDetailViewController.swift */,
-			);
-			name = Verb;
-			sourceTree = "<group>";
-		};
-		035501601A917C3C00A71B61 /* Adjective */ = {
-			isa = PBXGroup;
-			children = (
-				03C69EB41A943730005ABEDC /* AdjectiveDetailViewController.swift */,
-			);
-			name = Adjective;
 			sourceTree = "<group>";
 		};
 		03693B5A1A9959DD004C4C4D /* Internal Icons */ = {
@@ -331,6 +298,15 @@
 				03BB29F71A99C49700F7217B /* update_filled-32.png */,
 			);
 			name = "Internal Icons";
+			sourceTree = "<group>";
+		};
+		03B0CA7F1AEC137400753DED /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				03697B611A99661F004C4C4D /* WebViewController.swift */,
+				03693B581A99086F004C4C4D /* WebsiteTableViewController.swift */,
+			);
+			name = Web;
 			sourceTree = "<group>";
 		};
 		03E174F81AD8C33F004FB333 /* Products */ = {

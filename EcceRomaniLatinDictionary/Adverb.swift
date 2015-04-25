@@ -48,7 +48,7 @@ func deriveComparative(comparativeInput: String, englishInput: String) -> adverb
     returnForm.latin = comparativeInput
     
     if englishInput.hasPrefix("with"){
-        let ending: String = englishInput.substringWithRange(Range<String.Index>(start: advance(englishInput.endIndex, 4), end: englishInput.endIndex))
+        let ending: String = englishInput.substringWithRange(Range<String.Index>(start: advance(englishInput.startIndex, 4), end: englishInput.endIndex))
         returnForm.english = "with rather \(ending)"
     }
     else{
@@ -64,7 +64,7 @@ func deriveSuperlative(superlativeInput: String, englishInput: String) -> adverb
     returnForm.latin = superlativeInput
     
     if englishInput.hasPrefix("with"){
-        let ending: String = englishInput.substringWithRange(Range<String.Index>(start: advance(englishInput.endIndex, 4), end: englishInput.endIndex))
+        let ending: String = englishInput.substringWithRange(Range<String.Index>(start: advance(englishInput.startIndex, 4), end: englishInput.endIndex))
         returnForm.english = "with most \(ending)"
     }
     else{

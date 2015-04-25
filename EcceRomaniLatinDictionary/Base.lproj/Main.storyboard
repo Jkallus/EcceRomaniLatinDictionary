@@ -219,6 +219,7 @@
                                 <string>Noun</string>
                                 <string>Verb</string>
                                 <string>Adverb</string>
+                                <string>NonConjugatable</string>
                             </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="MZW-SH-XSG" id="1iU-TJ-tO6"/>
@@ -363,11 +364,6 @@
                                     <action selector="languageChanged:" destination="MZW-SH-XSG" eventType="valueChanged" id="RdZ-cg-MP0"/>
                                 </connections>
                             </segmentedControl>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TNM-E5-Myj">
-                            <connections>
-                                <segue destination="52G-Km-FOP" kind="presentation" id="cXf-sD-hvH"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1142,7 +1138,7 @@
         <!--NonConjugatable Detail-->
         <scene sceneID="6Bi-FG-Bku">
             <objects>
-                <viewController id="Fx7-Td-de4" sceneMemberID="viewController">
+                <viewController id="Fx7-Td-de4" customClass="NonConjugatableDetailViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tp6-YP-rnP"/>
                         <viewControllerLayoutGuide type="bottom" id="1OE-NK-Kc4"/>
@@ -1151,7 +1147,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="TF4-yf-1Y8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="TF4-yf-1Y8">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1211,11 +1207,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="F8f-Hs-reu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="F8f-Hs-reu">
                                 <rect key="frame" x="0.0" y="64" width="600" height="307"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ain-YE-37j">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ain-YE-37j">
                                 <rect key="frame" x="0.0" y="371" width="600" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="gjc-8e-a71"/>
@@ -1335,7 +1331,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-u3-OgD">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-u3-OgD">
                                 <rect key="frame" x="0.0" y="371" width="600" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="UW9-WO-Uw9"/>
@@ -1345,7 +1341,7 @@
                                     <outlet property="delegate" destination="VEo-kY-9Vk" id="SG5-eJ-Z6y"/>
                                 </connections>
                             </pickerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="z8Q-8V-lJJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="z8Q-8V-lJJ">
                                 <rect key="frame" x="0.0" y="64" width="600" height="307"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
@@ -1384,8 +1380,8 @@
         <image name="update_filled-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yHi-gb-uF3"/>
-        <segue reference="Qjz-sx-adZ"/>
+        <segue reference="ueA-rF-2UR"/>
+        <segue reference="GmT-yb-A3D"/>
         <segue reference="HqA-KA-brh"/>
     </inferredMetricsTieBreakers>
 </document>

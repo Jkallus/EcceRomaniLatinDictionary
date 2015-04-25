@@ -78,6 +78,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let Verbs = db["Verbs"]
             let Adjectives = db["Adjectives"]
             let Adverbs = db["Adverbs"]
+            let NonConjugatables = db["NonConjugatables"]
             
             //Nouns
             let NominativeSingular = Expression<String>("NominativeSingular")
@@ -96,27 +97,34 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let Comparitive = Expression<String>("Comparative")
             let Superlative = Expression<String>("Superlative")
             
-            let English = Expression<String>("English")
+            //NonConjugatable
+            let Latin = Expression<String>("Latin")
+            let Definition = Expression<String>("Definition")
             
             var i = 0
             for Word in Nouns{
-                let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[English], declensionInput: Word[Declension])
+                let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
                 wordsArray.insert(incomingSimpleNoun, atIndex: i)
                 i++
             }
             
             for Word in Verbs{
-                let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[English])
+                let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
                 wordsArray.insert(incomingSimpleVerb, atIndex: i)
                 i++
             }
             
             for Word in Adverbs{
-                let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[English])
+                let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[Definition])
                 wordsArray.insert(incomingAdverb, atIndex: i)
                 i++
             }
             
+            for Word in NonConjugatables{
+                let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
+                wordsArray.insert(incomingNonConjugatable, atIndex: i)
+                i++
+            }
             
             sortTable()
         }
@@ -132,6 +140,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let Verbs = db["Verbs"]
                 let Adjectives = db["Adjectives"]
                 let Adverbs = db["Adverbs"]
+                let NonConjugatables = db["NonConjugatables"]
                 
                 //Nouns
                 let NominativeSingular = Expression<String>("NominativeSingular")
@@ -150,24 +159,32 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let Comparitive = Expression<String>("Comparative")
                 let Superlative = Expression<String>("Superlative")
                 
-                let English = Expression<String>("English")
+                //NonConjugatable
+                let Latin = Expression<String>("Latin")
+                let Definition = Expression<String>("Definition")
                 
                 var i = 0
                 for Word in Nouns{
-                    let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[English], declensionInput: Word[Declension])
+                    let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
                     wordsArray.insert(incomingSimpleNoun, atIndex: i)
                     i++
                 }
                 
                 for Word in Verbs{
-                    let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[English])
+                    let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
                     wordsArray.insert(incomingSimpleVerb, atIndex: i)
                     i++
                 }
                 
                 for Word in Adverbs{
-                    let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[English])
+                    let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[Definition])
                     wordsArray.insert(incomingAdverb, atIndex: i)
+                    i++
+                }
+                
+                for Word in NonConjugatables{
+                    let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
+                    wordsArray.insert(incomingNonConjugatable, atIndex: i)
                     i++
                 }
                 
@@ -219,6 +236,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         if tableView == self.searchDisplayController?.searchResultsTableView{
             let word = filteredWordsArray[indexPath.row]
             
+            //Noun
             if let simpleNoun:simpleNoun = word as? simpleNoun{
                 let noun: Noun = Noun(NominativeSingularInput: simpleNoun.nominativeSingular, GenitiveSingularInput: simpleNoun.genitiveSingular, GenderInput: simpleNoun.gender, DefinitionInput: simpleNoun.definition, DeclensionInput: simpleNoun.declension)
                 if searchLanguage == "Latin"{
@@ -233,6 +251,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 }
             }
             
+            //Adverb
             else if (word is Adverb){
                 let adverb = word as! Adverb
                 if searchLanguage == "Latin"{
@@ -246,7 +265,23 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                     cell.detailTextLabel!.text = adverb.latinSearchTerm
                 }
             }
+            
+            //NonConjugatable
+            else if (word is nonConjugatable){
+                let NonConjugatable: nonConjugatable = word as! nonConjugatable
+                cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
+                if searchLanguage == "Latin"{
+                    cell.textLabel!.text = NonConjugatable.latinSearchTerm
+                    cell.detailTextLabel!.text = NonConjugatable.englishSearchTerm
+                }
+                else{
+                    cell.textLabel!.text = NonConjugatable.englishSearchTerm
+                    cell.detailTextLabel!.text = NonConjugatable.latinSearchTerm
+                }
+                
+            }
     
+            //Verb
             else{
                 let SimpleVerb:simpleVerb = word as! simpleVerb
                 let verb:Verb = Verb(firstPrinciplePart: SimpleVerb.firstPrinciplePart , secondPrinciplePart: SimpleVerb.secondPrinciplePart, thirdPrinciplePart: SimpleVerb.thirdPrinciplePart, fourthPrinciplePart: SimpleVerb.fourthPrinciplePart, definition: SimpleVerb.definition)
@@ -266,6 +301,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         else{
             let word = wordsArray[indexPath.row]
             
+            //Noun
             if let simpleNoun:simpleNoun = word as? simpleNoun{
                 let noun: Noun = Noun(NominativeSingularInput: simpleNoun.nominativeSingular, GenitiveSingularInput: simpleNoun.genitiveSingular, GenderInput: simpleNoun.gender, DefinitionInput: simpleNoun.definition, DeclensionInput: simpleNoun.declension)
                 if searchLanguage == "Latin"{
@@ -280,6 +316,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 }
             }
             
+            //Adverb
             else if word is Adverb{
                 let adverb = word as! Adverb
                 if searchLanguage == "Latin"{
@@ -293,7 +330,25 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                     cell.detailTextLabel!.text = adverb.latinSearchTerm
                 }
             }
+            
+            //NonConjugatable
+            else if (word is nonConjugatable){
+                let NonConjugatable: nonConjugatable = word as! nonConjugatable
+                cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
+                if searchLanguage == "Latin"{
+                    cell.textLabel!.text = NonConjugatable.latinSearchTerm
+                    cell.detailTextLabel!.text = NonConjugatable.englishSearchTerm
+                }
+                else{
+                    cell.textLabel!.text = NonConjugatable.englishSearchTerm
+                    cell.detailTextLabel!.text = NonConjugatable.latinSearchTerm
+                }
                 
+            }
+                
+                
+                
+            //Verb
             else{
                 let SimpleVerb:simpleVerb = word as! simpleVerb
                 let verb:Verb = Verb(firstPrinciplePart: SimpleVerb.firstPrinciplePart , secondPrinciplePart: SimpleVerb.secondPrinciplePart, thirdPrinciplePart: SimpleVerb.thirdPrinciplePart, fourthPrinciplePart: SimpleVerb.fourthPrinciplePart, definition: SimpleVerb.definition)
@@ -370,7 +425,18 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             }
         }
             
-            
+        else if segue.identifier == "nonConjugatableDetailViewSegue"{
+            if self.searchDisplayController!.active{
+                let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
+                let selectedNonConjugatable = filteredWordsArray[indexPath.row] as! nonConjugatable
+                (segue.destinationViewController as? NonConjugatableDetailViewController)!.nonConjugatableWord = selectedNonConjugatable
+            }
+            else{
+                let indexPath = self.tableView.indexPathForSelectedRow()!
+                let selectedNonConjugatable = wordsArray[indexPath.row] as! nonConjugatable
+                (segue.destinationViewController as? NonConjugatableDetailViewController)!.nonConjugatableWord = selectedNonConjugatable
+            }
+        }
             
         else if segue.identifier == "adjectiveDetailViewSegue"{
             if self.searchDisplayController!.active{

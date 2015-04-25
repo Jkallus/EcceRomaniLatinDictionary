@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>CF9F4FA2-294B-4E1A-AF39-B1305BD3674B</string>
 	<key>IDESourceControlProjectName</key>
-	<string>EcceRomaniLatinDictionary</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4CBD3D93AC1914E4CFF1A155CD72B0E12C6F05D1</key>
 		<string>http://github.com/Jkallus/EcceRomaniLatinDictionary.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>EcceRomaniLatinDictionary.xcodeproj</string>
+	<string>EcceRomaniLatinDictionary.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4CBD3D93AC1914E4CFF1A155CD72B0E12C6F05D1</key>
