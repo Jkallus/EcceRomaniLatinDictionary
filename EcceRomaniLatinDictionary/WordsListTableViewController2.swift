@@ -80,6 +80,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let Adverbs = db["Adverbs"]
             let NonConjugatables = db["NonConjugatables"]
             
+            
             //Nouns
             let NominativeSingular = Expression<String>("NominativeSingular")
             let GenitiveSingular = Expression<String>("GenitiveSingular")
@@ -97,9 +98,18 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let Comparitive = Expression<String>("Comparative")
             let Superlative = Expression<String>("Superlative")
             
-            //NonConjugatable
+            //NonConjugatables
             let Latin = Expression<String>("Latin")
             let Definition = Expression<String>("Definition")
+            
+            //Adjectives
+            let MasculineNominativeSingularPositive = Expression<String>("MasculineNominativeSingularPositive")
+            let FeminineNominativeSingularPositive = Expression<String>("FeminineNominativeSingularPositive")
+            let NeuterNominativeSingularPositive = Expression<String>("NeuterNominativeSingularPositive")
+            
+            
+            
+            
             
             var i = 0
             for Word in Nouns{
@@ -126,6 +136,12 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 i++
             }
             
+            for Word in Adjectives{
+                let incomingAdjective: simpleAdjective = simpleAdjective(masculineNominativeSingularPositiveInput: Word[MasculineNominativeSingularPositive], feminineNominativeSingularPositiveInput: Word[FeminineNominativeSingularPositive], neuterNominativeSingularPositiveInput: Word[NeuterNominativeSingularPositive], definitionInput: Word[Definition])
+                wordsArray.insert(incomingAdjective, atIndex: i)
+                i++
+            }
+            
             sortTable()
         }
             
@@ -141,6 +157,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let Adjectives = db["Adjectives"]
                 let Adverbs = db["Adverbs"]
                 let NonConjugatables = db["NonConjugatables"]
+                
                 
                 //Nouns
                 let NominativeSingular = Expression<String>("NominativeSingular")
@@ -159,9 +176,18 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let Comparitive = Expression<String>("Comparative")
                 let Superlative = Expression<String>("Superlative")
                 
-                //NonConjugatable
+                //NonConjugatables
                 let Latin = Expression<String>("Latin")
                 let Definition = Expression<String>("Definition")
+                
+                //Adjectives
+                let MasculineNominativeSingularPositive = Expression<String>("MasculineNominativeSingularPositive")
+                let FeminineNominativeSingularPositive = Expression<String>("FeminineNominativeSingularPositive")
+                let NeuterNominativeSingularPositive = Expression<String>("NeuterNominativeSingularPositive")
+                
+                
+                
+                
                 
                 var i = 0
                 for Word in Nouns{
@@ -185,6 +211,12 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 for Word in NonConjugatables{
                     let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
                     wordsArray.insert(incomingNonConjugatable, atIndex: i)
+                    i++
+                }
+                
+                for Word in Adjectives{
+                    let incomingAdjective: simpleAdjective = simpleAdjective(masculineNominativeSingularPositiveInput: Word[MasculineNominativeSingularPositive], feminineNominativeSingularPositiveInput: Word[FeminineNominativeSingularPositive], neuterNominativeSingularPositiveInput: Word[NeuterNominativeSingularPositive], definitionInput: Word[Definition])
+                    wordsArray.insert(incomingAdjective, atIndex: i)
                     i++
                 }
                 
@@ -280,6 +312,19 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 }
                 
             }
+            //Adjective
+            else if (word is simpleAdjective){
+                let SimpleAdjective = word as! simpleAdjective
+                cell = self.tableView.dequeueReusableCellWithIdentifier("adjectiveCell", forIndexPath: indexPath) as! LatinTableViewCell
+                if searchLanguage == "Latin"{
+                    cell.textLabel!.text = SimpleAdjective.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleAdjective.englishSearchTerm.lowercaseString
+                }
+                else{
+                    cell.textLabel!.text = SimpleAdjective.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleAdjective.latinSearchTerm.lowercaseString
+                }
+            }
     
             //Verb
             else{
@@ -346,7 +391,19 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 
             }
                 
-                
+            //Adjective
+            else if (word is simpleAdjective){
+                let SimpleAdjective = word as! simpleAdjective
+                cell = self.tableView.dequeueReusableCellWithIdentifier("adjectiveCell", forIndexPath: indexPath) as! LatinTableViewCell
+                if searchLanguage == "Latin"{
+                    cell.textLabel!.text = SimpleAdjective.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleAdjective.englishSearchTerm.lowercaseString
+                }
+                else{
+                    cell.textLabel!.text = SimpleAdjective.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleAdjective.latinSearchTerm.lowercaseString
+                }
+            }
                 
             //Verb
             else{

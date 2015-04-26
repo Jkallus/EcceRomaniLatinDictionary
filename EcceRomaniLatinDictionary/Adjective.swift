@@ -8,36 +8,36 @@
 
 import Foundation
 
-struct form{
+struct adjectiveForm{
     var latin: String = ""
     var english: String = ""
     init(){}
 }
 
-struct degree{
-    var positive: form = form()
-    var comparative: form = form()
-    var superlative: form = form()
+struct adjectiveDegree{
+    var positive: adjectiveForm = adjectiveForm()
+    var comparative: adjectiveForm = adjectiveForm()
+    var superlative: adjectiveForm = adjectiveForm()
     init(){}
 }
 
-struct number{
-    var singular: degree = degree()
-    var plural: degree = degree()
+struct adjectiveNumber{
+    var singular: adjectiveDegree = adjectiveDegree()
+    var plural: adjectiveDegree = adjectiveDegree()
     init(){}
 }
 
 struct declension{
-    var nominative: number = number()
-    var genitive: number = number()
-    var dative: number = number()
-    var accusative: number = number()
-    var ablative: number = number()
-    var vocative: number = number()
+    var nominative: adjectiveNumber = adjectiveNumber()
+    var genitive: adjectiveNumber = adjectiveNumber()
+    var dative: adjectiveNumber = adjectiveNumber()
+    var accusative: adjectiveNumber = adjectiveNumber()
+    var ablative: adjectiveNumber = adjectiveNumber()
+    var vocative: adjectiveNumber = adjectiveNumber()
     init(){}
 }
 
-class adjective{
+class Adjective: Word{
     var masculine: declension
     var feminine: declension
     var neuter: declension
@@ -46,6 +46,7 @@ class adjective{
         self.masculine = deriveMasculine(masculineNominativeSingularPositiveInput, feminineNominativeSingularPositiveInput, neuterNominativeSingularPositiveInput, definitionInput)
         self.feminine = deriveFeminine(masculineNominativeSingularPositiveInput, feminineNominativeSingularPositiveInput, neuterNominativeSingularPositiveInput, definitionInput)
         self.neuter = deriveNeuter(masculineNominativeSingularPositiveInput, feminineNominativeSingularPositiveInput, neuterNominativeSingularPositiveInput, definitionInput)
+        super.init(latinSearchTerm: "\(masculineNominativeSingularPositiveInput), \(feminineNominativeSingularPositiveInput), \(neuterNominativeSingularPositiveInput)", englishSearchTerm: definitionInput, partOfSpeech: "Adjective")
     }
 }
 

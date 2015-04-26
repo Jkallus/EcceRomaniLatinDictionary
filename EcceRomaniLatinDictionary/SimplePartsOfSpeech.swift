@@ -59,3 +59,21 @@ class simpleNonConjugatable: Word{
         super.init(latinSearchTerm: latinInput, englishSearchTerm: definitionInput, partOfSpeech: "NonConjugatable")
     }
 }
+
+
+class simpleAdjective: Word{
+    let masculineNominativeSingularPositive: String
+    let feminineNominativeSingularPositive: String
+    let neuterNominativeSingularPositive: String
+    let definition: String
+    
+    init(masculineNominativeSingularPositiveInput: String, feminineNominativeSingularPositiveInput: String, neuterNominativeSingularPositiveInput: String, definitionInput: String){
+        self.masculineNominativeSingularPositive = masculineNominativeSingularPositiveInput
+        self.feminineNominativeSingularPositive = feminineNominativeSingularPositiveInput
+        self.neuterNominativeSingularPositive = neuterNominativeSingularPositiveInput
+        self.definition = definitionInput
+        
+        super.init(latinSearchTerm: "\(masculineNominativeSingularPositiveInput), \(feminineNominativeSingularPositiveInput), \(neuterNominativeSingularPositiveInput)", englishSearchTerm: definitionInput, partOfSpeech: "Adjective")
+    }
+}
+
