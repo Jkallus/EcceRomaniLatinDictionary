@@ -82,13 +82,6 @@
 			remoteGlobalIDString = DCC6B3921A9191D100734B78;
 			remoteInfo = "SQLiteCipher Tests";
 		};
-		03E175081AD8C33F004FB333 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03E174F71AD8C33F004FB333 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DCAE4D151ABE0B3300EFCE7A;
-			remoteInfo = sqlite3;
-		};
 		03E1750A1AD8C359004FB333 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03E174F71AD8C33F004FB333 /* SQLite.xcodeproj */;
@@ -316,7 +309,6 @@
 				03E175031AD8C33F004FB333 /* SQLite Tests.xctest */,
 				03E175051AD8C33F004FB333 /* SQLite.framework */,
 				03E175071AD8C33F004FB333 /* SQLiteCipher Tests.xctest */,
-				03E175091AD8C33F004FB333 /* sqlite3.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -433,13 +425,6 @@
 			fileType = wrapper.cfbundle;
 			path = "SQLiteCipher Tests.xctest";
 			remoteRef = 03E175061AD8C33F004FB333 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		03E175091AD8C33F004FB333 /* sqlite3.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = sqlite3.framework;
-			remoteRef = 03E175081AD8C33F004FB333 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
