@@ -12,7 +12,6 @@ import Foundation
 
 class WordsListTableViewController2: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
-    
     var searchLanguage: String = "Latin"
     var wordsArray = [Word]()
     var filteredWordsArray = [Word]()
@@ -20,7 +19,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
     func pathToDocsFolder() -> String {
         return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
     }
-    
     
     @IBOutlet weak var WordsTable: UITableView!
     
@@ -36,7 +34,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         }
         
         sortTable()
-
     }
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool{
@@ -66,7 +63,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         })
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
@@ -79,7 +75,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let Adjectives = db["Adjectives"]
             let Adverbs = db["Adverbs"]
             let NonConjugatables = db["NonConjugatables"]
-            
             
             //Nouns
             let NominativeSingular = Expression<String>("NominativeSingular")
@@ -106,10 +101,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let MasculineNominativeSingularPositive = Expression<String>("MasculineNominativeSingularPositive")
             let FeminineNominativeSingularPositive = Expression<String>("FeminineNominativeSingularPositive")
             let NeuterNominativeSingularPositive = Expression<String>("NeuterNominativeSingularPositive")
-            
-            
-            
-            
             
             var i = 0
             for Word in Nouns{
@@ -185,10 +176,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let FeminineNominativeSingularPositive = Expression<String>("FeminineNominativeSingularPositive")
                 let NeuterNominativeSingularPositive = Expression<String>("NeuterNominativeSingularPositive")
                 
-                
-                
-                
-                
                 var i = 0
                 for Word in Nouns{
                     let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
@@ -228,7 +215,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         }
     }
     
-    
     func sortTable(){
         if searchLanguage == "Latin"{
             wordsArray = wordsArray.sorted{ $0.latinSearchTerm.lowercaseString < $1.latinSearchTerm.lowercaseString}
@@ -243,7 +229,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
@@ -262,39 +247,34 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         }
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         if tableView == self.searchDisplayController?.searchResultsTableView{
             let word = filteredWordsArray[indexPath.row]
             
             //Noun
-            if let simpleNoun:simpleNoun = word as? simpleNoun{
-                let noun: Noun = Noun(NominativeSingularInput: simpleNoun.nominativeSingular, GenitiveSingularInput: simpleNoun.genitiveSingular, GenderInput: simpleNoun.gender, DefinitionInput: simpleNoun.definition, DeclensionInput: simpleNoun.declension)
+            if let SimpleNoun:simpleNoun = word as? simpleNoun{
+                cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
-                    cell.detailTextLabel!.text = noun.Definition.lowercaseString
+                    cell.textLabel!.text = SimpleNoun.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleNoun.englishSearchTerm.lowercaseString
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = noun.Definition.lowercaseString
-                    cell.detailTextLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
-                }
+                    cell.textLabel!.text = SimpleNoun.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleNoun.latinSearchTerm.lowercaseString                }
             }
             
             //Adverb
             else if (word is Adverb){
                 let adverb = word as! Adverb
+                cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
                     cell.textLabel!.text = adverb.latinSearchTerm.lowercaseString
-                    cell.detailTextLabel!.text = adverb.englishSearchTerm
+                    cell.detailTextLabel!.text = adverb.englishSearchTerm.lowercaseString
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = adverb.englishSearchTerm
-                    cell.detailTextLabel!.text = adverb.latinSearchTerm
+                    cell.textLabel!.text = adverb.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = adverb.latinSearchTerm.lowercaseString
                 }
             }
             
@@ -303,15 +283,15 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let NonConjugatable: nonConjugatable = word as! nonConjugatable
                 cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
                 if searchLanguage == "Latin"{
-                    cell.textLabel!.text = NonConjugatable.latinSearchTerm
-                    cell.detailTextLabel!.text = NonConjugatable.englishSearchTerm
+                    cell.textLabel!.text = NonConjugatable.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = NonConjugatable.englishSearchTerm.lowercaseString
                 }
                 else{
-                    cell.textLabel!.text = NonConjugatable.englishSearchTerm
-                    cell.detailTextLabel!.text = NonConjugatable.latinSearchTerm
+                    cell.textLabel!.text = NonConjugatable.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = NonConjugatable.latinSearchTerm.lowercaseString
                 }
-                
             }
+            
             //Adjective
             else if (word is simpleAdjective){
                 let SimpleAdjective = word as! simpleAdjective
@@ -329,16 +309,14 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             //Verb
             else{
                 let SimpleVerb:simpleVerb = word as! simpleVerb
-                let verb:Verb = Verb(firstPrinciplePart: SimpleVerb.firstPrinciplePart , secondPrinciplePart: SimpleVerb.secondPrinciplePart, thirdPrinciplePart: SimpleVerb.thirdPrinciplePart, fourthPrinciplePart: SimpleVerb.fourthPrinciplePart, definition: SimpleVerb.definition)
+                cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
-                    cell.detailTextLabel!.text = verb.definition.lowercaseString
+                    cell.textLabel!.text = SimpleVerb.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleVerb.englishSearchTerm.lowercaseString
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = verb.definition.lowercaseString
-                    cell.detailTextLabel!.text = verb.firstPrinciplePart + ", " + verb.secondPrinciplePart.lowercaseString
+                    cell.textLabel!.text = SimpleVerb.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleVerb.latinSearchTerm.lowercaseString
                 }
             }
         }
@@ -347,32 +325,29 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             let word = wordsArray[indexPath.row]
             
             //Noun
-            if let simpleNoun:simpleNoun = word as? simpleNoun{
-                let noun: Noun = Noun(NominativeSingularInput: simpleNoun.nominativeSingular, GenitiveSingularInput: simpleNoun.genitiveSingular, GenderInput: simpleNoun.gender, DefinitionInput: simpleNoun.definition, DeclensionInput: simpleNoun.declension)
+            if let SimpleNoun:simpleNoun = word as? simpleNoun{
+                cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
-                    cell.detailTextLabel!.text = noun.Definition.lowercaseString
+                    cell.textLabel!.text = SimpleNoun.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleNoun.englishSearchTerm.lowercaseString
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("nounCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = noun.Definition.lowercaseString
-                    cell.detailTextLabel!.text = noun.nominative.singular.lowercaseString + ", " + noun.genitive.singular.lowercaseString
+                    cell.textLabel!.text = SimpleNoun.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleNoun.latinSearchTerm.lowercaseString
                 }
             }
             
             //Adverb
             else if word is Adverb{
                 let adverb = word as! Adverb
+                cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = adverb.latinSearchTerm
-                    cell.detailTextLabel!.text = adverb.englishSearchTerm
+                    cell.textLabel!.text = adverb.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = adverb.englishSearchTerm.lowercaseString
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("adverbCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = adverb.englishSearchTerm
-                    cell.detailTextLabel!.text = adverb.latinSearchTerm
+                    cell.textLabel!.text = adverb.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = adverb.latinSearchTerm.lowercaseString
                 }
             }
             
@@ -381,12 +356,12 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let NonConjugatable: nonConjugatable = word as! nonConjugatable
                 cell = self.tableView.dequeueReusableCellWithIdentifier("nonConjugatableCell", forIndexPath: indexPath) as! LatinTableViewCell
                 if searchLanguage == "Latin"{
-                    cell.textLabel!.text = NonConjugatable.latinSearchTerm
-                    cell.detailTextLabel!.text = NonConjugatable.englishSearchTerm
+                    cell.textLabel!.text = NonConjugatable.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = NonConjugatable.englishSearchTerm.lowercaseString
                 }
                 else{
-                    cell.textLabel!.text = NonConjugatable.englishSearchTerm
-                    cell.detailTextLabel!.text = NonConjugatable.latinSearchTerm
+                    cell.textLabel!.text = NonConjugatable.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = NonConjugatable.latinSearchTerm.lowercaseString
                 }
                 
             }
@@ -408,17 +383,14 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             //Verb
             else{
                 let SimpleVerb:simpleVerb = word as! simpleVerb
-                let verb:Verb = Verb(firstPrinciplePart: SimpleVerb.firstPrinciplePart , secondPrinciplePart: SimpleVerb.secondPrinciplePart, thirdPrinciplePart: SimpleVerb.thirdPrinciplePart, fourthPrinciplePart: SimpleVerb.fourthPrinciplePart, definition: SimpleVerb.definition)
-
+                cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
                 if searchLanguage == "Latin"{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text = verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
-                    cell.detailTextLabel!.text = verb.definition.lowercaseString
+                    cell.textLabel!.text = SimpleVerb.latinSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text = SimpleVerb.englishSearchTerm.lowercaseString
                 }
                 else{
-                    cell = self.tableView.dequeueReusableCellWithIdentifier("verbCell", forIndexPath: indexPath) as! LatinTableViewCell
-                    cell.textLabel!.text =   verb.definition.lowercaseString
-                    cell.detailTextLabel!.text =  verb.firstPrinciplePart.lowercaseString + ", " + verb.secondPrinciplePart.lowercaseString
+                    cell.textLabel!.text =   SimpleVerb.englishSearchTerm.lowercaseString
+                    cell.detailTextLabel!.text =  SimpleVerb.latinSearchTerm.lowercaseString
                 }
             }
         }
@@ -452,7 +424,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 (segue.destinationViewController as! NounDetailViewController).word = complexNoun
             }
         }
-            
             
         else if segue.identifier == "adverbDetailViewSegue"{
             if self.searchDisplayController!.active{
@@ -506,9 +477,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             
         else if segue.identifier == "addWordSegue"{
             
-            
-            
         }
     }
-    
 }

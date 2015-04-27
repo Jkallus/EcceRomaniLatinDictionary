@@ -15,7 +15,7 @@ class nonConjugatable: Word {
     init(latinFormInput: String, englishFormInput: String){
         self.latinForm = latinFormInput
         self.englishForm = englishFormInput
-        super.init(latinSearchTerm: latinFormInput, englishSearchTerm: englishFormInput, partOfSpeech: "nonConjugatable")
+        super.init(latinSearchTerm: latinFormInput, englishSearchTerm: englishFormInput, partOfSpeech: "NonConjugatable")
     }
     
 }
