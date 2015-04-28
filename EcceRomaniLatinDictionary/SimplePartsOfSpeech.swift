@@ -22,7 +22,7 @@ class simpleNoun: Word{
         self.definition = definitionInput
         self.declension = declensionInput
         
-        super.init(latinSearchTerm: nominativeSingularInput + "," + genitiveSingularInput, englishSearchTerm: definitionInput, partOfSpeech: "Noun")
+        super.init(latinSearchTerm: nominativeSingularInput + ", " + genitiveSingularInput, englishSearchTerm: definitionInput, partOfSpeech: "Noun")
     }
 }
 
@@ -43,7 +43,7 @@ class simpleVerb: Word{
         self.fourthPrinciplePart = fourthPrinciplePartInput
         self.definition = definitionInput
         
-        super.init(latinSearchTerm: firstPrinciplePartInput + "," + secondPrinciplePartInput, englishSearchTerm: definitionInput, partOfSpeech: "Verb")
+        super.init(latinSearchTerm: firstPrinciplePartInput + ", " + secondPrinciplePartInput, englishSearchTerm: definitionInput, partOfSpeech: "Verb")
     }
 }
 

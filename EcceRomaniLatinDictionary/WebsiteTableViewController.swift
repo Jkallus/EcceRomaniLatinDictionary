@@ -33,16 +33,10 @@ class WebsiteTableViewController: UITableViewController {
         if segue.identifier == "wiktionarySegue"{
 
             if let noun = word as? Noun{
-                println("Pre:  \(webViewController.url)")
-                println("String: http://en.wiktionary.org/wiki/\(noun.nominative.singular.normalString())#latin")
                 webViewController.url = NSURL(string: ("http://en.wiktionary.org/wiki/\(noun.nominative.singular.normalString())#latin"))
-                println("Post:  \(webViewController.url)")
             }
             else if let verb = word as? Verb{
-                println("Pre:  \(webViewController.url)")
                 webViewController.url = NSURL(string: "http://en.wiktionary.org/wiki/\(verb.active.present.firstPerson.singular.latin.normalString())#latin")
-                println("String: http://en.wiktionary.org/wiki/\(verb.firstPrinciplePart)#latin")
-                println("Post:  \(webViewController.url)")
             }
                 
             else if word is Adverb{
@@ -50,31 +44,25 @@ class WebsiteTableViewController: UITableViewController {
                 webViewController.url = NSURL(string: "http://en.wiktionary.org/wiki/\(adverb.positive.latin.normalString())#latin")
             }
             
-            
+            else if word is Adjective{
+                let adjective:Adjective = word as! Adjective
+                webViewController.url = NSURL(string: "http://en.wiktionary.org/wiki/\(adjective.masculine.nominative.singular.positive.latin.normalString())#latin")
+            }
             
             
             else{
                 let nonConjugatableWord = word as! nonConjugatable
-                println("Pre:  \(webViewController.url)")
                 webViewController.url = NSURL(string: "http://en.wiktionary.org/wiki/\(nonConjugatableWord.latinForm.normalString())#latin")
-                println("String: http://en.wiktionary.org/wiki/\(nonConjugatableWord.latinForm.normalString())#latin")
-                println("Post:  \(webViewController.url)")
             }
             
             (segue.destinationViewController as! WebViewController).title = "Wiktionary"
         }
         else if segue.identifier == "whitakerSegue"{
             if let noun = word as? Noun{
-                println("Pre:  \(webViewController.url)")
                 webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(noun.nominative.singular.normalString())")
-                println(" String: http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(noun.nominative.singular.normalString())")
-                println("Post:  \(webViewController.url)")
             }
             else if let verb = word as? Verb{
-                println("Pre:  \(webViewController.url)")
                 webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(verb.active.present.firstPerson.singular.latin.normalString())")
-                println("String: http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(verb.firstPrinciplePart)")
-                println("Post:  \(webViewController.url)")
             }
                 
             else if word is Adverb{
@@ -82,12 +70,14 @@ class WebsiteTableViewController: UITableViewController {
                 webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(adverb.positive.latin.normalString())")
             }
                 
+            else if word is Adjective{
+                let adjective: Adjective = word as! Adjective
+                webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(adjective.masculine.nominative.singular.positive.latin.normalString())")
+            }
+                
             else{
                 let nonConjugatableWord = word as! nonConjugatable
-                println("Pre:  \(webViewController.url)")
                 webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(nonConjugatableWord.latinForm.normalString())")
-                println("String: http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(nonConjugatableWord.latinForm.normalString())")
-                println("Post:  \(webViewController.url)")
             }
 
             webViewController.title = "William Whitaker's Words"

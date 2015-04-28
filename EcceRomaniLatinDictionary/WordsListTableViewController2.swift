@@ -65,82 +65,25 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.reloadData()
-        let theFileManager = NSFileManager.defaultManager()
-        if theFileManager.fileExistsAtPath(pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite")){
-            let db = Database(pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite"))
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+
+        if wordsArray.count > 0{
             
-            let Nouns = db["Nouns"]
-            let Verbs = db["Verbs"]
-            let Adjectives = db["Adjectives"]
-            let Adverbs = db["Adverbs"]
-            let NonConjugatables = db["NonConjugatables"]
-            
-            //Nouns
-            let NominativeSingular = Expression<String>("NominativeSingular")
-            let GenitiveSingular = Expression<String>("GenitiveSingular")
-            let Gender = Expression<String>("Gender")
-            let Declension = Expression<Int>("Declension")
-            
-            //Verbs
-            let FirstPrinciplePart = Expression<String>("FirstPrinciplePart")
-            let SecondPrinciplePart = Expression<String>("SecondPrinciplePart")
-            let ThirdPrinciplePart = Expression<String>("ThirdPrinciplePart")
-            let FourthPrinciplePart = Expression<String>("FourthPrinciplePart")
-            
-            //Adverbs
-            let Positive = Expression<String>("Positive")
-            let Comparitive = Expression<String>("Comparative")
-            let Superlative = Expression<String>("Superlative")
-            
-            //NonConjugatables
-            let Latin = Expression<String>("Latin")
-            let Definition = Expression<String>("Definition")
-            
-            //Adjectives
-            let MasculineNominativeSingularPositive = Expression<String>("MasculineNominativeSingularPositive")
-            let FeminineNominativeSingularPositive = Expression<String>("FeminineNominativeSingularPositive")
-            let NeuterNominativeSingularPositive = Expression<String>("NeuterNominativeSingularPositive")
-            
-            var i = 0
-            for Word in Nouns{
-                let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
-                wordsArray.insert(incomingSimpleNoun, atIndex: i)
-                i++
-            }
-            
-            for Word in Verbs{
-                let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
-                wordsArray.insert(incomingSimpleVerb, atIndex: i)
-                i++
-            }
-            
-            for Word in Adverbs{
-                let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[Definition])
-                wordsArray.insert(incomingAdverb, atIndex: i)
-                i++
-            }
-            
-            for Word in NonConjugatables{
-                let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
-                wordsArray.insert(incomingNonConjugatable, atIndex: i)
-                i++
-            }
-            
-            for Word in Adjectives{
-                let incomingAdjective: simpleAdjective = simpleAdjective(masculineNominativeSingularPositiveInput: Word[MasculineNominativeSingularPositive], feminineNominativeSingularPositiveInput: Word[FeminineNominativeSingularPositive], neuterNominativeSingularPositiveInput: Word[NeuterNominativeSingularPositive], definitionInput: Word[Definition])
-                wordsArray.insert(incomingAdjective, atIndex: i)
-                i++
-            }
-            
-            sortTable()
         }
-            
         else{
-            let pathToBundledDB = NSBundle.mainBundle().pathForResource("StandardData", ofType: "sqlite")
-            let pathToDevice = pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite")
-            var error: NSError?
-            if(theFileManager.copyItemAtPath(pathToBundledDB!, toPath: pathToDevice, error: &error)){
+            //        let progressView = UIProgressView(progressViewStyle: .Bar)
+            //        progressView.center = view.center
+            //        progressView.progress = 0.0
+            //        progressView.trackTintColor = UIColor.lightGrayColor()
+            //        progressView.tintColor = UIColor.blueColor()
+            //        self.view.addSubview(progressView)
+            
+            
+            self.tableView.reloadData()
+            let theFileManager = NSFileManager.defaultManager()
+            if theFileManager.fileExistsAtPath(pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite")){
                 let db = Database(pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite"))
                 
                 let Nouns = db["Nouns"]
@@ -148,7 +91,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                 let Adjectives = db["Adjectives"]
                 let Adverbs = db["Adverbs"]
                 let NonConjugatables = db["NonConjugatables"]
-                
                 
                 //Nouns
                 let NominativeSingular = Expression<String>("NominativeSingular")
@@ -181,37 +123,127 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                     let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
                     wordsArray.insert(incomingSimpleNoun, atIndex: i)
                     i++
+                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 for Word in Verbs{
                     let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
                     wordsArray.insert(incomingSimpleVerb, atIndex: i)
                     i++
+                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 for Word in Adverbs{
                     let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[Definition])
                     wordsArray.insert(incomingAdverb, atIndex: i)
                     i++
+                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 for Word in NonConjugatables{
                     let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
                     wordsArray.insert(incomingNonConjugatable, atIndex: i)
                     i++
+                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 for Word in Adjectives{
                     let incomingAdjective: simpleAdjective = simpleAdjective(masculineNominativeSingularPositiveInput: Word[MasculineNominativeSingularPositive], feminineNominativeSingularPositiveInput: Word[FeminineNominativeSingularPositive], neuterNominativeSingularPositiveInput: Word[NeuterNominativeSingularPositive], definitionInput: Word[Definition])
                     wordsArray.insert(incomingAdjective, atIndex: i)
                     i++
+                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 sortTable()
             }
-            else{
                 
+            else{
+                let pathToBundledDB = NSBundle.mainBundle().pathForResource("StandardData", ofType: "sqlite")
+                let pathToDevice = pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite")
+                var error: NSError?
+                if(theFileManager.copyItemAtPath(pathToBundledDB!, toPath: pathToDevice, error: &error)){
+                    let db = Database(pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite"))
+                    
+                    let Nouns = db["Nouns"]
+                    let Verbs = db["Verbs"]
+                    let Adjectives = db["Adjectives"]
+                    let Adverbs = db["Adverbs"]
+                    let NonConjugatables = db["NonConjugatables"]
+                    
+                    
+                    //Nouns
+                    let NominativeSingular = Expression<String>("NominativeSingular")
+                    let GenitiveSingular = Expression<String>("GenitiveSingular")
+                    let Gender = Expression<String>("Gender")
+                    let Declension = Expression<Int>("Declension")
+                    
+                    //Verbs
+                    let FirstPrinciplePart = Expression<String>("FirstPrinciplePart")
+                    let SecondPrinciplePart = Expression<String>("SecondPrinciplePart")
+                    let ThirdPrinciplePart = Expression<String>("ThirdPrinciplePart")
+                    let FourthPrinciplePart = Expression<String>("FourthPrinciplePart")
+                    
+                    //Adverbs
+                    let Positive = Expression<String>("Positive")
+                    let Comparitive = Expression<String>("Comparative")
+                    let Superlative = Expression<String>("Superlative")
+                    
+                    //NonConjugatables
+                    let Latin = Expression<String>("Latin")
+                    let Definition = Expression<String>("Definition")
+                    
+                    //Adjectives
+                    let MasculineNominativeSingularPositive = Expression<String>("MasculineNominativeSingularPositive")
+                    let FeminineNominativeSingularPositive = Expression<String>("FeminineNominativeSingularPositive")
+                    let NeuterNominativeSingularPositive = Expression<String>("NeuterNominativeSingularPositive")
+                    
+                    var i = 0
+                    for Word in Nouns{
+                        let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
+                        wordsArray.insert(incomingSimpleNoun, atIndex: i)
+                        i++
+                        //progressView.progress = Float(i) / 32540.0
+                    }
+                    
+                    for Word in Verbs{
+                        let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
+                        wordsArray.insert(incomingSimpleVerb, atIndex: i)
+                        i++
+                        //progressView.progress = Float(i) / 32540.0
+                    }
+                    
+                    for Word in Adverbs{
+                        let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[Definition])
+                        wordsArray.insert(incomingAdverb, atIndex: i)
+                        i++
+                        //progressView.progress = Float(i) / 32540.0
+                    }
+                    
+                    for Word in NonConjugatables{
+                        let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
+                        wordsArray.insert(incomingNonConjugatable, atIndex: i)
+                        i++
+                        //progressView.progress = Float(i) / 32540.0
+                    }
+                    
+                    for Word in Adjectives{
+                        let incomingAdjective: simpleAdjective = simpleAdjective(masculineNominativeSingularPositiveInput: Word[MasculineNominativeSingularPositive], feminineNominativeSingularPositiveInput: Word[FeminineNominativeSingularPositive], neuterNominativeSingularPositiveInput: Word[NeuterNominativeSingularPositive], definitionInput: Word[Definition])
+                        wordsArray.insert(incomingAdjective, atIndex: i)
+                        i++
+                        //progressView.progress = Float(i) / 32540.0
+                    }
+                    
+                    sortTable()
+                }
+                else{
+                    
+                }
             }
+            
+            
+            //progressView.removeFromSuperview()
+            
+
         }
     }
     
@@ -469,9 +501,16 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         else if segue.identifier == "adjectiveDetailViewSegue"{
             if self.searchDisplayController!.active{
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
+                let selectedSimpleAdjective: simpleAdjective = filteredWordsArray[indexPath.row] as! simpleAdjective
+                let complexAdjective: Adjective = Adjective(masculineNominativeSingularPositiveInput: selectedSimpleAdjective.masculineNominativeSingularPositive, feminineNominativeSingularPositiveInput: selectedSimpleAdjective.feminineNominativeSingularPositive, neuterNominativeSingularPositiveInput: selectedSimpleAdjective.neuterNominativeSingularPositive, definitionInput: selectedSimpleAdjective.definition)
+                (segue.destinationViewController as! AdjectiveDetailViewController).adjective = complexAdjective
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
+                let selectedSimpleAdjective: simpleAdjective = wordsArray[indexPath.row] as! simpleAdjective
+                let complexAdjective: Adjective = Adjective(masculineNominativeSingularPositiveInput: selectedSimpleAdjective.masculineNominativeSingularPositive, feminineNominativeSingularPositiveInput: selectedSimpleAdjective.feminineNominativeSingularPositive, neuterNominativeSingularPositiveInput: selectedSimpleAdjective.neuterNominativeSingularPositive, definitionInput: selectedSimpleAdjective.definition)
+                (segue.destinationViewController as! AdjectiveDetailViewController).adjective = complexAdjective
+
             }
         }
             

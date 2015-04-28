@@ -66,12 +66,7 @@ class Noun: Word {
 func deriveNominative(NominativeSingular: String, GenitiveSingular: String, Gender: String, Declension: Int) -> declensionCase{
     var NomSing: String?
     var NomPlural: String?
-    
-    if NominativeSingular == "semibos"{
-        println("TEST")
-    }
-    
-    //var derivedNominative: nominativeCase = nominativeCase(NominativeSingularInput: "",NominativePluralInput: "")
+
     
     if Declension == 1{
         NomSing = NominativeSingular

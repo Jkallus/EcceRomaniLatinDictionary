@@ -226,7 +226,6 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         else{
             cell.textLabel!.text = section_1[indexPath.row]
-            println(section_1[indexPath.row])
         }
         
         return cell
