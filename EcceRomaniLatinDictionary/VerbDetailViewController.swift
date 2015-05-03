@@ -71,11 +71,11 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         Section_0.insert(verb.firstPrinciplePart + ", " + verb.secondPrinciplePart, atIndex: titleIndex)
         Section_0.insert(verb.definition, atIndex: subtitleIndex)
         
-        Section_1.insert("Conjugation \(verb.conjugation)", atIndex: conjugationIndex)
+        Section_1.insert("Conjugation: \(verb.conjugation)", atIndex: conjugationIndex)
         Section_1.insert("First Principle Part: \(verb.firstPrinciplePart)", atIndex: firstPrinciplePartIndex)
-        Section_1.insert("Second Principle Part \(verb.secondPrinciplePart)", atIndex: secondPrinciplePartIndex)
-        Section_1.insert("Third Principle Part \(verb.thirdPrinciplePart)", atIndex: thirdPrinciplePartIndex)
-        Section_1.insert("Fourth Principle Part \(verb.fourthPrinciplePart)", atIndex: fourthPrinciplePartIndex)
+        Section_1.insert("Second Principle Part: \(verb.secondPrinciplePart)", atIndex: secondPrinciplePartIndex)
+        Section_1.insert("Third Principle Part: \(verb.thirdPrinciplePart)", atIndex: thirdPrinciplePartIndex)
+        Section_1.insert("Fourth Principle Part: \(verb.fourthPrinciplePart)", atIndex: fourthPrinciplePartIndex)
         
         Section_1[tenseIndex] = tenses[0]
         Section_1[personIndex] = persons[0]
@@ -399,21 +399,6 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as! UITableViewCell
-        //        let verb = word as Verb
-        //
-        //        Section_0.insert(verb.firstPrinciplePart + ", " + verb.secondPrinciplePart, atIndex: 0)
-        //        Section_0.insert("To \(verb.definition)", atIndex: 1)
-        //
-        //        Section_1.insert("Conjugation: \(verb.conjugation)", atIndex: 0)
-        //        Section_1.insert("First Principle Part: \(verb.firstPrinciplePart)", atIndex: 1)
-        //        Section_1.insert("Second Principle Part: \(verb.secondPrinciplePart)", atIndex: 2)
-        //        Section_1.insert("Third Principle Part: \(verb.thirdPrinciplePart)", atIndex: 3)
-        //        Section_1.insert("Fourth Principle Part: \(verb.fourthPrinciplePart)", atIndex: 4)
-        //
-        //        Section_1.insert("Form: \(form)", atIndex: 5)
-        //        Section_1.insert("Latin: \(latin)", atIndex: 6)
-        //        Section_1.insert("English: \(english)", atIndex: 7)
-        
         
         if indexPath.section == 0{
             cell.textLabel!.text = Section_0[indexPath.row]
