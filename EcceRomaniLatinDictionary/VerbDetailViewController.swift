@@ -50,16 +50,8 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     let persons = ["first person", "second person", "third person"]
     let numbers = ["singular", "plural"]
     
-    //    var selectedTense: String?
-    //    var selectedPerson: String?
-    //    var selectedNumber: String?
-    
     var Section_0 = [String]()
     var Section_1 = [String]()
-    
-    //    var form: String?
-    //    var latin: String?
-    //    var english: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,10 +74,7 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         Section_1[numberIndex] = numbers[0]
         
         setCustom()
-        
     }
-    
-    
     
     func setCustom(){
         let verb = word as! Verb
@@ -327,7 +316,6 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
