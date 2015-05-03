@@ -62,8 +62,6 @@ class AdjectiveDetailViewController: UIViewController, UITableViewDelegate, UITa
         section_1.insert(cases[0], atIndex: caseIndex)
         section_1.insert(numbers[0], atIndex: numberIndex)
         section_1.insert(degrees[0], atIndex: degreeIndex)
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,10 +104,6 @@ class AdjectiveDetailViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func setCustom(){
-        
-        
-        
-        
         section_1[formIndex] = "\(section_1[genderIndex]) \(section_1[caseIndex]) \(section_1[numberIndex]) \(section_1[degreeIndex])"
         
         if section_1[genderIndex] == "masculine"{
@@ -661,6 +655,11 @@ class AdjectiveDetailViewController: UIViewController, UITableViewDelegate, UITa
                 }
             }
         }
+        
+        section_1[formIndex] += "Form: "
+        section_1[latinIndex] += "Latin: "
+        section_1[englishIndex] += "English: "
+        
         self.propertyTableView.reloadData()
     }
     
@@ -708,12 +707,9 @@ class AdjectiveDetailViewController: UIViewController, UITableViewDelegate, UITa
         return cell
     }
     
-    
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        if segue.identifier == "adjectiveWebSegue"{
         (segue.destinationViewController as! WebsiteTableViewController).word = self.adjective
-        
         }
     }
 }
