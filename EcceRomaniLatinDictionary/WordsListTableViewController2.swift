@@ -12,6 +12,9 @@ import Foundation
 
 class WordsListTableViewController2: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
+    var activityIndicator: UIActivityIndicatorView! = UIActivityIndicatorView()
+    
+    
     var searchLanguage: String = "Latin"
     var wordsArray = [Word]()
     var filteredWordsArray = [Word]()
@@ -65,22 +68,30 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator.startAnimating()
+        
+        let priority = DISPATCH_QUEUE_PRIORITY_LOW
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            self.loadData()
+            dispatch_async(dispatch_get_main_queue()){
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.removeFromSuperview()
+            }
+        }
     }
     
-    override func viewDidAppear(animated: Bool) {
-
+    
+    
+    func loadData(){
         if wordsArray.count > 0{
             
         }
+            
         else{
-            //        let progressView = UIProgressView(progressViewStyle: .Bar)
-            //        progressView.center = view.center
-            //        progressView.progress = 0.0
-            //        progressView.trackTintColor = UIColor.lightGrayColor()
-            //        progressView.tintColor = UIColor.blueColor()
-            //        self.view.addSubview(progressView)
-            
-            
             self.tableView.reloadData()
             let theFileManager = NSFileManager.defaultManager()
             if theFileManager.fileExistsAtPath(pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite")){
@@ -123,40 +134,34 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                     let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
                     wordsArray.insert(incomingSimpleNoun, atIndex: i)
                     i++
-                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 for Word in Verbs{
                     let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
                     wordsArray.insert(incomingSimpleVerb, atIndex: i)
                     i++
-                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 for Word in Adverbs{
                     let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[Definition])
                     wordsArray.insert(incomingAdverb, atIndex: i)
                     i++
-                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 for Word in NonConjugatables{
                     let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
                     wordsArray.insert(incomingNonConjugatable, atIndex: i)
                     i++
-                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 for Word in Adjectives{
                     let incomingAdjective: simpleAdjective = simpleAdjective(masculineNominativeSingularPositiveInput: Word[MasculineNominativeSingularPositive], feminineNominativeSingularPositiveInput: Word[FeminineNominativeSingularPositive], neuterNominativeSingularPositiveInput: Word[NeuterNominativeSingularPositive], definitionInput: Word[Definition])
                     wordsArray.insert(incomingAdjective, atIndex: i)
                     i++
-                    //progressView.progress = Float(i) / 32540.0
                 }
                 
                 sortTable()
             }
-                
             else{
                 let pathToBundledDB = NSBundle.mainBundle().pathForResource("StandardData", ofType: "sqlite")
                 let pathToDevice = pathToDocsFolder().stringByAppendingPathComponent("/StandardData.sqlite")
@@ -169,7 +174,6 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                     let Adjectives = db["Adjectives"]
                     let Adverbs = db["Adverbs"]
                     let NonConjugatables = db["NonConjugatables"]
-                    
                     
                     //Nouns
                     let NominativeSingular = Expression<String>("NominativeSingular")
@@ -202,50 +206,45 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
                         let incomingSimpleNoun: simpleNoun = simpleNoun(nominativeSingularInput: Word[NominativeSingular], genitiveSingularInput: Word[GenitiveSingular], genderInput: Word[Gender], definitionInput: Word[Definition], declensionInput: Word[Declension])
                         wordsArray.insert(incomingSimpleNoun, atIndex: i)
                         i++
-                        //progressView.progress = Float(i) / 32540.0
                     }
                     
                     for Word in Verbs{
                         let incomingSimpleVerb: simpleVerb = simpleVerb(firstPrinciplePartInput: Word[FirstPrinciplePart], secondPrinciplePartInput: Word[SecondPrinciplePart], thirdPrinciplePartInput: Word[ThirdPrinciplePart], fourthPrinciplePartInput: Word[FourthPrinciplePart], definitionInput: Word[Definition])
                         wordsArray.insert(incomingSimpleVerb, atIndex: i)
                         i++
-                        //progressView.progress = Float(i) / 32540.0
                     }
                     
                     for Word in Adverbs{
                         let incomingAdverb: Adverb = Adverb(positiveInput: Word[Positive], comparativeInput: Word[Comparitive], superlativeInput: Word[Superlative], englishInput: Word[Definition])
                         wordsArray.insert(incomingAdverb, atIndex: i)
                         i++
-                        //progressView.progress = Float(i) / 32540.0
                     }
                     
                     for Word in NonConjugatables{
                         let incomingNonConjugatable: nonConjugatable = nonConjugatable(latinFormInput: Word[Latin], englishFormInput: Word[Definition])
                         wordsArray.insert(incomingNonConjugatable, atIndex: i)
                         i++
-                        //progressView.progress = Float(i) / 32540.0
                     }
                     
                     for Word in Adjectives{
                         let incomingAdjective: simpleAdjective = simpleAdjective(masculineNominativeSingularPositiveInput: Word[MasculineNominativeSingularPositive], feminineNominativeSingularPositiveInput: Word[FeminineNominativeSingularPositive], neuterNominativeSingularPositiveInput: Word[NeuterNominativeSingularPositive], definitionInput: Word[Definition])
                         wordsArray.insert(incomingAdjective, atIndex: i)
                         i++
-                        //progressView.progress = Float(i) / 32540.0
                     }
                     
                     sortTable()
+                    
+                    
                 }
                 else{
                     
                 }
             }
-            
-            
-            //progressView.removeFromSuperview()
-            
-
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+            }
     
     func sortTable(){
         if searchLanguage == "Latin"{
