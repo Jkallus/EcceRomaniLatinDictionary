@@ -72,6 +72,10 @@ class AdverbDetailViewController: UIViewController, UITableViewDelegate, UITable
             section_1[latinIndex] = adverb.superlative.latin
             section_1[englishIndex] = adverb.superlative.english
         }
+        
+        section_1[formIndex] += "Form: "
+        section_1[latinIndex] += "Latin: "
+        section_1[englishIndex] += "English: "
 
         self.propertyTableView.reloadData()
     }
