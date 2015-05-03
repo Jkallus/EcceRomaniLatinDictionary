@@ -59,11 +59,11 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         section_1 = [String](count: 7, repeatedValue: "")
         
         
-        section_0.insert(noun.nominative.singular + ", " + noun.genitive.singular, atIndex: titleIndex)
-        section_0.insert(noun.Definition, atIndex: subtitleIndex)
+        section_0.insert(noun.singular.nominative.latin + ", " + noun.singular.genitive.latin, atIndex: titleIndex)
+        section_0.insert(noun.definition, atIndex: subtitleIndex)
         
-        section_1.insert("Gender: \(noun.Gender)", atIndex: genderIndex)
-        section_1.insert( "Declension: \(noun.Declension)", atIndex: declensionIndex)
+        section_1.insert("Gender: \(noun.gender)", atIndex: genderIndex)
+        section_1.insert( "Declension: \(noun.declension)", atIndex: declensionIndex)
         
         section_1.insert(cases[0], atIndex: caseIndex)
         section_1.insert(numbers[0], atIndex: numberIndex)
@@ -105,81 +105,80 @@ class NounDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if (section_1[caseIndex] == "nominative" && section_1[numberIndex] == "singular"){
             section_1[formIndex] = "\(cases[0]) \(numbers[0])"
-            section_1[latinIndex] = noun.nominative.singular
-            //section_1[englishIndex] = noun.nominative.singular.english
+            section_1[latinIndex] = noun.singular.nominative.latin
+            section_1[englishIndex] = noun.singular.nominative.english
         }
             
             
         else if(section_1[caseIndex] == "nominative" && section_1[numberIndex] == "plural"){
             section_1[formIndex] = "\(cases[0]) \(numbers[1])"
-            section_1[latinIndex] = noun.nominative.plural
-            //section_1[englishIndex] = noun.nominative.plural.english
+            section_1[latinIndex] = noun.plural.nominative.latin
+            section_1[englishIndex] = noun.plural.nominative.english
         }
 
         else if(section_1[caseIndex] == "genitive" && section_1[numberIndex] == "singular"){
             section_1[formIndex] = "\(cases[1]) \(numbers[0])"
-            section_1[latinIndex] = noun.genitive.singular
-            //section_1[englishIndex] = noun.genitive.singular.english
+            section_1[latinIndex] = noun.singular.genitive.latin
+            section_1[englishIndex] = noun.singular.genitive.english
         }
     
         else if(section_1[caseIndex] == "genitive" && section_1[numberIndex] == "plural"){
             section_1[formIndex] = "\(cases[1]) \(numbers[1])"
-            section_1[latinIndex] = noun.genitive.plural
-            //section_1[englishIndex] = noun.genitive.plural.english
+            section_1[latinIndex] = noun.plural.genitive.latin
+            section_1[englishIndex] = noun.plural.genitive.english
         }
     
         else if(section_1[caseIndex] == "dative" && section_1[numberIndex] == "singular"){
             section_1[formIndex] = "\(cases[2]) \(numbers[0])"
-            section_1[latinIndex] = noun.dative.singular
-            //section_1[englishIndex] = noun.dative.singular.english
+            section_1[latinIndex] = noun.singular.dative.latin
+            section_1[englishIndex] = noun.singular.dative.english
         }
 
 
         else if(section_1[caseIndex] == "dative" && section_1[numberIndex] == "plural"){
             section_1[formIndex] = "\(cases[2]) \(numbers[1])"
-            section_1[latinIndex] = noun.dative.plural
-            //section_1[englishIndex] = noun.dative.plural.english
+            section_1[latinIndex] = noun.plural.dative.latin
+            section_1[englishIndex] = noun.plural.dative.english
         }
             
         else if(section_1[caseIndex] == "accusative" && section_1[numberIndex] == "singular"){
             section_1[formIndex] = "\(cases[3]) \(numbers[0])"
-            section_1[latinIndex] = noun.accusative.singular
-            //section_1[englishIndex] = noun.accuative.singular.english
+            section_1[latinIndex] = noun.singular.accusative.latin
+            section_1[englishIndex] = noun.singular.accusative.english
         }
             
         else if(section_1[caseIndex] == "accusative" && section_1[numberIndex] == "plural"){
             section_1[formIndex] = "\(cases[3]) \(numbers[1])"
-            section_1[latinIndex] = noun.accusative.plural
-            //section_1[englishIndex] = noun.accusative.plural.english
+            section_1[latinIndex] = noun.plural.accusative.latin
+            section_1[englishIndex] = noun.plural.accusative.english
         }
             
         else if(section_1[caseIndex] == "ablative" && section_1[numberIndex] == "singular"){
             section_1[formIndex] = "\(cases[4]) \(numbers[0])"
-            section_1[latinIndex] = noun.ablative.singular
-            //section_1[englishIndex] = noun.ablative.singular.english
+            section_1[latinIndex] = noun.singular.ablative.latin
+            section_1[englishIndex] = noun.singular.ablative.english
         }
             
         else if(section_1[caseIndex] == "ablative" && section_1[numberIndex] == "plural"){
             section_1[formIndex] = "\(cases[4]) \(numbers[1])"
-            section_1[latinIndex] = noun.ablative.plural
-            //section_1[englishIndex] = noun.ablative.plural.english
+            section_1[latinIndex] = noun.plural.ablative.latin
+            section_1[englishIndex] = noun.plural.ablative.english
         }
             
         else if(section_1[caseIndex] == "vocative" && section_1[numberIndex] == "singular"){
             section_1[formIndex] = "\(cases[5]) \(numbers[0])"
-            section_1[latinIndex] = noun.vocative.singular
-            //section_1[englishIndex] = noun.vocative.singular.english
+            section_1[latinIndex] = noun.singular.vocative.latin
+            section_1[englishIndex] = noun.singular.vocative.english
         }
             
         else{
             section_1[formIndex] = "\(cases[5]) \(numbers[1])"
-            section_1[latinIndex] = noun.vocative.plural
-            //section_1[englishIndex] = noun.vocative.plural.english
+            section_1[latinIndex] = noun.plural.vocative.latin
+            section_1[englishIndex] = noun.plural.vocative.english
         }
         
             section_1[formIndex] = "Form: " + section_1[formIndex]
             section_1[latinIndex] = "Latin: " + section_1[latinIndex]
-            section_1[englishIndex] = ""
             section_1[englishIndex] = "English: " + section_1[englishIndex]
         
         self.propertyTableView.reloadData()

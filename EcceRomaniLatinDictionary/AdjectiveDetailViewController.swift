@@ -54,9 +54,9 @@ class AdjectiveDetailViewController: UIViewController, UITableViewDelegate, UITa
         section_0.insert(adjective.latinSearchTerm, atIndex: titleIndex)
         section_0.insert(adjective.englishSearchTerm, atIndex: subtitleIndex)
         
-        section_1.insert("\(genders[0]) \(cases[0]) \(numbers[0]) \(degrees[0])", atIndex: formIndex)
-        section_1.insert(adjective.masculine.nominative.singular.positive.latin, atIndex: latinIndex)
-        section_1.insert(adjective.masculine.nominative.singular.positive.english, atIndex: englishIndex)
+        section_1.insert("Form: \(genders[0]) \(cases[0]) \(numbers[0]) \(degrees[0])", atIndex: formIndex)
+        section_1.insert("Latin: \(adjective.masculine.nominative.singular.positive.latin)", atIndex: latinIndex)
+        section_1.insert("English: \(adjective.masculine.nominative.singular.positive.english)", atIndex: englishIndex)
         
         section_1.insert(genders[0], atIndex: genderIndex)
         section_1.insert(cases[0], atIndex: caseIndex)
@@ -656,9 +656,9 @@ class AdjectiveDetailViewController: UIViewController, UITableViewDelegate, UITa
             }
         }
         
-        section_1[formIndex] += "Form: "
-        section_1[latinIndex] += "Latin: "
-        section_1[englishIndex] += "English: "
+        section_1[formIndex] = "Form: " + section_1[formIndex]
+        section_1[latinIndex] = "Latin: " + section_1[latinIndex]
+        section_1[englishIndex] = "English: " + section_1[englishIndex]
         
         self.propertyTableView.reloadData()
     }

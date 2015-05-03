@@ -8,16 +8,10 @@
 
 import Foundation
 
-struct adjectiveForm{
-    var latin: String = ""
-    var english: String = ""
-    init(){}
-}
-
 struct adjectiveDegree{
-    var positive: adjectiveForm = adjectiveForm()
-    var comparative: adjectiveForm = adjectiveForm()
-    var superlative: adjectiveForm = adjectiveForm()
+    var positive: form = form()
+    var comparative: form = form()
+    var superlative: form = form()
     init(){}
 }
 

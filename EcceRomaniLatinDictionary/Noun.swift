@@ -8,312 +8,438 @@
 
 import Foundation
 
-struct declensionCase {
-    var singular: String
-    var plural: String
+
+struct nounNumber {
+    var nominative: form = form()
+    var genitive: form = form()
+    var dative: form = form()
+    var accusative: form = form()
+    var ablative: form = form()
+    var vocative: form = form()
+    init(){}
+}
+
+class Noun: Word{
     
-    init(SingularInput:String, PluralInput:String){
-        self.singular = SingularInput
-        self.plural = PluralInput
+    var gender: String
+    var declension: Int
+    
+    var definition: String
+    
+    var singular: nounNumber
+    var plural: nounNumber
+    
+    init(nominativeSingularInput: String, genitiveSingularInput: String, genderInput: String, definitionInput: String, declensionInput: Int){
+        
+        self.gender = genderInput
+        self.declension = declensionInput
+        self.definition = definitionInput
+        
+        let noun: simpleNoun = simpleNoun(nominativeSingularInput: nominativeSingularInput, genitiveSingularInput: genitiveSingularInput, genderInput: genderInput, definitionInput: definitionInput, declensionInput: declensionInput)
+        
+        self.singular = deriveSingular(noun)
+        self.plural = derivePlural(noun)
+        
+        super.init(latinSearchTerm: nominativeSingularInput + ", " + genitiveSingularInput, englishSearchTerm: definitionInput, partOfSpeech: "Noun")
+        
     }
 }
 
 
-class Noun: Word {
-    private var NominativeSingular: String
-    private var GenitiveSingular: String
-    var Gender: String
-    var Definition: String
-    var Declension: Int
+func deriveSingular(noun: simpleNoun) -> nounNumber{
+    var singular: nounNumber = nounNumber()
+    let root: String
     
-    var nominative: declensionCase
-    var genitive: declensionCase
-    var dative: declensionCase
-    var accusative: declensionCase
-    var ablative: declensionCase
-    var vocative: declensionCase
+    let nominativeDefinition = "subject"
+    let genitiveDefinition = "subject's ownership"
+    let dativeDefinition = "subject's indirect object"
+    let accusativeDefinition = "subject's direct object"
+    let ablativeDefinition = "various meanings"
+    let vocativeDefinition = "identifies who is being addressed"
     
-    
-    init(NominativeSingularInput: String, GenitiveSingularInput: String, GenderInput: String, DefinitionInput: String, DeclensionInput: Int){
-        self.NominativeSingular = NominativeSingularInput
-        self.GenitiveSingular = GenitiveSingularInput
-        self.Declension = DeclensionInput
+    if noun.declension == 1{
+        root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -1)))
         
+        singular.nominative.latin = root + "a"
+        singular.nominative.english = nominativeDefinition
         
-
+        singular.genitive.latin = root + "ae"
+        singular.genitive.english = genitiveDefinition
         
-        self.Gender = GenderInput
+        singular.dative.latin = root + "ae"
+        singular.dative.english = dativeDefinition
         
+        singular.accusative.latin = root + "am"
+        singular.accusative.english = accusativeDefinition
         
+        singular.ablative.latin = root + "ā"
+        singular.ablative.english = ablativeDefinition
         
-        self.Definition = DefinitionInput
+        singular.vocative.latin = root + "a"
+        singular.vocative.english = vocativeDefinition
         
-        
-        
-        self.nominative = deriveNominative(NominativeSingularInput, GenitiveSingularInput, GenderInput, DeclensionInput)
-        self.genitive = deriveGenitive(NominativeSingularInput, GenitiveSingularInput, GenderInput, DeclensionInput)
-        self.dative = deriveDative(NominativeSingularInput, GenitiveSingularInput, GenderInput, DeclensionInput)
-        self.accusative = deriveAccusative(NominativeSingularInput, GenitiveSingularInput, GenderInput, DeclensionInput)
-        self.ablative = deriveAblative(NominativeSingularInput, GenitiveSingularInput, GenderInput, DeclensionInput)
-        self.vocative = deriveVocative(NominativeSingularInput, GenitiveSingularInput, GenderInput, DeclensionInput)
-        
-        super.init(latinSearchTerm: NominativeSingularInput + ", " + GenitiveSingularInput, englishSearchTerm: DefinitionInput, partOfSpeech: "Noun")
     }
-}
-
-
-
-func deriveNominative(NominativeSingular: String, GenitiveSingular: String, Gender: String, Declension: Int) -> declensionCase{
-    var NomSing: String?
-    var NomPlural: String?
-
-    
-    if Declension == 1{
-        NomSing = NominativeSingular
-        NomPlural = NominativeSingular + "e"
+    else if noun.declension == 2{
+        if noun.nominativeSingular.hasSuffix("us") || noun.nominativeSingular.hasSuffix("um"){
+            root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -2)))
+            
+            singular.nominative.latin = root + "us"
+            singular.nominative.english = nominativeDefinition
+            
+            singular.genitive.latin = root + "ī"
+            singular.genitive.english = genitiveDefinition
+            
+            singular.dative.latin = root + "ō"
+            singular.dative.english = dativeDefinition
+            
+            singular.accusative.latin = root + "um"
+            singular.accusative.english = accusativeDefinition
+            
+            singular.ablative.latin = root + "ō"
+            singular.ablative.english = ablativeDefinition
+            
+            singular.vocative.latin = root + "e"
+            singular.vocative.english = vocativeDefinition
+        }
+        else{
+            root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.genitiveSingular.startIndex, end: advance(noun.genitiveSingular.endIndex, -1)))
+            
+            singular.nominative.latin = noun.nominativeSingular
+            singular.nominative.english = nominativeDefinition
+            
+            singular.genitive.latin = root + "ī"
+            singular.genitive.english = genitiveDefinition
+            
+            singular.dative.latin = root + "ō"
+            singular.dative.english = dativeDefinition
+            
+            singular.accusative.latin = root + "um"
+            singular.accusative.english = accusativeDefinition
+            
+            singular.ablative.latin = root + "ō"
+            singular.ablative.english = ablativeDefinition
+            
+            singular.vocative.latin = root + "e"
+            singular.vocative.english = vocativeDefinition
+        }
     }
-    if Declension == 2{
-        NomSing = NominativeSingular
-        if Gender == "Masculine" || Gender == "Feminine"{
-            if NominativeSingular.hasSuffix("r"){
-                NomPlural = NominativeSingular+"i"
-            }
-            if NominativeSingular.hasSuffix("us"){
-                NomPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -2)))+"i"
-            }
+    else if noun.declension == 3{
+        
+        if noun.gender == "masculine" || noun.gender == "feminine"{
+            root = noun.genitiveSingular.substringWithRange(Range<String.Index>(start: noun.genitiveSingular.startIndex, end: advance(noun.genitiveSingular.endIndex, -2)))
+            
+            singular.nominative.latin = noun.nominativeSingular
+            singular.nominative.english = nominativeDefinition
+            
+            singular.genitive.latin = root + "is"
+            singular.genitive.english = genitiveDefinition
+            
+            singular.dative.latin = root + "ī"
+            singular.dative.english = dativeDefinition
+            
+            singular.accusative.latin = root + "em"
+            singular.accusative.english = accusativeDefinition
+            
+            singular.ablative.latin = root + "e"
+            singular.ablative.english = ablativeDefinition
+            
+            singular.vocative.latin = noun.nominativeSingular
+            singular.vocative.english = vocativeDefinition
             
         }
-        if Gender == "Neuter"{
-            NomPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -2)))+"a"
-        }
-    }
-    if Declension == 3{
-        if Gender != "Neuter" {
-            NomSing = NominativeSingular
-            NomPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2)))+"es"
-        }
-        if Gender == "Neuter" {
-            NomSing = NominativeSingular
-            NomPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2)))+"a"
-        }
-    }
-    if Declension == 4{
-        if Gender != "Neuter" {
-            NomSing = NominativeSingular
-            NomPlural = GenitiveSingular
-        }
-        if Gender == "Neuter"{
-            NomSing = NominativeSingular
-            NomPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -1)))+"ua"
-        }
-        if Declension == 5{
-            NomSing = NominativeSingular
-            NomPlural = NominativeSingular
-        }
-    }
-    if Declension == 5{
-        NomSing = NominativeSingular
-        NomPlural = NominativeSingular
-    }
-    
-    var derivedNominative: declensionCase = declensionCase(SingularInput: NomSing!, PluralInput: NomPlural!)
-    return derivedNominative
-}
-func deriveGenitive(NominativeSingular: String, GenitiveSingular: String, Gender: String, Declension: Int) -> declensionCase{
-    var GenSing: String?
-    var GenPlural: String?
-    if Declension == 1 {
-        GenSing = GenitiveSingular
-        GenPlural = NominativeSingular + "rum"
-    }
-    if Declension == 2 {
-        if Gender == "Masculine" || Gender == "Feminine"{
-            GenSing = GenitiveSingular
-            GenPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "orum"
-        }
-        
-        if Gender == "Neuter" {
-            GenSing = GenitiveSingular
-            GenPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "a"
-        }
-    }
-    if Declension == 3 {
-        GenSing = GenitiveSingular
-        GenPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "um"
-    }
-    if Declension == 4 {
-        GenSing = GenitiveSingular
-        GenPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "uum"
-    }
-    if Declension == 5 {
-        GenSing = GenitiveSingular
-        GenPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "erum"
-    }
-    
-    var derivedGenitive: declensionCase = declensionCase(SingularInput: GenSing!, PluralInput: GenPlural!)
-    return derivedGenitive
-}
-func deriveDative(NominativeSingular: String, GenitiveSingular: String, Gender: String, Declension: Int) -> declensionCase{
-    var DatSing: String?
-    var DatPlural: String?
-    
-    
-    if Declension == 1{
-        DatSing = NominativeSingular + "e"
-        DatPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -1))) + "īs"
-    }
-    if Declension == 2{
-        DatSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "o"
-        DatPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "īs"
-    }
-    if Declension == 3{
-        DatSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ī"
-        DatPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ībus"
-    }
-    if Declension == 4{
-        DatSing = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -2))) + "uī"
-        DatPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -2))) + "ibus"
-    }
-    if Declension == 5{
-        DatSing =  NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -2))) + "eī"
-        DatPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -2))) + "ebus"
-    }
-    
-    var derivedAblative: declensionCase = declensionCase(SingularInput: DatSing!, PluralInput: DatPlural!)
-    return derivedAblative
-}
-func deriveAccusative(NominativeSingular: String, GenitiveSingular: String, Gender: String, Declension: Int) -> declensionCase{
-    
-    var AccSing: String?
-    var AccPlural: String?
-    
-    if Declension == 1{
-        AccSing = NominativeSingular + "m"
-        AccPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -1))) + "ās"
-    }
-    if Declension == 2{
-        if Gender == "Masculine" || Gender == "Feminine"{
-            AccSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "um"
-            AccPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "ōs"
-        }
-        if Gender == "Neuter"{
-            AccSing = NominativeSingular
-            AccPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "a"
-        }
-    }
-    if Declension == 3{
-        if Gender != "Neuter"{
-            AccSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ēm"
-            AccPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ēs"
-        }
-        if Gender == "Neuter"{
-            AccSing = NominativeSingular
-            AccPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "a"
-        }
-    }
-    if Declension == 4{
-        if Gender != "Neuter"{
-            AccSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "um"
-            AccPlural = GenitiveSingular
-        }
-        if Gender == "Neuter"{
-            AccSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1)))
-            AccPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ua"
-        }
-    }
-    if Declension == 5{
-        AccSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ēm"
-        AccPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ēs"
-    }
-    
-    var derivedAccusative: declensionCase = declensionCase(SingularInput: AccSing!, PluralInput: AccPlural!)
-    return derivedAccusative
-}
-func deriveAblative(NominativeSingular: String, GenitiveSingular: String, Gender: String, Declension: Int) -> declensionCase{
-    
-    var AblSing: String?
-    var AblPlural: String?
-    
-    
-    if Declension == 1{
-        AblSing = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -1))) + "ā"
-        AblPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -1))) + "īs"
-    }
-    if Declension == 2{
-        AblSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "ō"
-        AblPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1))) + "īs"
-    }
-    if Declension == 3{
-        AblSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "e"
-        AblPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ibus"
-    }
-    if Declension == 4{
-        AblSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -1)))
-        AblPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ibus"
-    }
-    if Declension == 5{
-        AblSing = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ē"
-        AblPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2))) + "ebus"
-    }
-    
-    var derivedAblative: declensionCase = declensionCase(SingularInput: AblSing!, PluralInput: AblPlural!)
-    return derivedAblative
-}
-func deriveVocative(NominativeSingular: String, GenitiveSingular: String, Gender: String, Declension: Int) -> declensionCase{
-    var VocSing: String?
-    var VocPlural: String?
-    
-    //var derivedVocative: nominativeCase = nominativeCase(NominativeSingularInput: "",NominativePluralInput: "")
-    
-    if Declension == 1{
-        VocSing = NominativeSingular
-        VocPlural = NominativeSingular + "e"
-    }
-    if Declension == 2{
-        VocSing = NominativeSingular
-        if Gender == "Masculine" || Gender == "Feminine"{
-            if NominativeSingular.hasSuffix("r"){
-                VocPlural = NominativeSingular+"i"
-            }
-            if NominativeSingular.hasSuffix("us"){
-                VocPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -2)))+"i"
-            }
+        else{ //Neuter
+            root = noun.genitiveSingular.substringWithRange(Range<String.Index>(start: noun.genitiveSingular.startIndex, end: advance(noun.genitiveSingular.endIndex, -2)))
+            
+            singular.nominative.latin = noun.nominativeSingular
+            singular.nominative.english = nominativeDefinition
+            
+            singular.genitive.latin = root + "is"
+            singular.genitive.english = genitiveDefinition
+            
+            singular.dative.latin = root + "ī"
+            singular.dative.english = dativeDefinition
+            
+            singular.accusative.latin = noun.nominativeSingular
+            singular.accusative.english = accusativeDefinition
+            
+            singular.ablative.latin = root + "e"
+            singular.ablative.english = ablativeDefinition
+            
+            singular.vocative.latin = noun.nominativeSingular
+            singular.vocative.english = vocativeDefinition
             
         }
-        if Gender == "Neuter"{
-            VocPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -2)))+"a"
-        }
     }
-    if Declension == 3{
-        if Gender != "Neuter" {
-            VocSing = NominativeSingular
-            VocPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2)))+"es"
+    else if noun.declension == 4{
+        
+        if noun.gender == "masculine"{
+            root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -2)))
+            
+            
+            singular.nominative.latin = root + "us"
+            singular.nominative.english = nominativeDefinition
+            
+            singular.genitive.latin = root + "ūs"
+            singular.genitive.english = genitiveDefinition
+            
+            singular.dative.latin = root + "uī"
+            singular.dative.english = dativeDefinition
+            
+            singular.accusative.latin = root + "um"
+            singular.accusative.english = accusativeDefinition
+            
+            singular.ablative.latin = root + "ū"
+            singular.ablative.english = ablativeDefinition
+            
+            singular.vocative.latin = root + "us"
+            singular.vocative.english = vocativeDefinition
+            
         }
-        if Gender == "Neuter" {
-            VocSing = NominativeSingular
-            VocPlural = GenitiveSingular.substringWithRange(Range<String.Index>(start: GenitiveSingular.startIndex, end: advance(GenitiveSingular.endIndex, -2)))+"a"
+            
+        else { //Neuter
+            root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -2)))
+            
+            
+            singular.nominative.latin = root + "u"
+            singular.nominative.english = nominativeDefinition
+            
+            singular.genitive.latin = root + "ūs"
+            singular.genitive.english = genitiveDefinition
+            
+            singular.dative.latin = root + "ū"
+            singular.dative.english = dativeDefinition
+            
+            singular.accusative.latin = root + "ū"
+            singular.accusative.english = accusativeDefinition
+            
+            singular.ablative.latin = root + "ū"
+            singular.ablative.english = ablativeDefinition
+            
+            singular.vocative.latin = root + "ū"
+            singular.vocative.english = vocativeDefinition
+            
         }
+        
     }
-    if Declension == 4{
-        if Gender != "Neuter"{
-            VocSing = NominativeSingular
-            VocPlural = GenitiveSingular
-        }
-        if Gender == "Neuter"{
-            VocSing = NominativeSingular
-            VocPlural = NominativeSingular.substringWithRange(Range<String.Index>(start: NominativeSingular.startIndex, end: advance(NominativeSingular.endIndex, -1)))+"ua"
-        }
-        if Declension == 5{
-            VocSing = NominativeSingular
-            VocPlural = NominativeSingular
-        }
-    }
-    if Declension == 5{
-        VocSing = NominativeSingular
-        VocPlural = NominativeSingular
+    else{
+        root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -2)))
+        
+        singular.nominative.latin = root + "ēs"
+        singular.nominative.english = nominativeDefinition
+        
+        singular.genitive.latin = root + "eī"
+        singular.genitive.english = genitiveDefinition
+        
+        singular.dative.latin = root + "eī"
+        singular.dative.english = dativeDefinition
+        
+        singular.accusative.latin = root + "em"
+        singular.accusative.english = accusativeDefinition
+        
+        singular.ablative.latin = root + "ē"
+        singular.ablative.english = ablativeDefinition
+        
+        singular.vocative.latin = root + "ēs"
+        singular.vocative.english = vocativeDefinition
+        
     }
     
-    var derivedVocative: declensionCase = declensionCase(SingularInput: VocSing!, PluralInput: VocPlural!)
-    return derivedVocative
+    return singular
 }
 
+func derivePlural(noun: simpleNoun) -> nounNumber{
+    var plural: nounNumber = nounNumber()
+    let root: String
+    
+    let nominativeDefinition = "subject"
+    let genitiveDefinition = "subject's ownership"
+    let dativeDefinition = "subject's indirect object"
+    let accusativeDefinition = "subject's direct object"
+    let ablativeDefinition = "various meanings"
+    let vocativeDefinition = "identifies who is being addressed"
+    
+    
+    if noun.declension == 1{
+        root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -1)))
+        
+        plural.nominative.latin = root + "ae"
+        plural.nominative.english = nominativeDefinition
+        
+        plural.genitive.latin = root + "arum"
+        plural.genitive.english = genitiveDefinition
+        
+        plural.dative.latin = root + "īs"
+        plural.dative.english = dativeDefinition
+        
+        plural.accusative.latin = root + "ās"
+        plural.accusative.english = accusativeDefinition
+        
+        plural.ablative.latin = root + "īs"
+        plural.ablative.english = ablativeDefinition
+        
+        plural.vocative.latin = root + "ae"
+        plural.vocative.english = vocativeDefinition
+        
+    }
+    else if noun.declension == 2{
+        if noun.nominativeSingular.hasSuffix("us") || noun.nominativeSingular.hasSuffix("um"){
+            root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -2)))
+            
+            plural.nominative.latin = root + "ī"
+            plural.nominative.english = nominativeDefinition
+            
+            plural.genitive.latin = root + "orum"
+            plural.genitive.english = genitiveDefinition
+            
+            plural.dative.latin = root + "īs"
+            plural.dative.english = dativeDefinition
+            
+            plural.accusative.latin = root + "ōs"
+            plural.accusative.english = accusativeDefinition
+            
+            plural.ablative.latin = root + "īs"
+            plural.ablative.english = ablativeDefinition
+            
+            plural.vocative.latin = root + "ī"
+            plural.vocative.english = vocativeDefinition
+        }
+        else{
+            root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, 0)))
+            
+            plural.nominative.latin = root + "ī"
+            plural.nominative.english = nominativeDefinition
+            
+            plural.genitive.latin = root + "orum"
+            plural.genitive.english = genitiveDefinition
+            
+            plural.dative.latin = root + "īs"
+            plural.dative.english = dativeDefinition
+            
+            plural.accusative.latin = root + "ōs"
+            plural.accusative.english = accusativeDefinition
+            
+            plural.ablative.latin = root + "īs"
+            plural.ablative.english = ablativeDefinition
+            
+            plural.vocative.latin = root + "ī"
+            plural.vocative.english = vocativeDefinition        }
+    }
+    else if noun.declension == 3{
+        if noun.gender == "masculine" || noun.gender == "feminine"{
+            root = noun.genitiveSingular.substringWithRange(Range<String.Index>(start: noun.genitiveSingular.startIndex, end: advance(noun.genitiveSingular.endIndex, -2)))
+            
+            plural.nominative.latin = root + "ēs"
+            plural.nominative.english = nominativeDefinition
+            
+            plural.genitive.latin = root + "um"
+            plural.genitive.english = genitiveDefinition
+            
+            plural.dative.latin = root + "ibus"
+            plural.dative.english = dativeDefinition
+            
+            plural.accusative.latin = root + "ēs"
+            plural.accusative.english = accusativeDefinition
+            
+            plural.ablative.latin = root + "ibus"
+            plural.ablative.english = ablativeDefinition
+            
+            plural.vocative.latin = root + "ēs"
+            plural.vocative.english = vocativeDefinition
+            
+        }
+        else{ //Neuter
+            root = noun.genitiveSingular.substringWithRange(Range<String.Index>(start: noun.genitiveSingular.startIndex, end: advance(noun.genitiveSingular.endIndex, -2)))
+            
+            plural.nominative.latin = root + "a"
+            plural.nominative.english = nominativeDefinition
+            
+            plural.genitive.latin = root + "um"
+            plural.genitive.english = genitiveDefinition
+            
+            plural.dative.latin = root + "ibus"
+            plural.dative.english = dativeDefinition
+            
+            plural.accusative.latin = root + "a"
+            plural.accusative.english = accusativeDefinition
+            
+            plural.ablative.latin = root + "ibus"
+            plural.ablative.english = ablativeDefinition
+            
+            plural.vocative.latin = root + "a"
+            plural.vocative.english = vocativeDefinition
+            
+        }
+    }
+    else if noun.declension == 4{
+        if noun.gender == "masculine"{
+            root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -2)))
+            
+            
+            plural.nominative.latin = root + "ūs"
+            plural.nominative.english = nominativeDefinition
+            
+            plural.genitive.latin = root + "uum"
+            plural.genitive.english = genitiveDefinition
+            
+            plural.dative.latin = root + "ibus"
+            plural.dative.english = dativeDefinition
+            
+            plural.accusative.latin = root + "ūs"
+            plural.accusative.english = accusativeDefinition
+            
+            plural.ablative.latin = root + "ibus"
+            plural.ablative.english = ablativeDefinition
+            
+            plural.vocative.latin = root + "ūs"
+            plural.vocative.english = vocativeDefinition
+            
+        }
+        else { //Neuter
+            root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -2)))
+            
+            
+            plural.nominative.latin = root + "ua"
+            plural.nominative.english = nominativeDefinition
+            
+            plural.genitive.latin = root + "uum"
+            plural.genitive.english = genitiveDefinition
+            
+            plural.dative.latin = root + "ibus"
+            plural.dative.english = dativeDefinition
+            
+            plural.accusative.latin = root + "ua"
+            plural.accusative.english = accusativeDefinition
+            
+            plural.ablative.latin = root + "ibus"
+            plural.ablative.english = ablativeDefinition
+            
+            plural.vocative.latin = root + "ua"
+            plural.vocative.english = vocativeDefinition
+            
+        }
+    }
+    else{
+        root = noun.nominativeSingular.substringWithRange(Range<String.Index>(start: noun.nominativeSingular.startIndex, end: advance(noun.nominativeSingular.endIndex, -2)))
+        
+        plural.nominative.latin = root + "ēs"
+        plural.nominative.english = nominativeDefinition
+        
+        plural.genitive.latin = root + "erum"
+        plural.genitive.english = genitiveDefinition
+        
+        plural.dative.latin = root + "ebus"
+        plural.dative.english = dativeDefinition
+        
+        plural.accusative.latin = root + "es"
+        plural.accusative.english = accusativeDefinition
+        
+        plural.ablative.latin = root + "ebus"
+        plural.ablative.english = ablativeDefinition
+        
+        plural.vocative.latin = root + "ēs"
+        plural.vocative.english = vocativeDefinition
+        
+    }
+    
+    return plural
+}

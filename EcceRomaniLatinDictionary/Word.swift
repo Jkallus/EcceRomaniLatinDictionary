@@ -6,10 +6,6 @@
 //  Copyright (c) 2014 JMKLABS. All rights reserved.
 //
 
-//import Foundation
-
-//
-
 class Word{
     var latinSearchTerm: String
     var englishSearchTerm: String
@@ -20,4 +16,10 @@ class Word{
         self.englishSearchTerm = englishSearchTerm
         self.partOfSpeech = partOfSpeech
     }
+}
+
+struct form {
+    var latin: String = ""
+    var english: String = ""
+    init(){}
 }

@@ -7,31 +7,13 @@
 //
 import Foundation
 
-
-
-struct Form {
-    var latin: String = ""
-    var english: String = ""
-    
-    init(latinInput: String, englishInput: String){
-        self.latin = latinInput
-        self.english = englishInput
-    }
-    
-    
-    init(){}
-}
 struct number {
-    var singular: Form = Form()
-    var plural: Form = Form()
-    
-    init(singularInput: Form, pluralInput: Form){
-        self.singular = singularInput
-        self.plural = pluralInput
-    }
-    
+    var singular: form = form()
+    var plural: form = form()
+
     init(){}
 }
+    
 struct person {
     var firstPerson: number = number()
     var secondPerson: number = number()

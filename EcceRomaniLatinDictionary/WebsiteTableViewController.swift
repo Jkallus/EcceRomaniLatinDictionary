@@ -33,7 +33,7 @@ class WebsiteTableViewController: UITableViewController {
         if segue.identifier == "wiktionarySegue"{
 
             if let noun = word as? Noun{
-                webViewController.url = NSURL(string: ("http://en.wiktionary.org/wiki/\(noun.nominative.singular.normalString())#latin"))
+                webViewController.url = NSURL(string: ("http://en.wiktionary.org/wiki/\(noun.singular.nominative.latin.normalString())#latin"))
             }
             else if let verb = word as? Verb{
                 webViewController.url = NSURL(string: "http://en.wiktionary.org/wiki/\(verb.active.present.firstPerson.singular.latin.normalString())#latin")
@@ -59,7 +59,7 @@ class WebsiteTableViewController: UITableViewController {
         }
         else if segue.identifier == "whitakerSegue"{
             if let noun = word as? Noun{
-                webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(noun.nominative.singular.normalString())")
+                webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(noun.singular.nominative.latin.normalString())")
             }
             else if let verb = word as? Verb{
                 webViewController.url = NSURL(string: "http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\(verb.active.present.firstPerson.singular.latin.normalString())")

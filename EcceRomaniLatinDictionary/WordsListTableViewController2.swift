@@ -445,13 +445,13 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
             if self.searchDisplayController!.active{
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
                 let selectedSimpleNoun = filteredWordsArray[indexPath.row] as! simpleNoun
-                let complexNoun: Noun = Noun(NominativeSingularInput: selectedSimpleNoun.nominativeSingular, GenitiveSingularInput: selectedSimpleNoun.genitiveSingular, GenderInput: selectedSimpleNoun.gender, DefinitionInput: selectedSimpleNoun.definition, DeclensionInput: selectedSimpleNoun.declension)
+                let complexNoun: Noun = Noun(nominativeSingularInput: selectedSimpleNoun.nominativeSingular, genitiveSingularInput: selectedSimpleNoun.genitiveSingular, genderInput: selectedSimpleNoun.gender, definitionInput: selectedSimpleNoun.definition, declensionInput: selectedSimpleNoun.declension)
                 (segue.destinationViewController as! NounDetailViewController).word = complexNoun
             }
             else{
                 let indexPath = self.tableView.indexPathForSelectedRow()!
                 let selectedSimpleNoun = wordsArray[indexPath.row] as! simpleNoun
-                let complexNoun: Noun = Noun(NominativeSingularInput: selectedSimpleNoun.nominativeSingular, GenitiveSingularInput: selectedSimpleNoun.genitiveSingular, GenderInput: selectedSimpleNoun.gender, DefinitionInput: selectedSimpleNoun.definition, DeclensionInput: selectedSimpleNoun.declension)
+                let  complexNoun: Noun = Noun(nominativeSingularInput: selectedSimpleNoun.nominativeSingular, genitiveSingularInput: selectedSimpleNoun.genitiveSingular, genderInput: selectedSimpleNoun.gender, definitionInput: selectedSimpleNoun.definition, declensionInput: selectedSimpleNoun.declension)
                 (segue.destinationViewController as! NounDetailViewController).word = complexNoun
             }
         }

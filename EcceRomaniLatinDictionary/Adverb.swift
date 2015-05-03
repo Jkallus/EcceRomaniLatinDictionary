@@ -8,24 +8,14 @@
 
 import Foundation
 
-struct adverbForm {
-    var latin:String = ""
-    var english:String = ""
-    
-    init(latinInput: String, englishInput: String){
-        self.latin = latinInput
-        self.english = englishInput
-    }
-    
-    init(){}
-}
+
 
 
 
 class Adverb: Word{
-    var positive: adverbForm
-    var comparative: adverbForm
-    var superlative: adverbForm
+    var positive: form
+    var comparative: form
+    var superlative: form
     init(positiveInput: String, comparativeInput: String, superlativeInput: String, englishInput:String){
         self.positive = derivePositive(positiveInput, englishInput)
         self.comparative = deriveComparative(comparativeInput, englishInput)
@@ -35,16 +25,16 @@ class Adverb: Word{
 }
 
 
-func derivePositive(positiveInput:String, englishInput: String) -> adverbForm{
-   var returnForm: adverbForm = adverbForm()
+func derivePositive(positiveInput:String, englishInput: String) -> form{
+   var returnForm: form = form()
     returnForm.latin = positiveInput
     returnForm.english = englishInput
     
     return returnForm
 }
 
-func deriveComparative(comparativeInput: String, englishInput: String) -> adverbForm{
-    var returnForm:adverbForm = adverbForm()
+func deriveComparative(comparativeInput: String, englishInput: String) -> form{
+    var returnForm:form = form()
     returnForm.latin = comparativeInput
     
     if englishInput.hasPrefix("with"){
@@ -59,8 +49,8 @@ func deriveComparative(comparativeInput: String, englishInput: String) -> adverb
    
 }
 
-func deriveSuperlative(superlativeInput: String, englishInput: String) -> adverbForm{
-    var returnForm:adverbForm = adverbForm()
+func deriveSuperlative(superlativeInput: String, englishInput: String) -> form{
+    var returnForm:form = form()
     returnForm.latin = superlativeInput
     
     if englishInput.hasPrefix("with"){

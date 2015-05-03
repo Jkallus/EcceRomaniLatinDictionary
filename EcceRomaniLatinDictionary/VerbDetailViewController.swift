@@ -50,28 +50,28 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     let persons = ["first person", "second person", "third person"]
     let numbers = ["singular", "plural"]
     
-    var Section_0 = [String]()
-    var Section_1 = [String]()
+    var section_0 = [String]()
+    var section_1 = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let verb = word as! Verb
         
-        Section_1 = [String](count: 11, repeatedValue: "")
+        section_1 = [String](count: 11, repeatedValue: "")
         
-        Section_0.insert(verb.firstPrinciplePart + ", " + verb.secondPrinciplePart, atIndex: titleIndex)
-        Section_0.insert(verb.definition, atIndex: subtitleIndex)
+        section_0.insert(verb.firstPrinciplePart + ", " + verb.secondPrinciplePart, atIndex: titleIndex)
+        section_0.insert(verb.definition, atIndex: subtitleIndex)
         
-        Section_1.insert("Conjugation: \(verb.conjugation)", atIndex: conjugationIndex)
-        Section_1.insert("First Principle Part: \(verb.firstPrinciplePart)", atIndex: firstPrinciplePartIndex)
-        Section_1.insert("Second Principle Part: \(verb.secondPrinciplePart)", atIndex: secondPrinciplePartIndex)
-        Section_1.insert("Third Principle Part: \(verb.thirdPrinciplePart)", atIndex: thirdPrinciplePartIndex)
-        Section_1.insert("Fourth Principle Part: \(verb.fourthPrinciplePart)", atIndex: fourthPrinciplePartIndex)
+        section_1.insert("Conjugation: \(verb.conjugation)", atIndex: conjugationIndex)
+        section_1.insert("First Principle Part: \(verb.firstPrinciplePart)", atIndex: firstPrinciplePartIndex)
+        section_1.insert("Second Principle Part: \(verb.secondPrinciplePart)", atIndex: secondPrinciplePartIndex)
+        section_1.insert("Third Principle Part: \(verb.thirdPrinciplePart)", atIndex: thirdPrinciplePartIndex)
+        section_1.insert("Fourth Principle Part: \(verb.fourthPrinciplePart)", atIndex: fourthPrinciplePartIndex)
         
-        Section_1[tenseIndex] = tenses[0]
-        Section_1[personIndex] = persons[0]
-        Section_1[numberIndex] = numbers[0]
+        section_1[tenseIndex] = tenses[0]
+        section_1[personIndex] = persons[0]
+        section_1[numberIndex] = numbers[0]
         
         setCustom()
     }
@@ -79,238 +79,238 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func setCustom(){
         let verb = word as! Verb
         
-        if Section_1[tenseIndex] == tenses[0]{
-            if Section_1[personIndex] == persons[0]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[0]) \(persons[0]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.present.firstPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.present.firstPerson.singular.english
+        if section_1[tenseIndex] == tenses[0]{
+            if section_1[personIndex] == persons[0]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[0]) \(persons[0]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.present.firstPerson.singular.latin
+                    section_1[englishIndex] = verb.active.present.firstPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[0]) \(persons[0]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.present.firstPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.present.firstPerson.plural.english
+                    section_1[formIndex] = "\(tenses[0]) \(persons[0]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.present.firstPerson.plural.latin
+                    section_1[englishIndex] = verb.active.present.firstPerson.plural.english
                 }
             }
-            else if Section_1[personIndex] == persons[1]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[0]) \(persons[1]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.present.secondPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.present.secondPerson.singular.english
+            else if section_1[personIndex] == persons[1]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[0]) \(persons[1]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.present.secondPerson.singular.latin
+                    section_1[englishIndex] = verb.active.present.secondPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[0]) \(persons[1]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.present.secondPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.present.secondPerson.plural.english
+                    section_1[formIndex] = "\(tenses[0]) \(persons[1]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.present.secondPerson.plural.latin
+                    section_1[englishIndex] = verb.active.present.secondPerson.plural.english
                 }
             }
             else{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[0]) \(persons[2]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.present.thirdPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.present.thirdPerson.singular.english
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[0]) \(persons[2]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.present.thirdPerson.singular.latin
+                    section_1[englishIndex] = verb.active.present.thirdPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[0]) \(persons[2]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.present.thirdPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.present.thirdPerson.plural.english
+                    section_1[formIndex] = "\(tenses[0]) \(persons[2]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.present.thirdPerson.plural.latin
+                    section_1[englishIndex] = verb.active.present.thirdPerson.plural.english
                 }
             }
         }
-        else if Section_1[tenseIndex] == tenses[1]{
-            if Section_1[personIndex] == persons[0]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[1]) \(persons[0]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.imperfect.firstPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.imperfect.firstPerson.singular.english
+        else if section_1[tenseIndex] == tenses[1]{
+            if section_1[personIndex] == persons[0]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[1]) \(persons[0]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.imperfect.firstPerson.singular.latin
+                    section_1[englishIndex] = verb.active.imperfect.firstPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[1]) \(persons[0]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.imperfect.firstPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.imperfect.firstPerson.plural.english
+                    section_1[formIndex] = "\(tenses[1]) \(persons[0]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.imperfect.firstPerson.plural.latin
+                    section_1[englishIndex] = verb.active.imperfect.firstPerson.plural.english
                 }
             }
-            else if Section_1[personIndex] == persons[1]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[1]) \(persons[1]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.imperfect.secondPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.imperfect.secondPerson.singular.english
+            else if section_1[personIndex] == persons[1]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[1]) \(persons[1]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.imperfect.secondPerson.singular.latin
+                    section_1[englishIndex] = verb.active.imperfect.secondPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[1]) \(persons[1]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.imperfect.secondPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.imperfect.secondPerson.plural.english
+                    section_1[formIndex] = "\(tenses[1]) \(persons[1]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.imperfect.secondPerson.plural.latin
+                    section_1[englishIndex] = verb.active.imperfect.secondPerson.plural.english
                 }
             }
             else{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[1]) \(persons[2]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.imperfect.thirdPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.imperfect.thirdPerson.singular.english
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[1]) \(persons[2]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.imperfect.thirdPerson.singular.latin
+                    section_1[englishIndex] = verb.active.imperfect.thirdPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[1]) \(persons[2]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.imperfect.thirdPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.imperfect.thirdPerson.plural.english
+                    section_1[formIndex] = "\(tenses[1]) \(persons[2]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.imperfect.thirdPerson.plural.latin
+                    section_1[englishIndex] = verb.active.imperfect.thirdPerson.plural.english
                 }
             }
         }
-        else if Section_1[tenseIndex] == tenses[2]{
-            if Section_1[personIndex] == persons[0]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[2]) \(persons[0]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.future.firstPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.future.firstPerson.singular.english
+        else if section_1[tenseIndex] == tenses[2]{
+            if section_1[personIndex] == persons[0]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[2]) \(persons[0]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.future.firstPerson.singular.latin
+                    section_1[englishIndex] = verb.active.future.firstPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[2]) \(persons[0]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.future.firstPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.future.firstPerson.plural.english
+                    section_1[formIndex] = "\(tenses[2]) \(persons[0]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.future.firstPerson.plural.latin
+                    section_1[englishIndex] = verb.active.future.firstPerson.plural.english
                 }
             }
-            else if Section_1[personIndex] == persons[1]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[2]) \(persons[1]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.future.secondPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.future.secondPerson.singular.english
+            else if section_1[personIndex] == persons[1]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[2]) \(persons[1]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.future.secondPerson.singular.latin
+                    section_1[englishIndex] = verb.active.future.secondPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[2]) \(persons[1]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.future.secondPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.future.secondPerson.plural.english
+                    section_1[formIndex] = "\(tenses[2]) \(persons[1]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.future.secondPerson.plural.latin
+                    section_1[englishIndex] = verb.active.future.secondPerson.plural.english
                 }
             }
             else{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[2]) \(persons[2]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.future.thirdPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.future.thirdPerson.singular.english
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[2]) \(persons[2]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.future.thirdPerson.singular.latin
+                    section_1[englishIndex] = verb.active.future.thirdPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[2]) \(persons[2]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.future.thirdPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.future.thirdPerson.plural.english
+                    section_1[formIndex] = "\(tenses[2]) \(persons[2]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.future.thirdPerson.plural.latin
+                    section_1[englishIndex] = verb.active.future.thirdPerson.plural.english
                 }
             }
         }
-        else if Section_1[tenseIndex] == tenses[3]{
-            if Section_1[personIndex] == persons[0]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[3]) \(persons[0]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.perfect.firstPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.perfect.firstPerson.singular.english
+        else if section_1[tenseIndex] == tenses[3]{
+            if section_1[personIndex] == persons[0]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[3]) \(persons[0]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.perfect.firstPerson.singular.latin
+                    section_1[englishIndex] = verb.active.perfect.firstPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[3]) \(persons[0]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.perfect.firstPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.perfect.firstPerson.plural.english
+                    section_1[formIndex] = "\(tenses[3]) \(persons[0]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.perfect.firstPerson.plural.latin
+                    section_1[englishIndex] = verb.active.perfect.firstPerson.plural.english
                 }
             }
-            else if Section_1[personIndex] == persons[1]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[3]) \(persons[1]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.perfect.secondPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.perfect.secondPerson.singular.english
+            else if section_1[personIndex] == persons[1]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[3]) \(persons[1]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.perfect.secondPerson.singular.latin
+                    section_1[englishIndex] = verb.active.perfect.secondPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[3]) \(persons[1]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.perfect.secondPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.perfect.secondPerson.plural.english
+                    section_1[formIndex] = "\(tenses[3]) \(persons[1]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.perfect.secondPerson.plural.latin
+                    section_1[englishIndex] = verb.active.perfect.secondPerson.plural.english
                 }
             }
             else{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[3]) \(persons[2]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.perfect.thirdPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.perfect.thirdPerson.singular.english
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[3]) \(persons[2]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.perfect.thirdPerson.singular.latin
+                    section_1[englishIndex] = verb.active.perfect.thirdPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[3]) \(persons[2]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.perfect.thirdPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.perfect.thirdPerson.plural.english
+                    section_1[formIndex] = "\(tenses[3]) \(persons[2]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.perfect.thirdPerson.plural.latin
+                    section_1[englishIndex] = verb.active.perfect.thirdPerson.plural.english
                 }
             }
         }
-        else if Section_1[tenseIndex] == tenses[4]{
-            if Section_1[personIndex] == persons[0]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[4]) \(persons[0]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.pluperfect.firstPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.pluperfect.firstPerson.singular.english
+        else if section_1[tenseIndex] == tenses[4]{
+            if section_1[personIndex] == persons[0]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[4]) \(persons[0]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.pluperfect.firstPerson.singular.latin
+                    section_1[englishIndex] = verb.active.pluperfect.firstPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[4]) \(persons[0]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.pluperfect.firstPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.pluperfect.firstPerson.plural.english
+                    section_1[formIndex] = "\(tenses[4]) \(persons[0]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.pluperfect.firstPerson.plural.latin
+                    section_1[englishIndex] = verb.active.pluperfect.firstPerson.plural.english
                 }
             }
-            else if Section_1[personIndex] == persons[1]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[4]) \(persons[1]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.pluperfect.secondPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.pluperfect.secondPerson.singular.english
+            else if section_1[personIndex] == persons[1]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[4]) \(persons[1]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.pluperfect.secondPerson.singular.latin
+                    section_1[englishIndex] = verb.active.pluperfect.secondPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[4]) \(persons[1]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.pluperfect.secondPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.pluperfect.secondPerson.plural.english
+                    section_1[formIndex] = "\(tenses[4]) \(persons[1]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.pluperfect.secondPerson.plural.latin
+                    section_1[englishIndex] = verb.active.pluperfect.secondPerson.plural.english
                 }
             }
             else{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[4]) \(persons[2]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.pluperfect.thirdPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.pluperfect.thirdPerson.singular.english
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[4]) \(persons[2]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.pluperfect.thirdPerson.singular.latin
+                    section_1[englishIndex] = verb.active.pluperfect.thirdPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[4]) \(persons[2]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.pluperfect.thirdPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.pluperfect.thirdPerson.plural.english
+                    section_1[formIndex] = "\(tenses[4]) \(persons[2]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.pluperfect.thirdPerson.plural.latin
+                    section_1[englishIndex] = verb.active.pluperfect.thirdPerson.plural.english
                 }
             }
         }
         else{
-            if Section_1[personIndex] == persons[0]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[5]) \(persons[0]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.futurePerfect.firstPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.futurePerfect.firstPerson.singular.english
+            if section_1[personIndex] == persons[0]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[5]) \(persons[0]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.futurePerfect.firstPerson.singular.latin
+                    section_1[englishIndex] = verb.active.futurePerfect.firstPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[5]) \(persons[0]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.futurePerfect.firstPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.futurePerfect.firstPerson.plural.english
+                    section_1[formIndex] = "\(tenses[5]) \(persons[0]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.futurePerfect.firstPerson.plural.latin
+                    section_1[englishIndex] = verb.active.futurePerfect.firstPerson.plural.english
                 }
             }
-            else if Section_1[personIndex] == persons[1]{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[5]) \(persons[1]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.futurePerfect.secondPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.futurePerfect.secondPerson.singular.english
+            else if section_1[personIndex] == persons[1]{
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[5]) \(persons[1]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.futurePerfect.secondPerson.singular.latin
+                    section_1[englishIndex] = verb.active.futurePerfect.secondPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[5]) \(persons[1]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.futurePerfect.secondPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.futurePerfect.secondPerson.plural.english
+                    section_1[formIndex] = "\(tenses[5]) \(persons[1]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.futurePerfect.secondPerson.plural.latin
+                    section_1[englishIndex] = verb.active.futurePerfect.secondPerson.plural.english
                 }
             }
             else{
-                if Section_1[numberIndex] == numbers[0]{
-                    Section_1[formIndex] = "\(tenses[5]) \(persons[2]) \(numbers[0])"
-                    Section_1[latinIndex] = verb.active.futurePerfect.thirdPerson.singular.latin
-                    Section_1[englishIndex] = verb.active.futurePerfect.thirdPerson.singular.english
+                if section_1[numberIndex] == numbers[0]{
+                    section_1[formIndex] = "\(tenses[5]) \(persons[2]) \(numbers[0])"
+                    section_1[latinIndex] = verb.active.futurePerfect.thirdPerson.singular.latin
+                    section_1[englishIndex] = verb.active.futurePerfect.thirdPerson.singular.english
                 }
                 else{
-                    Section_1[formIndex] = "\(tenses[5]) \(persons[2]) \(numbers[1])"
-                    Section_1[latinIndex] = verb.active.futurePerfect.thirdPerson.plural.latin
-                    Section_1[englishIndex] = verb.active.futurePerfect.thirdPerson.plural.english
+                    section_1[formIndex] = "\(tenses[5]) \(persons[2]) \(numbers[1])"
+                    section_1[latinIndex] = verb.active.futurePerfect.thirdPerson.plural.latin
+                    section_1[englishIndex] = verb.active.futurePerfect.thirdPerson.plural.english
                 }
             }
         }
         
-        Section_1[formIndex] = "Form: " + Section_1[formIndex]
-        Section_1[latinIndex] = "Latin: " + Section_1[latinIndex]
-        Section_1[englishIndex] = "English: " + Section_1[englishIndex]
+        section_1[formIndex] = "Form: " + section_1[formIndex]
+        section_1[latinIndex] = "Latin: " + section_1[latinIndex]
+        section_1[englishIndex] = "English: " + section_1[englishIndex]
         
     }
     
@@ -349,13 +349,13 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let verb = word as! Verb
         if component == 0{
-            Section_1[tenseIndex] = tenses[row]
+            section_1[tenseIndex] = tenses[row]
         }
         else if component == 1{
-            Section_1[personIndex] = persons[row]
+            section_1[personIndex] = persons[row]
         }
         else{
-            Section_1[numberIndex] = numbers[row]
+            section_1[numberIndex] = numbers[row]
         }
         
         setCustom()
@@ -389,10 +389,10 @@ class VerbDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("propertyIdentifier", forIndexPath: indexPath) as! UITableViewCell
         
         if indexPath.section == 0{
-            cell.textLabel!.text = Section_0[indexPath.row]
+            cell.textLabel!.text = section_0[indexPath.row]
         }
         else{
-            cell.textLabel!.text = Section_1[indexPath.row]
+            cell.textLabel!.text = section_1[indexPath.row]
         }
         
         return cell

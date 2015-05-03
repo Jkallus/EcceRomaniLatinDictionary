@@ -47,10 +47,9 @@ class AdverbDetailViewController: UIViewController, UITableViewDelegate, UITable
         section_0.insert(adverb.latinSearchTerm, atIndex: titleIndex)
         section_0.insert(adverb.englishSearchTerm, atIndex: subtitleIndex)
         
-        section_1.insert(degrees[0], atIndex: formIndex)
-        section_1.insert(adverb.positive.latin, atIndex: latinIndex)
-        section_1.insert(adverb.positive.english, atIndex: englishIndex)
-        
+        section_1.insert("Form: \(degrees[0])", atIndex: formIndex)
+        section_1.insert("Latin: \(adverb.positive.latin)", atIndex: latinIndex)
+        section_1.insert("English: \(adverb.positive.english)", atIndex: englishIndex)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,10 +72,10 @@ class AdverbDetailViewController: UIViewController, UITableViewDelegate, UITable
             section_1[englishIndex] = adverb.superlative.english
         }
         
-        section_1[formIndex] += "Form: "
-        section_1[latinIndex] += "Latin: "
-        section_1[englishIndex] += "English: "
-
+        section_1[formIndex] = "Form: " + section_1[formIndex]
+        section_1[latinIndex] = "Latin: " + section_1[latinIndex]
+        section_1[englishIndex] = "English: " + section_1[englishIndex]
+        
         self.propertyTableView.reloadData()
     }
     
