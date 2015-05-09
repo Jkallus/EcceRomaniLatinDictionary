@@ -525,51 +525,51 @@ func deriveActive(firstPrinciplePart: String, secondPrinciplePart: String, third
     }
     if conjugation == 2{
         //First Person
-        active.perfect.firstPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eram"
-        active.perfect.firstPerson.singular.english = "I had \(definition)ed"
+        active.pluperfect.firstPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eram"
+        active.pluperfect.firstPerson.singular.english = "I had \(definition)ed"
         
-        active.perfect.firstPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eramus"
-        active.perfect.firstPerson.plural.english = "We had \(definition)ed"
+        active.pluperfect.firstPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eramus"
+        active.pluperfect.firstPerson.plural.english = "We had \(definition)ed"
         
         
         //Second Person
-        active.perfect.secondPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eras"
-        active.perfect.secondPerson.singular.english = "You had \(definition)ed"
+        active.pluperfect.secondPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eras"
+        active.pluperfect.secondPerson.singular.english = "You had \(definition)ed"
         
-        active.perfect.secondPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eratis"
-        active.perfect.secondPerson.plural.english = "You had \(definition)ed"
+        active.pluperfect.secondPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eratis"
+        active.pluperfect.secondPerson.plural.english = "You had \(definition)ed"
         
         
         //Third Person
-        active.perfect.thirdPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "erat"
-        active.perfect.thirdPerson.singular.english = "He/She/It had \(definition)ed"
+        active.pluperfect.thirdPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "erat"
+        active.pluperfect.thirdPerson.singular.english = "He/She/It had \(definition)ed"
         
-        active.perfect.thirdPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "erant"
-        active.perfect.thirdPerson.plural.english = "They had \(definition)ed"
+        active.pluperfect.thirdPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "erant"
+        active.pluperfect.thirdPerson.plural.english = "They had \(definition)ed"
     }
     if conjugation == 3{
         //First Person
-        active.perfect.firstPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eram"
-        active.perfect.firstPerson.singular.english = "I had \(definition)ed"
+        active.pluperfect.firstPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eram"
+        active.pluperfect.firstPerson.singular.english = "I had \(definition)ed"
         
-        active.perfect.firstPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eramus"
-        active.perfect.firstPerson.plural.english = "We had \(definition)ed"
+        active.pluperfect.firstPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eramus"
+        active.pluperfect.firstPerson.plural.english = "We had \(definition)ed"
         
         
         //Second Person
-        active.perfect.secondPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eras"
-        active.perfect.secondPerson.singular.english = "You had \(definition)ed"
+        active.pluperfect.secondPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eras"
+        active.pluperfect.secondPerson.singular.english = "You had \(definition)ed"
         
-        active.perfect.secondPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eratis"
-        active.perfect.secondPerson.plural.english = "You had \(definition)ed"
+        active.pluperfect.secondPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "eratis"
+        active.pluperfect.secondPerson.plural.english = "You had \(definition)ed"
         
         
         //Third Person
-        active.perfect.thirdPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "erat"
-        active.perfect.thirdPerson.singular.english = "He/She/It had \(definition)ed"
+        active.pluperfect.thirdPerson.singular.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "erat"
+        active.pluperfect.thirdPerson.singular.english = "He/She/It had \(definition)ed"
         
-        active.perfect.thirdPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "erant"
-        active.perfect.thirdPerson.plural.english = "They had \(definition)ed"
+        active.pluperfect.thirdPerson.plural.latin = thirdPrinciplePart.substringWithRange(Range<String.Index>(start: thirdPrinciplePart.startIndex, end: advance(thirdPrinciplePart.endIndex, -1))) + "erant"
+        active.pluperfect.thirdPerson.plural.english = "They had \(definition)ed"
     }
     if conjugation == 4{
         //First Person
