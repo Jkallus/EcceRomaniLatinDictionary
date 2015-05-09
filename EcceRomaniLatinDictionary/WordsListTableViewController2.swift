@@ -73,7 +73,7 @@ class WordsListTableViewController2: UITableViewController, UISearchBarDelegate,
         self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         self.view.addSubview(activityIndicator)
         self.activityIndicator.startAnimating()
-        
+        presentingViewController
         let priority = DISPATCH_QUEUE_PRIORITY_LOW
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             self.loadData()

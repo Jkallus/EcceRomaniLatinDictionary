@@ -18,11 +18,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="tVf-tN-KWD" kind="relationship" relationship="viewControllers" id="lf7-eB-tRT"/>
+                        <segue destination="Jah-3V-duJ" kind="relationship" relationship="viewControllers" id="rlB-Vf-s5I"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3g-xR-Q4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-67" y="645"/>
+            <point key="canvasLocation" x="-64" y="655"/>
         </scene>
         <!--Part of Speech-->
         <scene sceneID="xJa-HX-YI1">
@@ -200,6 +201,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqG-kn-Deh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="651" y="415"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="ChN-8J-m8e">
+            <objects>
+                <navigationController id="Jah-3V-duJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" image="about-32.png" id="p62-TX-774"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kmf-Se-UMq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1pS-RJ-BdP" kind="relationship" relationship="rootViewController" id="AkF-f1-d2o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2uo-yp-fbK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1606" y="-92"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="lF8-ww-wpv">
+            <objects>
+                <viewController id="1pS-RJ-BdP" customClass="AboutViewController" customModule="EcceRomaniLatinDictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qmq-Tr-m3h"/>
+                        <viewControllerLayoutGuide type="bottom" id="plV-CJ-W6h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tDt-ae-ayf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0P-aZ-C2j">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Thanks for using Whitaker’s Latin Dictionary. This  app was developed by a high school student studying latin under the Ecce Romani series. The principal forms and meanings of all included words came from William Whitaker’s Words, an Ada program written by William A. Whitaker (1936-2010). If you see any wrong configurations for words please fill out the web form by pressing the button in the top right corner. 
+
+For more information or if you are interested in the project contact: 
+joshk.kallus3@gmail.com or go to:
+http://www.jkallus.weebly.com
+
+Thanks, JMKLABS
+
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M0P-aZ-C2j" firstAttribute="top" secondItem="Qmq-Tr-m3h" secondAttribute="bottom" id="Cd6-pt-bq6"/>
+                            <constraint firstItem="M0P-aZ-C2j" firstAttribute="leading" secondItem="tDt-ae-ayf" secondAttribute="leadingMargin" constant="-16" id="d5o-If-U6M"/>
+                            <constraint firstItem="plV-CJ-W6h" firstAttribute="top" secondItem="M0P-aZ-C2j" secondAttribute="bottom" id="tAD-mx-fso"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M0P-aZ-C2j" secondAttribute="trailing" constant="-16" id="yDu-HS-z5n"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="v11-Gu-iUO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="ifW-2w-1lX">
+                            <connections>
+                                <segue destination="U4W-Vy-aIX" kind="show" identifier="submitErrorSegue" id="tFI-uz-FNa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="M0P-aZ-C2j" id="F11-G8-Mgh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cK2-qo-buh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-919" y="-92"/>
         </scene>
         <!--Word List-->
         <scene sceneID="dV1-w0-TzY">
@@ -1045,8 +1115,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLA-SL-Kyf">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLA-SL-Kyf">
+                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
                                 <items>
                                     <barButtonItem image="undo_filled-32.png" id="NAV-Py-SFu">
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1074,8 +1144,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-HX-JjO">
-                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-HX-JjO">
+                                <rect key="frame" x="0.0" y="64" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
@@ -1369,6 +1439,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about-32.png" width="32" height="32"/>
         <image name="cancel_filled-32.png" width="32" height="32"/>
         <image name="redo_filled-32.png" width="32" height="32"/>
         <image name="undo_filled-32.png" width="32" height="32"/>
@@ -1376,7 +1447,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Qjz-sx-adZ"/>
+        <segue reference="tFI-uz-FNa"/>
         <segue reference="CRg-YP-BFG"/>
-        <segue reference="HqA-KA-brh"/>
     </inferredMetricsTieBreakers>
 </document>

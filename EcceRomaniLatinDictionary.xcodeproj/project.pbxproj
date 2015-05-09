@@ -27,9 +27,13 @@
 		03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */; };
 		03693B591A99086F004C4C4D /* WebsiteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03693B581A99086F004C4C4D /* WebsiteTableViewController.swift */; };
 		03697B621A99661F004C4C4D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03697B611A99661F004C4C4D /* WebViewController.swift */; };
+		0384BB3F1AFDC58A00D93F15 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0384BB3E1AFDC58A00D93F15 /* AboutViewController.swift */; };
+		0384BB451AFDC90B00D93F15 /* SubmitErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0384BB441AFDC90B00D93F15 /* SubmitErrorViewController.swift */; };
+		0384BB4F1AFDD3B000D93F15 /* cancel_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0384BB4D1AFDD3B000D93F15 /* cancel_filled-32.png */; };
+		0384BB511AFDD56D00D93F15 /* about-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0384BB501AFDD56D00D93F15 /* about-32.png */; };
+		0384BB531AFDEE8F00D93F15 /* latin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0384BB521AFDEE8F00D93F15 /* latin.jpg */; };
 		039B7D221AECA025008628BD /* Adjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039B7D211AECA025008628BD /* Adjective.swift */; };
 		03B0CA7E1AEB1C6A00753DED /* AdverbDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0CA7D1AEB1C6900753DED /* AdverbDetailViewController.swift */; };
-		03BB29F81A99C49700F7217B /* cancel_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB29F41A99C49700F7217B /* cancel_filled-32.png */; };
 		03BB29F91A99C49700F7217B /* redo_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB29F51A99C49700F7217B /* redo_filled-32.png */; };
 		03BB29FA1A99C49700F7217B /* undo_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB29F61A99C49700F7217B /* undo_filled-32.png */; };
 		03BB29FB1A99C49700F7217B /* update_filled-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BB29F71A99C49700F7217B /* update_filled-32.png */; };
@@ -146,9 +150,13 @@
 		03547E931A94499700471AEA /* NonConjugatableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonConjugatableDetailViewController.swift; sourceTree = "<group>"; };
 		03693B581A99086F004C4C4D /* WebsiteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteTableViewController.swift; sourceTree = "<group>"; };
 		03697B611A99661F004C4C4D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		0384BB3E1AFDC58A00D93F15 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		0384BB441AFDC90B00D93F15 /* SubmitErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitErrorViewController.swift; sourceTree = "<group>"; };
+		0384BB4D1AFDD3B000D93F15 /* cancel_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_filled-32.png"; sourceTree = "<group>"; };
+		0384BB501AFDD56D00D93F15 /* about-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-32.png"; sourceTree = "<group>"; };
+		0384BB521AFDEE8F00D93F15 /* latin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = latin.jpg; sourceTree = "<group>"; };
 		039B7D211AECA025008628BD /* Adjective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adjective.swift; sourceTree = "<group>"; };
 		03B0CA7D1AEB1C6900753DED /* AdverbDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdverbDetailViewController.swift; sourceTree = "<group>"; };
-		03BB29F41A99C49700F7217B /* cancel_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_filled-32.png"; sourceTree = "<group>"; };
 		03BB29F51A99C49700F7217B /* redo_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redo_filled-32.png"; sourceTree = "<group>"; };
 		03BB29F61A99C49700F7217B /* undo_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "undo_filled-32.png"; sourceTree = "<group>"; };
 		03BB29F71A99C49700F7217B /* update_filled-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "update_filled-32.png"; sourceTree = "<group>"; };
@@ -243,6 +251,8 @@
 				0350EB411A903F4A0038862F /* LatinTableViewCell.swift */,
 				0349C4D01A95C684009FE6E6 /* DismissSegue.swift */,
 				0350EAFD1A9010BF0038862F /* Main.storyboard */,
+				0384BB3E1AFDC58A00D93F15 /* AboutViewController.swift */,
+				0384BB441AFDC90B00D93F15 /* SubmitErrorViewController.swift */,
 				0350EB001A9010BF0038862F /* Images.xcassets */,
 				0350EB021A9010BF0038862F /* LaunchScreen.xib */,
 				0350EAF71A9010BF0038862F /* Supporting Files */,
@@ -307,9 +317,11 @@
 		03693B5A1A9959DD004C4C4D /* Internal Icons */ = {
 			isa = PBXGroup;
 			children = (
-				03BB29F41A99C49700F7217B /* cancel_filled-32.png */,
+				0384BB521AFDEE8F00D93F15 /* latin.jpg */,
 				03BB29F51A99C49700F7217B /* redo_filled-32.png */,
 				03BB29F61A99C49700F7217B /* undo_filled-32.png */,
+				0384BB501AFDD56D00D93F15 /* about-32.png */,
+				0384BB4D1AFDD3B000D93F15 /* cancel_filled-32.png */,
 				03BB29F71A99C49700F7217B /* update_filled-32.png */,
 			);
 			name = "Internal Icons";
@@ -452,14 +464,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03BB29F81A99C49700F7217B /* cancel_filled-32.png in Resources */,
 				0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */,
 				03366F971AC87B1B00971AE9 /* UserData.sqlite in Resources */,
 				0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */,
 				03BB29FA1A99C49700F7217B /* undo_filled-32.png in Resources */,
 				03BB29F91A99C49700F7217B /* redo_filled-32.png in Resources */,
 				0350EB011A9010BF0038862F /* Images.xcassets in Resources */,
+				0384BB4F1AFDD3B000D93F15 /* cancel_filled-32.png in Resources */,
 				03366F961AC87B1B00971AE9 /* StandardData.sqlite in Resources */,
+				0384BB511AFDD56D00D93F15 /* about-32.png in Resources */,
+				0384BB531AFDEE8F00D93F15 /* latin.jpg in Resources */,
 				03BB29FB1A99C49700F7217B /* update_filled-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,12 +504,14 @@
 				03C69EB31A94371F005ABEDC /* VerbDetailViewController.swift in Sources */,
 				0350EB381A901E970038862F /* nonConjugatable.swift in Sources */,
 				039B7D221AECA025008628BD /* Adjective.swift in Sources */,
+				0384BB3F1AFDC58A00D93F15 /* AboutViewController.swift in Sources */,
 				03B0CA7E1AEB1C6A00753DED /* AdverbDetailViewController.swift in Sources */,
 				03C6AB891AEADCD600F5AFF7 /* Adverb.swift in Sources */,
 				03C11ADB1A968BE2004DF29B /* AddAdverbTableViewController.swift in Sources */,
 				03E175541ADA0061004FB333 /* WordsListTableViewController2.swift in Sources */,
 				03547E941A94499700471AEA /* NonConjugatableDetailViewController.swift in Sources */,
 				03C69EB51A943730005ABEDC /* AdjectiveDetailViewController.swift in Sources */,
+				0384BB451AFDC90B00D93F15 /* SubmitErrorViewController.swift in Sources */,
 				03C11AE11A968C08004DF29B /* AddIrregularVerbTableViewController.swift in Sources */,
 				03E175521AD9F96F004FB333 /* SimplePartsOfSpeech.swift in Sources */,
 				03693B591A99086F004C4C4D /* WebsiteTableViewController.swift in Sources */,
