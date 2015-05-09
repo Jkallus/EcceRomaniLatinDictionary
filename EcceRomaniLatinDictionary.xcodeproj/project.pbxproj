@@ -10,7 +10,6 @@
 		0305FAD31AED8B8D0034E13C /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0305FAC81AED8B7A0034E13C /* SQLite.framework */; };
 		0305FAD41AED8B9C0034E13C /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0305FAC81AED8B7A0034E13C /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03366F961AC87B1B00971AE9 /* StandardData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 03366F941AC87B1B00971AE9 /* StandardData.sqlite */; };
-		03366F971AC87B1B00971AE9 /* UserData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 03366F951AC87B1B00971AE9 /* UserData.sqlite */; };
 		0349C4D11A95C684009FE6E6 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4D01A95C684009FE6E6 /* DismissSegue.swift */; };
 		0349C4D51A95C732009FE6E6 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */; };
 		0350EAFA1A9010BF0038862F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350EAF91A9010BF0038862F /* AppDelegate.swift */; };
@@ -129,7 +128,6 @@
 /* Begin PBXFileReference section */
 		0305FABE1AED8B7A0034E13C /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		03366F941AC87B1B00971AE9 /* StandardData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = StandardData.sqlite; sourceTree = "<group>"; };
-		03366F951AC87B1B00971AE9 /* UserData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = UserData.sqlite; sourceTree = "<group>"; };
 		0349C4D01A95C684009FE6E6 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		0349C4D41A95C732009FE6E6 /* AddWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		0350EAF41A9010BF0038862F /* EcceRomaniLatinDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcceRomaniLatinDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				03366F941AC87B1B00971AE9 /* StandardData.sqlite */,
-				03366F951AC87B1B00971AE9 /* UserData.sqlite */,
 				0350EAF81A9010BF0038862F /* Info.plist */,
 				03693B5A1A9959DD004C4C4D /* Internal Icons */,
 			);
@@ -465,7 +462,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0350EAFF1A9010BF0038862F /* Main.storyboard in Resources */,
-				03366F971AC87B1B00971AE9 /* UserData.sqlite in Resources */,
 				0350EB041A9010BF0038862F /* LaunchScreen.xib in Resources */,
 				03BB29FA1A99C49700F7217B /* undo_filled-32.png in Resources */,
 				03BB29F91A99C49700F7217B /* redo_filled-32.png in Resources */,
